@@ -1,0 +1,12 @@
+<div class="map-died-block" *ngIf="cities">
+    <div id="map-died" class="map-block">
+        <agm-map [latitude]="centerLat" [longitude]="centerLng" [zoom]="zoom" [styles]="mapStyle" [streetViewControl]="false">
+            <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" (markerClick)="clickedMarker(marker, 1)" [iconUrl]="'/assets/images/dot.png'"></agm-marker>
+        </agm-map>
+    </div>
+    <div class="map-overlay map-overlay-died">
+        <div class="focus">
+            <!-- <img src="img/selected_dot.png" alt=""> -->
+        </div>
+    </div>
+</div>

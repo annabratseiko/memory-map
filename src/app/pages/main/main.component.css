@@ -1,0 +1,23 @@
+app-birth-map,
+app-death-map {
+    width: 50%;
+}
+
+app-date,
+app-age,
+app-country {
+    -webkit-flex: 1 1 25%;
+    -moz-flex: 1 1 25%;
+    -ms-flex: 1 1 25%;
+    -o-flex: 1 1 25%;
+    flex: 1 1 25%;
+}
+
+app-sex,
+app-status {
+    -webkit-flex: 1 1 12.5%;
+    -moz-flex: 1 1 12.5%;
+    -ms-flex: 1 1 12.5%;
+    -o-flex: 1 1 12.5%;
+    flex: 1 1 12.5%;
+}

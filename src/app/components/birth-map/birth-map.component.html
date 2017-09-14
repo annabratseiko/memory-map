@@ -1,0 +1,14 @@
+<div class="map-born-block" *ngIf="cities && citiesKeys.length">
+    <div id="map-born" class="map-block">
+        <agm-map [latitude]="centerLat" [longitude]="centerLng" [zoom]="zoom" [styles]="mapStyle" [streetViewControl]="false">
+            <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" (markerClick)="clickedMarker(marker, 0)" [iconUrl]="'/assets/images/dot.png'">
+
+            </agm-marker>
+        </agm-map>
+    </div>
+    <div class="map-overlay map-overlay-born">
+        <div class="focus">
+            <!-- <img src="img/selected_dot.png" alt=""> -->
+        </div>
+    </div>
+</div>

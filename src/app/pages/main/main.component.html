@@ -1,0 +1,13 @@
+<div class="content-container flex-container flex-direction-column">
+    <div class="maps-container flex-container" style="height: 580px;">
+        <app-birth-map [cities]="cities"></app-birth-map>
+        <app-death-map [cities]="cities"></app-death-map>
+    </div>
+    <div class="filters flex-container" *ngIf="filters">
+        <app-date [filter]="filters.years"></app-date>
+        <app-age [filter]="filters.age"></app-age>
+        <app-country [filter]="filters.countries"></app-country>
+        <app-sex [filter]="filters.gender"></app-sex>
+        <app-status [filter]="filters.status"></app-status>
+    </div>
+</div>

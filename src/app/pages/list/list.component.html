@@ -1,0 +1,129 @@
+<div class="content-container flex-container flex-direction-column">
+    <div class="list-view flex-container none">
+        <div class="list-filters">
+            <div class="filters-container">
+                <div class="top-filters">
+                    <p class="filters__name">Фільтрувати</p>
+                    <select class="filter__params" id="letter__filter">
+              <option value="">A</option>
+              <option value="">Б</option>
+              <option value="">В</option>
+          </select>
+                    <select class="filter__params" id="year__filter">
+              <option value="">2014</option>
+              <option value="">2015</option>
+          </select>
+                    <button class="grey-button filter__params graph-field">Усі фільтри <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+                    <button class="grey-button filter__params graph-field none">Усі фільтри -- <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+                </div>
+                <div class="filters__all">
+                    <div class="filter-container simple light-dark">
+                        <div class="filters__graph">
+                            <p class="filters__name">Дата</p>
+                            <select class="filter__params list-select-age" id="first-date-list"> - </select>
+                            <select class="filter__params list-select-age" id="second-date-list"></select>
+                        </div>
+                    </div>
+                    <div class="filter-container simple light-dark">
+                        <div class="filters__graph">
+                            <p class="filters__name">Biк</p>
+                            <select class="filter__params list-select-age" id="first-age-list"> - </select>
+                            <select class="filter__params list-select-age" id="second-age-list"></select>
+                        </div>
+                    </div>
+                    <div class="filter-container simple light-dark">
+                        <div class="filters__graph">
+                            <p class="filters__name country">Країна походження</p>
+                            <select class="filter__params list-select-age" id="filter-country-list"></select>
+                        </div>list-button
+                    </div>
+                    <div class="filter-container simple light-dark">
+                        <div class="filters__graph">
+                            <p>Стать</p>
+                            <div class="graph-field graph-field--active gender-field" data-gender="male">Чоловіки <span id="gender-male"></span></div>
+                            <div class="graph-field gender-field" data-gender="female">Жінки <span id="gender-female"></span></div>
+                        </div>
+                    </div>
+                    <div class="filter-container simple light-dark">
+                        <div class="filters__graph status__graph">
+                            <p>Статус</p>
+                            <div class="graph-field graph-field--active status-field" data-status="military">Військові <span id="status-military"></span></div>
+                            <div class="graph-field status-field" data-status="civil">Цивільні <span id="status-civil"></span></div>
+                        </div>
+                    </div>
+                    <button class="reset-button reset-status list-button">Застосувати</button>
+                    <button class="reset-button reset-status list-button">Скинути фільтри</button>
+                </div>
+                <div class="space"></div>
+                <div class="list">
+                    <div class="list__row">
+                        <p>Ім'я</p>
+                        <p>Народження</p>
+                        <p>Смерть</p>
+                        <p>Статус</p>
+                    </div>
+                    <div class="list__row listing">
+                        <div>
+                            <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
+                            <h3>Жулинський Олександр Петрович</h3>
+                        </div>
+                        <span>Народження</span>
+                        <p>Россія, м. Липецьк</p>
+                        <span>Смерть</span>
+                        <p>Україна, м. Константинівка</p>
+                        <span>Статус</span>
+                        <p>Військовий</p>
+                    </div>
+                    <div class="list__row listing">
+                        <div>
+                            <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
+                            <h3>Жулинський Олександр Петрович</h3>
+                        </div>
+                        <span>Народження</span>
+                        <p>Россія, м. Липецьк</p>
+                        <span>Смерть</span>
+                        <p>Україна, м. Константинівка</p>
+                        <span>Статус</span>
+                        <p>Військовий</p>
+                    </div>
+                    <div class="list__row listing">
+                        <div>
+                            <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
+                            <h3>Жулинський Олександр Петрович</h3>
+                        </div>
+                        <span>Народження</span>
+                        <p>Россія, м. Липецьк</p>
+                        <span>Смерть</span>
+                        <p>Україна, м. Константинівка</p>
+                        <span>Статус</span>
+                        <p>Військовий</p>
+                    </div>
+                    <div class="list__row listing">
+                        <div>
+                            <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
+                            <h3>Жулинський Олександр Петрович</h3>
+                        </div>
+                        <span>Народження</span>
+                        <p>Россія, м. Липецьк</p>
+                        <span>Смерть</span>
+                        <p>Україна, м. Константинівка</p>
+                        <span>Статус</span>
+                        <p>Військовий</p>
+                    </div>
+                </div>
+                <div class="pagination__block">
+                    <div class="prev__button">Попередня</div>
+                    <div class="pages">
+                        <a href="" class="active">1</a>
+                        <a href="">2</a>
+                        <a href="">3</a>
+                        <a href="">4</a>
+                        <a href="">5</a>
+                    </div>
+                    <div class="next__button">Наступна</div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
