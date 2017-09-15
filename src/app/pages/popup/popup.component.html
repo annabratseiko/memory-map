@@ -1,0 +1,51 @@
+<div class="detail-info-popup" *ngIf="details">
+    <div class="detail-info-container">
+        <div class="detail-info-close" (click)="closePopup()">
+            <img src="./assets/images/close.svg" alt="">
+        </div>
+        <div class="detail-info-photo">
+            <img class="detail-info-photo-img" alt="">
+        </div>
+        <div class="detail-info-block">
+            <div class="detail-info-underline">
+                <p class="detail-info-name">{{details.name}}</p>
+                <p class="detail-info-years">{{details.birthDate}} - {{details.deathDate}}</p>
+            </div>
+            <ul class="detail-info-list">
+                <li class="detail-info-item">
+                    <p class="detail-info-item-title">Статус</p>
+                    <p class="detail-info-item-text detail-info-status">{{details.status}}</p>
+                </li>
+                <li class="detail-info-item">
+                    <p class="detail-info-item-title">Підрозділ</p>
+                    <p class="detail-info-item-text detail-info-part"></p>
+                </li>
+                <li class="detail-info-item">
+                    <p class="detail-info-item-title">Звання</p>
+                    <p class="detail-info-item-text detail-info-military-name">{{details.rank}}</p>
+                </li>
+                <li class="detail-info-item">
+                    <p class="detail-info-item-title">Посада</p>
+                    <p class="detail-info-item-text detail-info-military-job">{{details.position}}</p>
+                </li>
+                <li class="detail-info-item">
+                    <p class="detail-info-item-title">Походження</p>
+                    <p class="detail-info-item-text detail-info-birth-place">{{details.birthCity}}</p>
+                </li>
+                <li class="detail-info-item">
+                    <p class="detail-info-item-title">Загибель</p>
+                    <p class="detail-info-item-text detail-info-death-place">{{details.deathCity}}</p>
+                </li>
+                <li class="detail-info-item">
+                    <p class="detail-info-item-title">Інцедент</p>
+                    <p class="detail-info-item-text detail-info-description">{{details.description}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="detail-info-button-container">
+            <div class="detail-info-button-inner-container">
+                <button type="button" class="detail-info-button">Зворотній зв'язок</button>
+            </div>
+        </div>
+    </div>
+</div>

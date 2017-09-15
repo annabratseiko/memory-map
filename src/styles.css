@@ -1056,13 +1056,14 @@ footer p:last-child {
 
 .detail-info-popup,
 .contact-popup {
-    display: none;
+    /* display: none; */
     /*position: fixed;*/
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    /*height: calc(100% - 80px);*/
+    height: 100%;
+    /* height: calc(100% - 80px); */
     background: rgba(255, 255, 255, .9);
     z-index: 10;
 }
@@ -1070,10 +1071,10 @@ footer p:last-child {
 .detail-info-container,
 .contact-container {
     position: absolute;
-    /*top: 25px;*/
+    top: 25px;
     left: 50%;
     width: 650px;
-    /*height: calc(100% - 75px);*/
+    height: calc(100% - 75px);
     background: #333;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);

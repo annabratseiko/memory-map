@@ -23,6 +23,7 @@ import { MainComponent } from './pages/main/main.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ListComponent } from './pages/list/list.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PopupComponent } from './pages/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MainComponent,
     AboutComponent,
     ListComponent,
-    FooterComponent
+    FooterComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

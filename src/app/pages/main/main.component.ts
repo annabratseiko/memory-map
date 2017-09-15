@@ -10,6 +10,8 @@ import { DataService } from "../../shared/services/data.service";
 export class MainComponent implements OnInit {
   public cities: any;
   public filters: any;
+  public personDetails: any = null;
+  public showPopup: boolean = false;
 
   constructor(private _dataService: DataService) { }
 
@@ -23,6 +25,15 @@ export class MainComponent implements OnInit {
       console.log('get filters', res);
       this.filters = JSON.parse(JSON.stringify(res));
     });
+  }
+
+  getDetailInfo(event) {
+    this.showPopup = true;
+    this.personDetails = event;
+  }
+
+  closePopup(event) {
+    this.showPopup = event;
   }
 
 }

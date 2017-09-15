@@ -17,7 +17,7 @@
                             </div>
                             <div class="info-description">{{cardInfo.description}}</div>
                             <div class="info-button-container">
-                                <div class="info-button">Детальна інформація</div>
+                                <div class="info-button" (click)="getDetailInfo(cardInfo.id)">Детальна інформація</div>
                             </div>
                         </div>
                         <ul class="info-list" *ngIf="showList">

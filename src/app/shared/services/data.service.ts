@@ -40,4 +40,16 @@ export class DataService {
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
+
+  public getPersonDetail(id) : Observable<any> {
+    return this.http.get(`${CONFIG.API}/person_detail?person_id=${id}&lang=uk`)
+      .map((res:Response) => {return res.json();})
+      .catch((error:any) => Observable.throw(error || 'Server error'));
+  }
+
+  public getList(page: number) : Observable<any> {
+    return this.http.get(`${CONFIG.API}/person_list?page=${page}`)
+      .map((res:Response) => {return res.json();})
+      .catch((error:any) => Observable.throw(error || 'Server error'));
+  }
 }

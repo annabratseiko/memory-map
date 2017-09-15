@@ -63,53 +63,14 @@
                         <p>Смерть</p>
                         <p>Статус</p>
                     </div>
-                    <div class="list__row listing">
+                    <div class="list__row listing" *ngFor="let item of listKeys">
                         <div>
                             <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
-                            <h3>Жулинський Олександр Петрович</h3>
+                            <h3>{{list[item].fullName}}</h3>
                         </div>
-                        <span>Народження</span>
-                        <p>Россія, м. Липецьк</p>
-                        <span>Смерть</span>
-                        <p>Україна, м. Константинівка</p>
-                        <span>Статус</span>
-                        <p>Військовий</p>
-                    </div>
-                    <div class="list__row listing">
-                        <div>
-                            <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
-                            <h3>Жулинський Олександр Петрович</h3>
-                        </div>
-                        <span>Народження</span>
-                        <p>Россія, м. Липецьк</p>
-                        <span>Смерть</span>
-                        <p>Україна, м. Константинівка</p>
-                        <span>Статус</span>
-                        <p>Військовий</p>
-                    </div>
-                    <div class="list__row listing">
-                        <div>
-                            <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
-                            <h3>Жулинський Олександр Петрович</h3>
-                        </div>
-                        <span>Народження</span>
-                        <p>Россія, м. Липецьк</p>
-                        <span>Смерть</span>
-                        <p>Україна, м. Константинівка</p>
-                        <span>Статус</span>
-                        <p>Військовий</p>
-                    </div>
-                    <div class="list__row listing">
-                        <div>
-                            <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
-                            <h3>Жулинський Олександр Петрович</h3>
-                        </div>
-                        <span>Народження</span>
-                        <p>Россія, м. Липецьк</p>
-                        <span>Смерть</span>
-                        <p>Україна, м. Константинівка</p>
-                        <span>Статус</span>
-                        <p>Військовий</p>
+                        <p>{{list[item].birthCityName}}</p>
+                        <p>{{list[item].deathCityName}}</p>
+                        <p>{{list[item].status}}</p>
                     </div>
                 </div>
                 <div class="pagination__block">

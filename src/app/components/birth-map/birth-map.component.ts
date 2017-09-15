@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from "../../shared/services/data.service";
 import { styles } from "../../shared/const/map-style";
-// import { marker } from '../../shared/const/marker';
 
 @Component({
   selector: 'app-birth-map',
@@ -20,8 +19,10 @@ export class BirthMapComponent implements OnInit {
   public list: any;
   public listKeys: any;
   public cardInfo: any = null;
-
+  
   private _cities: any;
+  
+  @Output() detailInfo: EventEmitter<any> = new EventEmitter();
 
   @Input('cities') set cities(value: any) {
     if (value) {
@@ -84,6 +85,7 @@ export class BirthMapComponent implements OnInit {
     this._dataService.getPersonShort(id).subscribe(res => {
       let card = JSON.parse(JSON.stringify(res)).main;
       this.cardInfo = {
+        id: card.id,
         name: card.fullName,
         photo: card.photo,
         description: card.description,
@@ -91,6 +93,26 @@ export class BirthMapComponent implements OnInit {
         status: card.status
       }
       console.log('get one', res);
+    });
+  }
+
+  getDetailInfo(id: any) {
+    console.log(id);
+    this._dataService.getPersonDetail(id).subscribe(res => {
+      let card = JSON.parse(JSON.stringify(res)).main;
+      let info = {
+        name: card.fullName,
+        birthCity: card.birthCityName,
+        deathCity: card.deathCityName,
+        birthDate: card.birthDate,
+        deathDate: card.deathDate,
+        description: card.description,
+        position: card.position,
+        status: card.status,
+        rank: card.rank
+      }
+      this.detailInfo.emit(info);
+      console.log('get one detail', res);
     });
   }
   

@@ -21,3 +21,12 @@ app-status {
     -o-flex: 1 1 12.5%;
     flex: 1 1 12.5%;
 }
+
+app-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}

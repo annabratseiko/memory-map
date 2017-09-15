@@ -5,9 +5,9 @@ import { AboutComponent } from "./pages/about/about.component";
 import { ListComponent } from "./pages/list/list.component";
 
 const appRoutes: Routes = [
-  { path: '', component: MainComponent, pathMatch: 'full' },
+  { path: '', component: MainComponent, pathMatch: 'full'},
   { path: 'about', component: AboutComponent },
-  { path: 'list', component: ListComponent}
+  { path: 'list/:page', component: ListComponent}
 ];
 
 @NgModule({
