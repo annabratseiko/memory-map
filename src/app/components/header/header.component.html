@@ -2,14 +2,14 @@
     <div class="logo flex-align-self-center" [routerLink]="''">Мапа пам'яті</div>
     <div class="header__params flex-align-self-center">
         <!-- <p>2 645 жінок, <span id="title-first-date"></span> - <span id="title-second-date"></span>, військові<span id="title-first-age"></span> - <span id="title-second-age"></span><span id="title-country"></span></p> -->
-        <div class="switch_view logo flex-align-self-center" [routerLink]="''">Мапою</div>
+        <div class="switch_view logo switch_view--active flex-align-self-center" [routerLink]="''">Мапою</div>
         <div class="switch_view logo flex-align-self-center" [routerLink]="'/list'">Списком</div>
         <div class="search-lang-container flex-container">
             <form class="search">
                 <input type="text" placeholder="Пошук..." class="search-input">
                 <button type="button">
-                      <img src="/assets/images/search.png">
-                  </button>
+                        <img src="/assets/images/search.png">
+                    </button>
                 <div class="search-result">
                     <div class="search-section search-city-section">
                         <p class="search-section-title">Miста <span>Загибель</span> <span>Походження</span></p>
@@ -21,14 +21,32 @@
                     </div>
                 </div>
             </form>
+            <button type="button" class="mobile__search">
+                <img src="assets/images/search.png">
+              </button>
         </div>
     </div>
     <div class="language">
         <div><a href="#" [routerLink]="'/about'">Про проект</a></div>
         <select>
-              <option value="ukr">UKR</option>
-              <option value="eng">ENG</option>
-              <option value="rus">RUS</option>
-          </select>
+                    <option value="ukr">UKR</option>
+                    <option value="eng">ENG</option>
+                    <option value="rus">RUS</option>
+            </select>
+    </div>
+    <div class="burger-button">
+        <img src="./assets/images/burger.png">
+    </div>
+
+    <div class="mobile-main none">
+        <div class="burger-button cross">
+            <img src="./assets/images/burger_cross.png">
+        </div>
+        <a href="./about_page.html" class="about">Про проект</a>
+        <div class="mobile-main links">
+            <a href="" class="active">UKR</a>
+            <a href="">ENG</a>
+            <a href="">РУС</a>
+        </div>
     </div>
 </div>

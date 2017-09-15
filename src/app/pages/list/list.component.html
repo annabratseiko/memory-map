@@ -1,22 +1,21 @@
 <div class="content-container flex-container flex-direction-column">
-    <div class="list-view flex-container none">
+    <div class="list-view flex-container">
         <div class="list-filters">
             <div class="filters-container">
                 <div class="top-filters">
                     <p class="filters__name">Фільтрувати</p>
                     <select class="filter__params" id="letter__filter">
-              <option value="">A</option>
-              <option value="">Б</option>
-              <option value="">В</option>
-          </select>
+                    <option value="">A</option>
+                    <option value="">Б</option>
+                    <option value="">В</option>
+                </select>
                     <select class="filter__params" id="year__filter">
-              <option value="">2014</option>
-              <option value="">2015</option>
-          </select>
-                    <button class="grey-button filter__params graph-field">Усі фільтри <i class="fa fa-times" aria-hidden="true"></i>
-          </button>
-                    <button class="grey-button filter__params graph-field none">Усі фільтри -- <i class="fa fa-times" aria-hidden="true"></i>
-          </button>
+                    <option value="">2014</option>
+                    <option value="">2015</option>
+                </select>
+                    <button class="grey-button filter__params graph-field js-hook-filter-params-open">Усі фільтри<span><img src="./assets/images/burger_cross_dark_grey.png"></span></button>
+                    <button class="grey-button filter__params graph-field js-hook-filter-params-close none"><span class="burg"><img src="./assets/images/burger_dark_grey.png"></span>Усі фільтри</button>
+
                 </div>
                 <div class="filters__all">
                     <div class="filter-container simple light-dark">
@@ -114,7 +113,9 @@
                     </div>
                 </div>
                 <div class="pagination__block">
-                    <div class="prev__button">Попередня</div>
+                    <!--<div class="prev__button">Попередня</div>-->
+                    <div class="prev__button active"><span><img src="./assets/images/arrow.png"></span>Попередня</div>
+                    <div class="prev__button active mobile__arrow"><span><img src="./assets/images/arrow.png"></span></div>
                     <div class="pages">
                         <a href="" class="active">1</a>
                         <a href="">2</a>
@@ -122,8 +123,9 @@
                         <a href="">4</a>
                         <a href="">5</a>
                     </div>
-                    <div class="next__button">Наступна</div>
+                    <!--<div class="next__button">Наступна</div>-->
+                    <div class="next__button">Наступна<span><img src="./assets/images/arrow.png"></span></div>
+                    <div class="next__button active mobile__arrow"><span><img src="./assets/images/arrow.png"></span></div>
                 </div>
             </div>
         </div>
-        <app-footer></app-footer>

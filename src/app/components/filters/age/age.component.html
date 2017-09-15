@@ -5,7 +5,7 @@
         <button class="reset-button reset-age">скинути</button>
     </div>
     <div class="filters__graph age-graph" #container>
-        <nouislider [config]="configs" [(ngModel)]="range" [tooltips]="[true, true]" (ngModelChange)="onChange($event)"></nouislider>
+        <nouislider [config]="configs" [(ngModel)]="range" [tooltips]="[true, true]" (ngModelChange)="onChange($event)" #sliderRef></nouislider>
         <div class="filters__values age-values">
             <span class="age-value-item"></span>
             <span class="age-value-item"></span>

@@ -26,10 +26,37 @@ export class CountryComponent implements OnInit {
   get filter(): any {
     return this._filter;
   }
-  constructor() { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document
+  ) { }
+
+  buildGraph() {
+    let max = 0;
+    this.countriesArray.forEach(element => {
+      max = Math.max(max, +this.filter[element].birthNumber);
+    });
+
+    this.countriesArray.forEach(element => {
+      let item = document.createElement('div');
+      item.className = 'graph-item-country';
+      item.setAttribute('data-name', this.filter[element].countryName);
+      item.style.height = '100%';
+      
+      var innerItem = document.createElement('div');
+	    innerItem.className = 'graph-item-country-inner';
+	    innerItem.style.height = (+this.filter[element].birthNumber / max) * 100 + '%';
+	    item.appendChild(innerItem);
+	    
+	    var hoverBlock = document.createElement('div');
+	    hoverBlock.className = 'graph-item-country-hover';
+	    item.appendChild(hoverBlock);
+
+	    this.container.nativeElement.appendChild(item);
+    });
+  }
 
   ngOnInit() {
-    console.log('f-coun', this.filter);
+    this.buildGraph();
   }
 
 }

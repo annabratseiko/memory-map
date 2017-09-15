@@ -40,18 +40,17 @@ export class AgeComponent implements OnInit {
   ) { }
 
   buildGraph() {
-    let length = this.ageArray.length;
     let max = 0;
-    for(let i = 1; i < 70; i++) {
-      max = Math.max(max, this.filter[i]);
-    }
+    this.ageArray.forEach(element => {
+      max = Math.max(max, this.filter[element]);
+    });
 
-    for(let i = 1; i < 70; i++) {
+    this.ageArray.forEach(element => {
       let item = document.createElement('div');
 	    item.className = 'graph-item';
-	    item.style.height = (this.filter[i] / max) * 100 + '%';
+	    item.style.height = (this.filter[element] / max) * 100 + '%';
 	    this.container.nativeElement.appendChild(item);
-    }
+    });
   }
 
   ngOnInit() {

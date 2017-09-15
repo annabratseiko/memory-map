@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 
 import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { NouisliderModule } from 'ng2-nouislider';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -48,7 +49,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NouisliderModule, 
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAY8tdJX2RRoStDSVDi5T0eFRRYBfS4SWw'
-    })
+    }),
+    AgmSnazzyInfoWindowModule
   ],
   providers: [],
   bootstrap: [AppComponent]

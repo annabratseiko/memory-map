@@ -28,4 +28,16 @@ export class DataService {
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
+
+  public getPersonListCity(id, type) : Observable<any> {
+    return this.http.get(`${CONFIG.API}/person_list_city?city_id=${id}&city_type=${type}&lang=uk`)
+      .map((res:Response) => {return res.json();})
+      .catch((error:any) => Observable.throw(error || 'Server error'));
+  }
+
+  public getPersonShort(id) : Observable<any> {
+    return this.http.get(`${CONFIG.API}/person_short?person_id=${id}&lang=uk`)
+      .map((res:Response) => {return res.json();})
+      .catch((error:any) => Observable.throw(error || 'Server error'));
+  }
 }

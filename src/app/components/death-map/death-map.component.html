@@ -1,7 +1,31 @@
 <div class="map-died-block" *ngIf="cities">
     <div id="map-died" class="map-block">
         <agm-map [latitude]="centerLat" [longitude]="centerLng" [zoom]="zoom" [styles]="mapStyle" [streetViewControl]="false">
-            <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" (markerClick)="clickedMarker(marker, 1)" [iconUrl]="'/assets/images/dot.png'"></agm-marker>
+            <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" (markerClick)="clickedMarker(marker, 1)" [iconUrl]="'/assets/images/dot.png'">
+                <agm-snazzy-info-window [maxWidth]="300" [closeWhenOthersOpen]="true" [latitude]="centerLat" [longitude]="centerLng">
+                    <ng-template>
+                        <div class="one-card" *ngIf="!showList && cardInfo">
+                            <div class="info-container">
+                                <div class="info-image">
+                                    <img [src]="cardInfo.photo" alt="">
+                                </div>
+                                <div class="main-info">
+                                    <p class="info-name">{{cardInfo.name}}</p>
+                                    <p class="info-status">{{cardInfo.status}}</p>
+                                    <p class="info-birth-place">{{cardInfo.birth}}</p>
+                                </div>
+                            </div>
+                            <div class="info-description">{{cardInfo.description}}</div>
+                            <div class="info-button-container">
+                                <div class="info-button">Детальна інформація</div>
+                            </div>
+                        </div>
+                        <ul class="info-list" *ngIf="showList">
+                            <li class="info-list-item" *ngFor="let item of listKeys" (click)="showCard(list[item].id)">{{list[item].fullName}}</li>
+                        </ul>
+                    </ng-template>
+                </agm-snazzy-info-window>
+            </agm-marker>
         </agm-map>
     </div>
     <div class="map-overlay map-overlay-died">

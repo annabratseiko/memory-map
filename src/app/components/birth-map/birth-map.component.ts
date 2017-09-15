@@ -16,15 +16,18 @@ export class BirthMapComponent implements OnInit {
   public mapStyle = styles;
   public citiesKeys: any;
   public markers: any[] = [];
+  public showList: boolean = true;
+  public list: any;
+  public listKeys: any;
+  public cardInfo: any = null;
+
   private _cities: any;
-  
 
   @Input('cities') set cities(value: any) {
     if (value) {
       let obj = JSON.parse(JSON.stringify(value));
       this._cities = obj.cities;  
       this.citiesKeys = Object.keys(this._cities);
-      console.log(this.cities["1"]);
       this.pushMarkers();
     } else {
       this._cities = null;
@@ -35,7 +38,7 @@ export class BirthMapComponent implements OnInit {
     return this._cities;
   }
   
-  constructor() { }
+  constructor(private _dataService: DataService) { }
 
   ngOnInit() {
   }
@@ -44,6 +47,7 @@ export class BirthMapComponent implements OnInit {
     this.citiesKeys.forEach(element => {
       if(+this.cities[element].bornCount > 0) {
         this.markers.push({
+          id: element,
           lat: Number(this.cities[element].coords.lat),
           lng: Number(this.cities[element].coords.lng),
           draggable: false
@@ -55,10 +59,40 @@ export class BirthMapComponent implements OnInit {
   }
 
   clickedMarker(city: any, type: number) {
+    this.showList = true;
+    this.listKeys = [];
+    this.cardInfo = null;
     this.centerLat = city.lat;
     this.centerLng = city.lng;
     this.zoom = 8;
-    console.log(type);
+
+    this._dataService.getPersonListCity(city.id, type).subscribe(res => {
+      console.log('get list', res);
+      this.list = JSON.parse(JSON.stringify(res)).main;
+      this.listKeys = Object.keys(this.list);
+
+      this.showList = !(this.listKeys.length === 1);
+      
+      if (!this.showList) {
+        this.showCard(this.listKeys[0]);
+      }
+    });
   }
+
+  showCard(id: any) {
+    this.showList = false;
+    this._dataService.getPersonShort(id).subscribe(res => {
+      let card = JSON.parse(JSON.stringify(res)).main;
+      this.cardInfo = {
+        name: card.fullName,
+        photo: card.photo,
+        description: card.description,
+        birth: card.birthCityName,
+        status: card.status
+      }
+      console.log('get one', res);
+    });
+  }
+  
 
 }

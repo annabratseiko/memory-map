@@ -1,4 +1,5 @@
 @import "~nouislider/distribute/nouislider.min.css";
+@import "../node_modules/snazzy-info-window/dist/snazzy-info-window.css";
 @font-face {
     font-family: 'AvenirNext-Regular';
     src: url('/assets/fonts/AvenirNext-Regular.ttf');
@@ -24,7 +25,8 @@
 
 html,
 body {
-    height: 100%;
+    /*height: 100%;*/
+    height: auto;
     font-family: 'AvenirNext-Regular';
 }
 
@@ -477,13 +479,15 @@ footer p:last-child {
 }
 
 .list-view {
-    padding-top: 3em;
+    /*padding-top: 3em;*/
     justify-content: center;
     height: inherit;
+    flex-flow: column;
+    padding: 3em 1em 0 1em;
 }
 
 .list-view .list-filters {
-    flex-basis: 1024px;
+    /*flex-basis: 1024px;*/
     background: #e6e6e6;
 }
 
@@ -734,6 +738,7 @@ footer p:last-child {
     font-size: 17px;
     font-weight: bold;
     align-self: center;
+    /*padding-left: 20px;*/
 }
 
 .filter__params {
@@ -834,6 +839,7 @@ footer p:last-child {
     display: inline-block;
     position: relative;
     cursor: pointer;
+    width: 100%;
 }
 
 .graph-item-country-inner {
@@ -841,6 +847,7 @@ footer p:last-child {
     left: 0;
     bottom: 0;
     width: 100%;
+    min-height: 2%;
     background: #949494;
     border-left: 1px solid #888;
 }
@@ -963,6 +970,7 @@ footer p:last-child {
 
 .info-container {
     overflow: hidden;
+    display: flex;
     border-bottom: 1px solid #8e8e8e;
     padding-bottom: 15px;
 }
@@ -1034,13 +1042,16 @@ footer p:last-child {
     background: #929292;
 }
 
-.js-info-bubble-close {
+.si-close-button {
     width: 25px;
     right: -28px!important;
     background: #8a8a8a;
     padding: 5px;
     top: 0px!important;
     border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    opacity: 1;
 }
 
 .detail-info-popup,
@@ -1242,7 +1253,8 @@ footer p:last-child {
 .mobile-main {
     position: fixed;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
+    height: 189vh;
     background: rgba(48, 48, 48, 0.9);
     z-index: 100;
     display: flex;
@@ -1294,6 +1306,7 @@ footer p:last-child {
     justify-content: space-around;
     padding: 3em 0 5em 0;
     align-items: center;
+    background: white;
 }
 
 .pagination__block .pages a,
@@ -1446,8 +1459,9 @@ footer p:last-child {
     }
     .burger-button.cross {
         align-self: flex-end;
-        margin-right: 0.7em;
-        margin-top: 0.95em;
+        margin-right: 1.2em;
+        margin-top: 28.35em;
+        position: relative;
     }
     .burger-button>img {
         width: 100%;
@@ -1584,6 +1598,7 @@ footer p:last-child {
     }
     .list-view .list-filters .filters__graph * {
         font-size: 12px;
+        margin-right: 0.5em;
     }
     .list-button {
         width: 38%;
@@ -1618,11 +1633,11 @@ footer p:last-child {
     .prev__button.mobile__arrow,
     .next__button.mobile__arrow {
         display: flex;
+        width: 2em;
     }
     .prev__button,
     .next__button {
         display: none;
-        width: 3em;
     }
     .next__button span img,
     .prev__button span img {
@@ -1678,6 +1693,12 @@ footer p:last-child {
 }
 
 @media screen and (max-width: 320px) {
+    .round_img {
+        width: 20%
+    }
+    .listing>div>h3 {
+        margin-left: 1em;
+    }
     .list__row.listing span {
         width: 100%;
     }
@@ -1685,11 +1706,13 @@ footer p:last-child {
         width: 100%;
         margin-left: 14%;
         margin-right: 0;
+        margin-bottom: 0.5em;
     }
     .list .list__row.listing p:nth-of-type(2) {
         width: 100%;
         margin-left: 14%;
         margin-right: 0;
+        margin-bottom: 0.5em;
     }
     .list .list__row.listing p:nth-of-type(3) {
         width: 100%;
@@ -1717,4 +1740,28 @@ footer p:last-child {
     .search input {
         padding-right: 24px;
     }
+}
+
+
+/* bubble  */
+
+.si-has-border .si-content-wrapper {
+    background-color: #8a8a8a;
+    border-radius: 4px;
+    width: 300px;
+    height: 220px;
+    padding: 10px;
+}
+
+.si-content {
+    max-width: 100%!important;
+    max-height: 100%!important;
+}
+
+.si-pointer-bg-top {
+    border-top-color: #8a8a8a;
+}
+
+.si-frame {
+    overflow: inherit;
 }
