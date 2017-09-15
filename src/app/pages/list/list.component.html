@@ -75,18 +75,18 @@
                 </div>
                 <div class="pagination__block">
                     <!--<div class="prev__button">Попередня</div>-->
-                    <div class="prev__button active"><span><img src="./assets/images/arrow.png"></span>Попередня</div>
+                    <div class="prev__button active" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span>Попередня</div>
                     <div class="prev__button active mobile__arrow"><span><img src="./assets/images/arrow.png"></span></div>
                     <div class="pages">
-                        <a href="" class="active">1</a>
-                        <a href="">2</a>
-                        <a href="">3</a>
-                        <a href="">4</a>
-                        <a href="">5</a>
+                        <a href="" [routerLink]="'/list/1'" routerLinkActive="active">1</a>
+                        <a href="" [routerLink]="'/list/2'" routerLinkActive="active">2</a>
+                        <a href="" [routerLink]="'/list/3'" routerLinkActive="active">3</a>
+                        <a href="" [routerLink]="'/list/4'" routerLinkActive="active">4</a>
+                        <a href="" [routerLink]="'/list/5'" routerLinkActive="active">5</a>
                     </div>
                     <!--<div class="next__button">Наступна</div>-->
                     <div class="next__button">Наступна<span><img src="./assets/images/arrow.png"></span></div>
-                    <div class="next__button active mobile__arrow"><span><img src="./assets/images/arrow.png"></span></div>
+                    <div class="next__button active mobile__arrow" (click)="goToPage(currentPage + 1)"><span><img src="./assets/images/arrow.png"></span></div>
                 </div>
             </div>
         </div>
