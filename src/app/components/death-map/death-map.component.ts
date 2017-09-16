@@ -45,6 +45,7 @@ export class DeathMapComponent implements OnInit {
   }
 
   pushMarkers(){
+    this.markers = [];
     this.citiesKeys.forEach(element => {
       if(+this.cities[element].deathCount > 0) {
         this.markers.push({

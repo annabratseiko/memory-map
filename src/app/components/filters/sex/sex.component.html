@@ -1,10 +1,10 @@
 <div class="filter-container simple dark">
     <div class="filters__header flex-container flex-justify-content-space-between">
         <p class="filters__name">Стать</p>
-        <button class="reset-button reset-gender">скинути</button>
+        <button class="reset-button reset-gender" (click)="resetFilter()">скинути</button>
     </div>
     <div class="simple-filters__graph">
-        <div class="graph-field gender-field" data-gender="male">Чоловіки - {{filter.male}}</div>
-        <div class="graph-field gender-field" data-gender="female">Жінки - {{filter.female}}</div>
+        <div class="graph-field gender-field" (click)="changeFilter(0)">Чоловіки - {{filter.male}}</div>
+        <div class="graph-field gender-field" (click)="changeFilter(1)">Жінки - {{filter.female}}</div>
     </div>
 </div>

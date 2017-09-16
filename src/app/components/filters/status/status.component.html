@@ -1,10 +1,10 @@
 <div class="filter-container simple">
     <div class="filters__header flex-container flex-justify-content-space-between">
         <p class="filters__name">Статус</p>
-        <button class="reset-button reset-status">скинути</button>
+        <button class="reset-button reset-status" (click)="resetFilter()">скинути</button>
     </div>
     <div class="simple-filters__graph status__graph">
-        <div class="graph-field status-field" data-status="military">Військові - {{filter.military}}</div>
-        <div class="graph-field status-field" data-status="civil">Цивільні - {{filter.civil}}</div>
+        <div class="graph-field status-field" (click)="changeFilter(0)">Військові - {{filter.military}}</div>
+        <div class="graph-field status-field" (click)="changeFilter(1)">Цивільні - {{filter.civil}}</div>
     </div>
 </div>

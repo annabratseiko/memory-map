@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { DataService } from "../../shared/services/data.service";
+import { FiltersService } from "../../shared/services/filters.service";
 
 @Component({
   selector: 'app-main',
@@ -7,24 +9,45 @@ import { DataService } from "../../shared/services/data.service";
   styleUrls: ['./main.component.css'],
   providers: [DataService]
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, OnDestroy {
   public cities: any;
   public filters: any;
   public personDetails: any = null;
   public showPopup: boolean = false;
 
-  constructor(private _dataService: DataService) { }
+  private subscription: Subscription;
+
+  constructor(
+    private _dataService: DataService,
+    private _filterService: FiltersService
+  ) { }
 
   ngOnInit() {
+    this.subscription = this._filterService.filterChoosen$.subscribe(filters => {
+      console.log('filSer', filters);
+      this._dataService.getCities(filters.age, filters.date, filters.country, filters.status, filters.sex).subscribe(res => {
+        console.log('get filter cities');
+        this.cities = res;
+      });
+    });
     this._dataService.getCities().subscribe(res => {
       console.log('get cities');
       this.cities = res;
     });
 
-    this._dataService.getFilters().subscribe(res => {
-      console.log('get filters', res);
-      this.filters = JSON.parse(JSON.stringify(res));
-    });
+    this.getFilters();    
+  }
+
+  getFilters() {
+    let localFilters = localStorage.getItem('filters');
+    if (!localFilters) {
+      this._dataService.getFilters().subscribe(res => {
+        this.filters = JSON.parse(JSON.stringify(res));
+        localStorage.setItem('filters', JSON.stringify(this.filters));
+      });
+    } else {
+      this.filters = JSON.parse(localFilters);
+    }
   }
 
   getDetailInfo(event) {
@@ -34,6 +57,10 @@ export class MainComponent implements OnInit {
 
   closePopup(event) {
     this.showPopup = event;
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

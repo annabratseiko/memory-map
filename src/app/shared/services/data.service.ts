@@ -16,9 +16,13 @@ export class DataService {
     private http: Http
   ) { }
 
-  public getCities() : Observable<any> {
-    return this.http.get(`${CONFIG.API}/cities`)
-    // return this.http.get('./app/shared/jsons/cities.json')
+  public getCities(age?, date?, country?, status?, sex?) : Observable<any> {
+    let ageStr = age ? `&start_age=${age[0]}&end_age=${age[1]}` : '';
+    let dateStr = date ? `&start_death_date=${date[0]}&end_death_date=${date[1]}` : '';
+    let countryStr = country ? `&country_id=${country}` : '';
+    let statusStr = status ? `&status=${status}` : '';
+    let sexStr = sex ? `&gender=${sex}` : '';
+    return this.http.get(`${CONFIG.API}/cities?lang=uk${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }

@@ -45,6 +45,7 @@ export class BirthMapComponent implements OnInit {
   }
 
   pushMarkers(){
+    this.markers = [];
     this.citiesKeys.forEach(element => {
       if(+this.cities[element].bornCount > 0) {
         this.markers.push({

@@ -24,6 +24,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ListComponent } from './pages/list/list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PopupComponent } from './pages/popup/popup.component';
+import { FiltersService } from "./shared/services/filters.service";
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { PopupComponent } from './pages/popup/popup.component';
     }),
     AgmSnazzyInfoWindowModule
   ],
-  providers: [],
+  providers: [FiltersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
