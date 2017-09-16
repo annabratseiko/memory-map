@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, Inject, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { FiltersService } from "../../../shared/services/filters.service";
 
@@ -7,13 +7,17 @@ import { FiltersService } from "../../../shared/services/filters.service";
   templateUrl: './age.component.html',
   styleUrls: ['./age.component.css']
 })
-export class AgeComponent implements OnInit {
+export class AgeComponent implements OnInit, AfterViewInit {
   private _filter: any;
+  private _initRange: any[] = [];
 
   @ViewChild('container') container: ElementRef;
+  @ViewChild('sliderRef') sliderRef;
   
   public ageArray: any[];
   public range: any = [18, 60];
+  public startAge: number;
+  public endAge: number;
   public configs = {
       connect: true,
       range: {
@@ -59,7 +63,26 @@ export class AgeComponent implements OnInit {
     this.buildGraph();
   }
 
+  ngAfterViewInit() {
+    setTimeout(_ => {
+      this.startAge = +this.ageArray[0];
+      this.endAge = +this.ageArray[this.ageArray.length - 1];
+      this.sliderRef.slider.updateOptions({
+        range: {
+          min: this.startAge,
+          max: this.endAge
+        },
+      })
+      this.range = [this.startAge, this.endAge];
+      this._initRange = [+this.ageArray[0], +this.ageArray[this.ageArray.length - 1]];
+    });
+  }
+
   onChange(event) {
+    console.log(event, this._initRange);
+    if(event[0] == this._initRange[0] && event[1] == this._initRange[1]) {
+      return false;
+    }
     this._filterService.changeFilter(event, 'age');
   }
 

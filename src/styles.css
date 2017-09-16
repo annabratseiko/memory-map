@@ -252,7 +252,6 @@ footer p:last-child {
     font-size: 16px;
     font-family: 'AvenirNext-DemiBold';
     padding: 19px 20px;
-    cursor: pointer;
 }
 
 .logo:focus {
@@ -819,13 +818,8 @@ footer p:last-child {
     width: 100%;
     left: 0;
     font-size: 10px;
-}
-
-.date-value-item,
-.age-value-item {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 .graph-item {
