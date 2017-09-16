@@ -8,6 +8,8 @@ import { FiltersService } from "../../../shared/services/filters.service";
 })
 export class StatusComponent implements OnInit {
   @Input() filter: any;
+  public activeItem: string = '';
+
   constructor(
     private _filterService: FiltersService
   ) { }
@@ -18,10 +20,12 @@ export class StatusComponent implements OnInit {
 
   changeFilter(param: number) {
     this._filterService.changeFilter(param, 'status');
+    this.activeItem = param === 0 ? 'military' : 'civil';
   }
 
   resetFilter() {
     this._filterService.changeFilter(null, 'status');
+    this.activeItem = '';
   }
 
 }

@@ -13,6 +13,7 @@ export class CountryComponent implements OnInit {
   @ViewChild('container') container: ElementRef;
 
   public countriesArray: any[];
+  private _prevCountry: any = null;
 
   @Input('filter') set filter(value: any) {
     if (value) {
@@ -43,7 +44,7 @@ export class CountryComponent implements OnInit {
       item.className = 'graph-item-country';
       item.setAttribute('data-name', this.filter[element].countryName);
       item.style.height = '100%';
-      item.addEventListener('click', this.selectCountry.bind(this, element));
+      item.addEventListener('click', this.selectCountry.bind(this, item, element));
       
       var innerItem = document.createElement('div');
 	    innerItem.className = 'graph-item-country-inner';
@@ -58,12 +59,21 @@ export class CountryComponent implements OnInit {
     });
   }
 
-  selectCountry(id) {
+  selectCountry(item, id) {
+    if(this._prevCountry) {
+      this._prevCountry.classList.remove('active');
+    }
     this._filterService.changeFilter(id, 'country');
+    item.classList.add('active');
+    this._prevCountry = item;
   }
 
   resetFilter() {
     this._filterService.changeFilter(null, 'country');
+    if(this._prevCountry) {
+      this._prevCountry.classList.remove('active');
+      this._prevCountry = null;
+    }
   }
 
   ngOnInit() {

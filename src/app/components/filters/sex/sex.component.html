@@ -4,7 +4,7 @@
         <button class="reset-button reset-gender" (click)="resetFilter()">скинути</button>
     </div>
     <div class="simple-filters__graph">
-        <div class="graph-field gender-field" (click)="changeFilter(0)">Чоловіки - {{filter.male}}</div>
-        <div class="graph-field gender-field" (click)="changeFilter(1)">Жінки - {{filter.female}}</div>
+        <div class="graph-field gender-field" [ngClass]="{'active': activeItem === 'male'}" (click)="changeFilter(0)">Чоловіки - {{filter.male}}</div>
+        <div class="graph-field gender-field" [ngClass]="{'active': activeItem === 'female'}" (click)="changeFilter(1)">Жінки - {{filter.female}}</div>
     </div>
 </div>

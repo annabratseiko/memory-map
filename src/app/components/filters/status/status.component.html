@@ -4,7 +4,7 @@
         <button class="reset-button reset-status" (click)="resetFilter()">скинути</button>
     </div>
     <div class="simple-filters__graph status__graph">
-        <div class="graph-field status-field" (click)="changeFilter(0)">Військові - {{filter.military}}</div>
-        <div class="graph-field status-field" (click)="changeFilter(1)">Цивільні - {{filter.civil}}</div>
+        <div class="graph-field status-field" [ngClass]="{'active': activeItem === 'military'}" (click)="changeFilter(0)">Військові - {{filter.military}}</div>
+        <div class="graph-field status-field" [ngClass]="{'active': activeItem === 'civil'}" (click)="changeFilter(1)">Цивільні - {{filter.civil}}</div>
     </div>
 </div>
