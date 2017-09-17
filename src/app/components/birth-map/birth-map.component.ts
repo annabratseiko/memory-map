@@ -1,6 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { DataService } from "../../shared/services/data.service";
 import { styles } from "../../shared/const/map-style";
+import { FiltersService } from "../../shared/services/filters.service";
+import { FilterModel } from "../../shared/const/filter.model";
 
 @Component({
   selector: 'app-birth-map',
@@ -8,7 +11,7 @@ import { styles } from "../../shared/const/map-style";
   styleUrls: ['./birth-map.component.css'],
   providers: [DataService]
 })
-export class BirthMapComponent implements OnInit {
+export class BirthMapComponent implements OnInit, OnDestroy {
   public zoom: number = 5;
   public centerLat: number = 50.4016991;
   public centerLng: number = 30.252514;
@@ -19,9 +22,11 @@ export class BirthMapComponent implements OnInit {
   public list: any;
   public listKeys: any;
   public cardInfo: any = null;
+  public filter: FilterModel;
   
   private _cities: any;
-  
+  private subscription: Subscription;
+
   @Output() detailInfo: EventEmitter<any> = new EventEmitter();
 
   @Input('cities') set cities(value: any) {
@@ -39,9 +44,16 @@ export class BirthMapComponent implements OnInit {
     return this._cities;
   }
   
-  constructor(private _dataService: DataService) { }
+  constructor(
+    private _dataService: DataService,
+    private _filterService: FiltersService
+  ) { }
 
   ngOnInit() {
+    this.filter = new FilterModel();
+    this.subscription = this._filterService.filterChoosen$.subscribe(filters => {
+      this.filter = filters;
+    });
   }
 
   pushMarkers(){
@@ -68,7 +80,8 @@ export class BirthMapComponent implements OnInit {
     this.centerLng = city.lng;
     this.zoom = 8;
 
-    this._dataService.getPersonListCity(city.id, type).subscribe(res => {
+    this._dataService.getPersonListCity(city.id, type, this.filter.age, this.filter.country, this.filter.date, this.filter.sex, this.filter.status).subscribe(res => {
+    // this._dataService.getPersonListCity(city.id, type).subscribe(res => {
       console.log('get list', res);
       this.list = JSON.parse(JSON.stringify(res)).main;
       this.listKeys = Object.keys(this.list);
@@ -83,7 +96,7 @@ export class BirthMapComponent implements OnInit {
 
   showCard(id: any) {
     this.showList = false;
-    this._dataService.getPersonShort(id).subscribe(res => {
+    this._dataService.getPersonShort(id, this.filter.age, this.filter.country, this.filter.date, this.filter.sex, this.filter.status).subscribe(res => {
       let card = JSON.parse(JSON.stringify(res)).main;
       this.cardInfo = {
         id: card.id,
@@ -115,6 +128,10 @@ export class BirthMapComponent implements OnInit {
       this.detailInfo.emit(info);
       console.log('get one detail', res);
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
   
 

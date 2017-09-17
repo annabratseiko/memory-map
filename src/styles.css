@@ -502,7 +502,8 @@ footer p:last-child {
 
 .filters__graph select {
     margin-left: 1%;
-    max-width: 190px;
+    max-width: 275px;
+    /* max-width: 190px; */
     height: 40px;
     border: none;
 }

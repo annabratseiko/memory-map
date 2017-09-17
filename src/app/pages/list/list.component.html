@@ -3,25 +3,25 @@
         <div class="list-filters">
             <div class="filters-container">
                 <div class="top-filters">
-                    <p class="filters__name">Фільтрувати</p>
-                    <select class="filter__params" id="letter__filter">
-                    <option value="">A</option>
-                    <option value="">Б</option>
-                    <option value="">В</option>
-                </select>
+                    <p class="filters__name" style="padding: 15px; font-size: 15px;">Фільтрувати</p>
+                    <!-- <select class="filter__params" id="letter__filter">
+                        <option value="">A</option>
+                        <option value="">Б</option>
+                        <option value="">В</option>
+                    </select>
                     <select class="filter__params" id="year__filter">
-                    <option value="">2014</option>
-                    <option value="">2015</option>
-                </select>
-                    <button class="grey-button filter__params graph-field js-hook-filter-params-open">Усі фільтри<span><img src="./assets/images/burger_cross_dark_grey.png"></span></button>
-                    <button class="grey-button filter__params graph-field js-hook-filter-params-close none"><span class="burg"><img src="./assets/images/burger_dark_grey.png"></span>Усі фільтри</button>
+                        <option value="">2014</option>
+                        <option value="">2015</option>
+                    </select> -->
+                    <!-- <button class="grey-button filter__params graph-field js-hook-filter-params-open">Усі фільтри<span><img src="./assets/images/burger_cross_dark_grey.png"></span></button> -->
+                    <!-- <button class="grey-button filter__params graph-field js-hook-filter-params-close none"><span class="burg"><img src="./assets/images/burger_dark_grey.png"></span>Усі фільтри</button> -->
 
                 </div>
                 <div class="filters__all">
-                    <div class="filter-container simple light-dark">
+                    <!-- <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p class="filters__name">Дата</p>
-                            <select class="filter__params list-select-age" id="first-date-list"> - </select>
+                            <select class="filter__params list-select-age" id="first-date-list"> </select>
                             <select class="filter__params list-select-age" id="second-date-list"></select>
                         </div>
                     </div>
@@ -31,29 +31,31 @@
                             <select class="filter__params list-select-age" id="first-age-list"> - </select>
                             <select class="filter__params list-select-age" id="second-age-list"></select>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p class="filters__name country">Країна походження</p>
-                            <select class="filter__params list-select-age" id="filter-country-list"></select>
-                        </div>list-button
+                            <select class="filter__params list-select-age" id="filter-country-list" (change)="chooseCountry($event.target.value)">
+                                <option value="{{item}}" *ngFor="let item of countriesKeys">{{filtersData.countries[item].countryName}}</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p>Стать</p>
-                            <div class="graph-field graph-field--active gender-field" data-gender="male">Чоловіки <span id="gender-male"></span></div>
-                            <div class="graph-field gender-field" data-gender="female">Жінки <span id="gender-female"></span></div>
+                            <div class="graph-field gender-field" [ngClass]="{'graph-field--active': activeSex === 'male'}" (click)="chooseFilter('sex', 0)">Чоловіки</div>
+                            <div class="graph-field gender-field" [ngClass]="{'graph-field--active': activeSex === 'female'}" (click)="chooseFilter('sex', 1)">Жінки</div>
                         </div>
                     </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph status__graph">
                             <p>Статус</p>
-                            <div class="graph-field graph-field--active status-field" data-status="military">Військові <span id="status-military"></span></div>
-                            <div class="graph-field status-field" data-status="civil">Цивільні <span id="status-civil"></span></div>
+                            <div class="graph-field status-field" [ngClass]="{'graph-field--active': activeStatus === 'military'}" (click)="chooseFilter('status', 0)">Військові</div>
+                            <div class="graph-field status-field" [ngClass]="{'graph-field--active': activeStatus === 'civil'}" (click)="chooseFilter('status', 1)">Цивільні</div>
                         </div>
                     </div>
-                    <button class="reset-button reset-status list-button">Застосувати</button>
-                    <button class="reset-button reset-status list-button">Скинути фільтри</button>
+                    <button class="reset-button reset-status list-button" (click)="setFilters()">Застосувати</button>
+                    <button class="reset-button reset-status list-button" (click)="resetFilters()">Скинути фільтри</button>
                 </div>
                 <div class="space"></div>
                 <div class="list">
@@ -63,7 +65,7 @@
                         <p>Смерть</p>
                         <p>Статус</p>
                     </div>
-                    <div class="list__row listing" *ngFor="let item of listKeys">
+                    <div class="list__row listing" *ngFor="let item of listKeys" (click)="getDetailInfo(list[item].id)">
                         <div>
                             <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
                             <h3>{{list[item].fullName}}</h3>
@@ -76,17 +78,20 @@
                 <div class="pagination__block">
                     <!--<div class="prev__button">Попередня</div>-->
                     <div class="prev__button active" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span>Попередня</div>
-                    <div class="prev__button active mobile__arrow"><span><img src="./assets/images/arrow.png"></span></div>
-                    <div class="pages">
+                    <div class="prev__button active mobile__arrow" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span></div>
+                    <!-- <div class="pages">
                         <a href="" [routerLink]="'/list/1'" routerLinkActive="active">1</a>
                         <a href="" [routerLink]="'/list/2'" routerLinkActive="active">2</a>
                         <a href="" [routerLink]="'/list/3'" routerLinkActive="active">3</a>
                         <a href="" [routerLink]="'/list/4'" routerLinkActive="active">4</a>
                         <a href="" [routerLink]="'/list/5'" routerLinkActive="active">5</a>
-                    </div>
+                    </div> -->
                     <!--<div class="next__button">Наступна</div>-->
-                    <div class="next__button">Наступна<span><img src="./assets/images/arrow.png"></span></div>
+                    <div class="next__button" (click)="goToPage(currentPage + 1)">Наступна<span><img src="./assets/images/arrow.png"></span></div>
                     <div class="next__button active mobile__arrow" (click)="goToPage(currentPage + 1)"><span><img src="./assets/images/arrow.png"></span></div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<app-popup *ngIf="showPopup" [details]="personDetails" (close)="closePopup($event)"></app-popup>
