@@ -8,10 +8,8 @@ const appRoutes: Routes = [
   { path: 'map', component: MainComponent},
   { path: 'about', component: AboutComponent },
   { path: 'list/:page', component: ListComponent},
-  { path: '',
-    redirectTo: '/map',
-    pathMatch: 'full'
-  }
+  { path: 'list',   redirectTo: '/list/1', pathMatch: 'full' },
+  { path: '', redirectTo: '/map', pathMatch: 'full'}
 ];
 
 @NgModule({

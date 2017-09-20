@@ -1,12 +1,11 @@
 <div class="header flex-container js-hook-header">
-    <div class="logo flex-align-self-center">Мапа пам'яті</div>
+    <div class="logo flex-align-self-center">{{'HEADER.NAME' | translate}}</div>
     <div class="header__params flex-align-self-center">
-        <!-- <p>2 645 жінок, <span id="title-first-date"></span> - <span id="title-second-date"></span>, військові<span id="title-first-age"></span> - <span id="title-second-age"></span><span id="title-country"></span></p> -->
-        <div class="switch_view logo flex-align-self-center" [routerLink]="'/map'" routerLinkActive="switch_view--active">Мапою</div>
-        <div class="switch_view logo flex-align-self-center" [routerLink]="'/list/1'" routerLinkActive="switch_view--active">Списком</div>
+        <div class="switch_view logo flex-align-self-center" [routerLink]="'/map'" routerLinkActive="switch_view--active">{{'HEADER.MAP' | translate}}</div>
+        <div class="switch_view logo flex-align-self-center" [routerLink]="'/list/1'" routerLinkActive="switch_view--active">{{'HEADER.LIST' | translate}}</div>
         <div class="search-lang-container flex-container">
             <form class="search">
-                <input type="text" placeholder="Пошук..." class="search-input">
+                <input type="text" placeholder="{{'HEADER.SEARCH_PLACEHOLDER' | translate}}" class="search-input">
                 <button type="button">
                         <img src="/assets/images/search.png">
                     </button>
@@ -27,22 +26,22 @@
         </div>
     </div>
     <div class="language">
-        <div><a href="#" [routerLink]="'/about'">Про проект</a></div>
+        <div><a href="#" [routerLink]="'/about'">{{'HEADER.ABOUT' | translate}}</a></div>
         <select>
-                    <option value="ukr">UKR</option>
-                    <option value="eng">ENG</option>
-                    <option value="rus">RUS</option>
-            </select>
+            <option value="ukr">UKR</option>
+            <option value="eng">ENG</option>
+            <option value="rus">RUS</option>
+        </select>
     </div>
-    <div class="burger-button">
+    <div class="burger-button" (click)="mobMenuAction()">
         <img src="./assets/images/burger.png">
     </div>
 
-    <div class="mobile-main none">
-        <div class="burger-button cross">
+    <div class="mobile-main" *ngIf="showMobMenu">
+        <div class="burger-button cross" (click)="mobMenuAction()">
             <img src="./assets/images/burger_cross.png">
         </div>
-        <a href="./about_page.html" class="about">Про проект</a>
+        <a href="#" [routerLink]="'/about'" class="about">{{'HEADER.ABOUT' | translate}}</a>
         <div class="mobile-main links">
             <a href="" class="active">UKR</a>
             <a href="">ENG</a>

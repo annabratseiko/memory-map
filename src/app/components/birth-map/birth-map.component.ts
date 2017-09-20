@@ -58,6 +58,7 @@ export class BirthMapComponent implements OnInit, OnDestroy {
 
   pushMarkers(){
     this.markers = [];
+    console.log('born cities', this.cities);
     this.citiesKeys.forEach(element => {
       if(+this.cities[element].bornCount > 0) {
         this.markers.push({

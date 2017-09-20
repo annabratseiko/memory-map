@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
@@ -25,6 +27,10 @@ import { ListComponent } from './pages/list/list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PopupComponent } from './pages/popup/popup.component';
 import { FiltersService } from "./shared/services/filters.service";
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/translate/", ".json");
+}
 
 @NgModule({
   declarations: [
@@ -50,6 +56,13 @@ import { FiltersService } from "./shared/services/filters.service";
     HttpClientModule,
     AppRoutingModule,   
     NouisliderModule, 
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    }),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAY8tdJX2RRoStDSVDi5T0eFRRYBfS4SWw'
     }),
