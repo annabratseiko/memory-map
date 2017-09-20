@@ -483,11 +483,14 @@ footer p:last-child {
     height: inherit;
     flex-flow: column;
     padding: 3em 1em 0 1em;
+    background-color: #f8f8f8;
 }
 
 .list-view .list-filters {
     /*flex-basis: 1024px;*/
     background: #e6e6e6;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 .space {
@@ -497,15 +500,16 @@ footer p:last-child {
 
 .filter-container.simple.light-dark {
     background: #e6e6e6;
-    padding: 0 20px;
+    padding: 0 28px;
 }
 
 .filters__graph select {
-    margin-left: 1%;
+    margin-left: 0;
     max-width: 275px;
     /* max-width: 190px; */
-    height: 40px;
+    height: 38px;
     border: none;
+    outline: none;
 }
 
 .filters__graph #filter-country {
@@ -521,14 +525,16 @@ footer p:last-child {
 }
 
 .list-view .list-filters .filters__graph * {
-    flex-basis: 10%;
+    /*flex-basis: 10%;*/
     font-size: 18px;
     color: #000000;
 }
 
 .list-view .list-filters .filters__graph .graph-field {
-    border: 0.1em solid #f8f8f8;
+    border: 1px solid #f8f8f8;
     background: #e6e6e6;
+    padding: 0 20px;
+    min-width: 106px;
 }
 
 .list-view .list-filters .filters__graph div.graph-field:nth-of-type(even) {
@@ -555,15 +561,16 @@ footer p:last-child {
 
 .list-filters .top-filters select {
     max-width: 88px;
-    height: 40px;
+    height: 38px;
+    border: 0;
     border-radius: 2px;
     background-color: #e6e6e6;
     color: black;
-    margin: 18px 10px;
+    margin: 18px 11px;
 }
 
 .list-filters .top-filters button {
-    max-width: 140px;
+    max-width: 160px;
     text-align: center;
     color: #2e2e2e;
     border: none;
@@ -571,10 +578,14 @@ footer p:last-child {
     position: absolute;
     right: 0;
     margin-right: 0;
+    font-size: 18px;
+    padding: 0 18px;
+    letter-spacing: -0.02em;
+    outline: none;
 }
 
 .list-filters .top-filters button span {
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .list-filters .top-filters button span.burg {
@@ -582,7 +593,7 @@ footer p:last-child {
 }
 
 .list-filters .top-filters button span img {
-    width: 7%;
+    width: 12px;
 }
 
 .rounded {
@@ -605,7 +616,7 @@ footer p:last-child {
     font-size: 16px;
     color: #000000;
     align-items: center;
-    padding: 12px 0;
+    padding: 12px 0 14px;
     background: white;
     /*border-top: 1px solid black;*/
     border-bottom: 1px solid #d0d0d0;
@@ -614,10 +625,15 @@ footer p:last-child {
 
 .list-view .list .list__row:nth-of-type(1) {
     border-top: 1px solid black;
+    padding: 8.5px 0;
 }
 
 .listing>div {
-    width: 34%;
+    width: 46.5%;
+}
+
+.list .list__row.listing p {
+    letter-spacing: -0.02em;
 }
 
 .list .list__row.listing p:nth-of-type(1) {
@@ -635,7 +651,7 @@ footer p:last-child {
 }
 
 .list .list__row p:nth-of-type(1) {
-    width: 21%;
+    width: 31.6%;
 }
 
 .list .list__row p:nth-of-type(2) {
@@ -653,16 +669,20 @@ footer p:last-child {
 }
 
 .round__img {
-    width: 10%;
+    width: 15%;
     height: auto;
     display: inline-block;
-    vertical-align: sub;
+    vertical-align: middle;
+    font-size: 0;
+    margin-right: 14px;
 }
 
 .listing>div>h3 {
     display: inline-block;
-    vertical-align: super;
+    vertical-align: middle;
     font-size: 1em;
+    margin-top: 2px;
+    letter-spacing: -0.02em;
 }
 
 .listing-options {
@@ -735,18 +755,27 @@ footer p:last-child {
 }
 
 .filters__name {
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 18px;
     align-self: center;
-    /*padding-left: 20px;*/
+    min-width: 66px;
+    margin-right: 6px;
 }
 
 .filter__params {
     opacity: .6;
-    margin: 0 10px;
+    /*margin: 0 10px;*/
     flex: 1;
     text-align: left;
     font-size: 13px;
+}
+
+.filter__params.list-select-age {
+    max-width: 188px;
+}
+
+.filter__line {
+    align-self: center;
+    margin: 0px 11px;
 }
 
 .filters .reset-button {
@@ -768,19 +797,36 @@ footer p:last-child {
 }
 
 .list-button {
-    width: 200px;
-    height: 40px;
-    margin: 34px 0 24px 20px;
+    width: auto;
+    height: 38px;
+    padding: 0px 24px;
+    letter-spacing: 0.07em;
+    margin: 32px 0 22px 27px;
     background: none;
-    font-size: 18px;
+    font-size: 16px;
     color: #959595;
-    border: 1px solid white;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    font-family: 'AvenirNext-Regular';
 }
 
-.list-button:hover {
+.list-button_done {
     background-color: #329bee;
     color: #eef3f9;
-    border: none;
+}
+
+.list-button_reset {
+    padding: 0;
+    margin-left: 21px;
+    font-size: 15px;
+    letter-spacing: 0;
+    height: auto;
+    border-bottom: 1px dashed;
+}
+
+.filters__all {
+    padding: 10px 0 0;
 }
 
 .filters .reset-button:hover {
@@ -796,7 +842,7 @@ footer p:last-child {
     height: 80px;
     width: 100%;
     background: #888;
-    margin-top: 15px;
+    margin-top: 12px;
     position: relative;
 }
 
@@ -884,7 +930,7 @@ footer p:last-child {
 }
 
 .graph-field {
-    height: 40px;
+    height: 38px;
     line-height: 40px;
     font-size: 12px;
     padding: 0 10px;
@@ -1299,36 +1345,52 @@ footer p:last-child {
 .pagination__block {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 3em 0 5em 0;
     align-items: center;
     background: white;
+}
+
+.prev__button {
+    text-align: left;
+    padding: 6px 23px 7px 13px;
+}
+
+.next__button {
+    text-align: right;
+    padding: 6px 13px 7px 23px;
 }
 
 .pagination__block .pages a,
 .prev__button,
 .next__button {
     text-decoration: none;
-    padding: 1em;
     font-size: 16px;
     color: black;
     cursor: pointer;
 }
 
+.pagination__block .pages a {
+        padding: 7px 14px 6px;
+    font-size: 18px;
+}
+
 .next__button span img {
-    width: 6%;
-    margin-left: 10px;
-    background-color: #e6e6e6;
+    width: 5px;
+    margin-left: 16px;
+    position: relative;
+    top: -2px;
 }
 
 .prev__button span img {
-    width: 6%;
-    margin-right: 10px;
+    width: 5px;
+    margin-right: 16px;
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-    background-color: #e6e6e6;
+    position: relative;
+    top: -2px;
 }
 
 .pagination__block .pages a.active {
@@ -1338,11 +1400,9 @@ footer p:last-child {
 .prev__button,
 .next__button {
     text-decoration: none;
-    padding: 0.5em;
-    font-size: 16px;
+    font-size: 18px;
     color: black;
     background-color: #e6e6e6;
-    width: 9em;
 }
 
 .mobile__search {
@@ -1453,6 +1513,11 @@ footer p:last-child {
     footer p:last-child {
         font-size: 12px;
     }
+
+    select {
+        outline: none;
+    }
+
     .burger-button.cross {
         align-self: flex-end;
         margin-right: 1.2em;
@@ -1587,6 +1652,7 @@ footer p:last-child {
         position: relative;
         margin-left: 0;
         max-width: 100%;
+        outline: none;
     }
     .list-filters .top-filters {
         flex-wrap: wrap;
