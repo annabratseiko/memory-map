@@ -1,10 +1,10 @@
 <div class="filter-container simple">
     <div class="filters__header flex-container flex-justify-content-space-between">
-        <p class="filters__name">Статус</p>
-        <button class="reset-button reset-status" (click)="resetFilter()">скинути</button>
+        <p class="filters__name">{{'FILTERS.STATUS.NAME' | translate}}</p>
+        <button class="reset-button reset-status" (click)="resetFilter()">{{'GENERAL.RESET' | translate}}</button>
     </div>
     <div class="simple-filters__graph status__graph">
-        <div class="graph-field status-field" [ngClass]="{'active': activeItem === 'military'}" (click)="changeFilter(0)">Військові - {{filter.military}}</div>
-        <div class="graph-field status-field" [ngClass]="{'active': activeItem === 'civil'}" (click)="changeFilter(1)">Цивільні - {{filter.civil}}</div>
+        <div class="graph-field status-field" [ngClass]="{'active': activeItem === 'military'}" (click)="changeFilter(0)">{{'FILTERS.STATUS.MILITARY' | translate}} - {{filter.military}}</div>
+        <div class="graph-field status-field" [ngClass]="{'active': activeItem === 'civil'}" (click)="changeFilter(1)">{{'FILTERS.STATUS.CIVIL' | translate}} - {{filter.civil}}</div>
     </div>
 </div>

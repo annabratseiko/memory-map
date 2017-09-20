@@ -1,8 +1,8 @@
 <div class="filter-container">
     <div class="filters__header flex-container flex-justify-content-space-between">
-        <p class="filters__name">Країна походження</p>
+        <p class="filters__name">{{'FILTERS.COUNTRY' | translate}}</p>
         <p class="filter__params" id="filter-country"></p>
-        <button class="reset-button reset-country" (click)="resetFilter()">скинути</button>
+        <button class="reset-button reset-country" (click)="resetFilter()">{{'GENERAL.RESET' | translate}}</button>
     </div>
     <div class="filters__graph country-graph" #container></div>
 </div>

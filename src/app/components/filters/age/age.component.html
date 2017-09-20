@@ -1,8 +1,8 @@
 <div class="filter-container dark">
     <div class="filters__header flex-container flex-justify-content-space-between">
-        <p class="filters__name">Biк</p>
+        <p class="filters__name">{{'FILTERS.AGE' | translate}}</p>
         <!-- <p class="filter__params">{{startAge}} - {{endAge}}</p> -->
-        <button class="reset-button reset-age" (click)="resetFilter()">скинути</button>
+        <button class="reset-button reset-age" (click)="resetFilter()">{{'GENERAL.RESET' | translate}}</button>
     </div>
     <div class="filters__graph age-graph" #container>
         <nouislider [config]="configs" [(ngModel)]="range" [tooltips]="[true, true]" (ngModelChange)="onChange($event)" #sliderRef></nouislider>

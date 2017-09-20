@@ -1,9 +1,27 @@
 {
+    "GENERAL": {
+        "RESET": "скинути"
+    },
     "HEADER": {
         "NAME": "Мапа пам'яті",
         "MAP": "Мапою",
         "LIST": "Списком",
         "SEARCH_PLACEHOLDER": "Пошук...",
         "ABOUT": "Про проект"
+    },
+    "FILTERS": {
+        "AGE": "Вік",
+        "COUNTRY": "Країна походження",
+        "DATE": "Дата",
+        "GENDER": {
+            "NAME": "Стать",
+            "MALE": "Чоловіки",
+            "FEMALE": "Жінки"
+        },
+        "STATUS": {
+            "NAME": "Статус",
+            "MILITARY": "Військові",
+            "CIVIL": "Цивільні"
+        }
     }
 }

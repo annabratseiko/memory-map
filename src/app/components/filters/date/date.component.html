@@ -1,8 +1,8 @@
 <div class="filter-container">
     <div class="filters__header flex-container flex-justify-content-space-between">
-        <p class="filters__name">Дата</p>
+        <p class="filters__name">{{'FILTERS.DATE' | translate}}</p>
         <!-- <p class="filter__params"><span id="first-date"></span> &#8212; <span id="second-date"></span></p> -->
-        <button class="reset-button reset-date" (click)="resetFilter()">скинути</button>
+        <button class="reset-button reset-date" (click)="resetFilter()">{{'GENERAL.RESET' | translate}}</button>
     </div>
     <div class="filters__graph date-graph" #container>
         <nouislider [config]="configs" [(ngModel)]="range" [tooltips]="[false, false]" (ngModelChange)="onChange($event)"></nouislider>

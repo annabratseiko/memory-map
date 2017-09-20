@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   public showMobMenu: boolean = false;
   
-  constructor() { }
+  constructor(
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
   }
@@ -16,5 +19,9 @@ export class HeaderComponent implements OnInit {
   mobMenuAction() {
     this.showMobMenu = !this.showMobMenu;
   }
+
+  setLanguage(event) {
+    this.translate.setDefaultLang(event.target.value);
+  } 
 
 }

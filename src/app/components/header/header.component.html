@@ -27,10 +27,10 @@
     </div>
     <div class="language">
         <div><a href="#" [routerLink]="'/about'">{{'HEADER.ABOUT' | translate}}</a></div>
-        <select>
-            <option value="ukr">UKR</option>
-            <option value="eng">ENG</option>
-            <option value="rus">RUS</option>
+        <select (change)="setLanguage($event)">
+            <option value="ua">UKR</option>
+            <option value="en">ENG</option>
+            <option value="ru">RUS</option>
         </select>
     </div>
     <div class="burger-button" (click)="mobMenuAction()">
@@ -43,9 +43,9 @@
         </div>
         <a href="#" [routerLink]="'/about'" class="about">{{'HEADER.ABOUT' | translate}}</a>
         <div class="mobile-main links">
-            <a href="" class="active">UKR</a>
-            <a href="">ENG</a>
-            <a href="">РУС</a>
+            <a href="" class="active" (click)="setLanguage('ua')">UKR</a>
+            <a href="" (click)="setLanguage('en')">ENG</a>
+            <a href="" (click)="setLanguage('ru')">РУС</a>
         </div>
     </div>
 </div>

@@ -13,11 +13,8 @@ export class AppComponent implements OnInit{
     private router: Router,
     private translate: TranslateService
   ) {
-    translate.addLangs(["en", "ua"]);
+    translate.addLangs(["en", "ua", "ru"]);
     translate.setDefaultLang('ua');
-
-    // let browserLang = translate.getBrowserLang();
-    // translate.use(browserLang.match(/en|ua/) ? browserLang : 'en');
   }
 
   @HostListener('window:resize', ['$event'])

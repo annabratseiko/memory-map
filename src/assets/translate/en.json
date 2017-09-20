@@ -1,0 +1,9 @@
+{
+    "HEADER": {
+        "NAME": "Memory map",
+        "MAP": "Map",
+        "LIST": "List",
+        "SEARCH_PLACEHOLDER": "Search...",
+        "ABOUT": "About"
+    }
+}

@@ -34,7 +34,7 @@
                     </div> -->
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
-                            <p class="filters__name country">Країна походження</p>
+                            <p class="filters__name country">{{'FILTERS.COUNTRY' | translate}}</p>
                             <select class="filter__params list-select-age" id="filter-country-list" (change)="chooseCountry($event.target.value)">
                                 <option value="{{item}}" *ngFor="let item of countriesKeys">{{filtersData.countries[item].countryName}}</option>
                             </select>
@@ -42,20 +42,20 @@
                     </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
-                            <p>Стать</p>
-                            <div class="graph-field gender-field" [ngClass]="{'graph-field--active': activeSex === 'male'}" (click)="chooseFilter('sex', 0)">Чоловіки</div>
-                            <div class="graph-field gender-field" [ngClass]="{'graph-field--active': activeSex === 'female'}" (click)="chooseFilter('sex', 1)">Жінки</div>
+                            <p>{{'FILTERS.GENDER.NAME' | translate}}</p>
+                            <div class="graph-field gender-field" [ngClass]="{'graph-field--active': activeSex === 'male'}" (click)="chooseFilter('sex', 0)">{{'FILTERS.GENDER.MALE' | translate}}</div>
+                            <div class="graph-field gender-field" [ngClass]="{'graph-field--active': activeSex === 'female'}" (click)="chooseFilter('sex', 1)">{{'FILTERS.GENDER.FEMALE' | translate}}</div>
                         </div>
                     </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph status__graph">
-                            <p>Статус</p>
-                            <div class="graph-field status-field" [ngClass]="{'graph-field--active': activeStatus === 'military'}" (click)="chooseFilter('status', 0)">Військові</div>
-                            <div class="graph-field status-field" [ngClass]="{'graph-field--active': activeStatus === 'civil'}" (click)="chooseFilter('status', 1)">Цивільні</div>
+                            <p>{{'FILTERS.STATUS.NAME' | translate}}</p>
+                            <div class="graph-field status-field" [ngClass]="{'graph-field--active': activeStatus === 'military'}" (click)="chooseFilter('status', 0)">{{'FILTERS.STATUS.MILITARY' | translate}}</div>
+                            <div class="graph-field status-field" [ngClass]="{'graph-field--active': activeStatus === 'civil'}" (click)="chooseFilter('status', 1)">{{'FILTERS.STATUS.CIVIL' | translate}}</div>
                         </div>
                     </div>
-                    <button class="reset-button reset-status list-button" (click)="setFilters()">Застосувати</button>
-                    <button class="reset-button reset-status list-button" (click)="resetFilters()">Скинути фільтри</button>
+                    <button class="reset-button reset-status list-button" (click)="setFilters()">{{'FILTERS.BUTTONS.DONE' | translate}}</button>
+                    <button class="reset-button reset-status list-button" (click)="resetFilters()">{{'FILTERS.BUTTONS.RESET' | translate}}</button>
                 </div>
                 <div class="space"></div>
                 <div class="list">
