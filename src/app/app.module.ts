@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -32,6 +33,7 @@ import { FiltersService } from "./shared/services/filters.service";
 import { LoadingPopupComponent } from './components/loading-popup/loading-popup.component';
 import { LoaderService } from './shared/services/loader.service';
 import { SearchResultComponent } from './components/header/search-result/search-result.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/translate/", ".json");
@@ -54,7 +56,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     PopupComponent,
     LoadingPopupComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,   
     NouisliderModule, 
     DatepickerModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

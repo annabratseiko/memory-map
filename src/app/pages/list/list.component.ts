@@ -29,6 +29,7 @@ export class ListComponent implements OnInit, OnDestroy {
   public firstDate = new Date(2014, 0);
   public dateFilter = [null, null];
   public ageFilter = [null, null];
+  public openContact: boolean = false;
 
   private subscription: Subscription;
   private loadSubscription: Subscription;
@@ -169,6 +170,10 @@ export class ListComponent implements OnInit, OnDestroy {
 
   closePopup(event) {
     this.showPopup = event;
+  }
+
+  openContactPopup(event) {
+    this.openContact = event;
   }
 
   ngOnDestroy() {

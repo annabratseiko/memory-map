@@ -16,6 +16,7 @@ export class MainComponent implements OnInit, OnDestroy {
   public filters: any;
   public personDetails: any = null;
   public showPopup: boolean = false;
+  public openContact: boolean = false;
   public loaders: LoaderModel;
 
   private subscription: Subscription;
@@ -63,6 +64,10 @@ export class MainComponent implements OnInit, OnDestroy {
 
   closePopup(event) {
     this.showPopup = event;
+  }
+
+  openContactPopup(event) {
+    this.openContact = event;
   }
 
   ngOnDestroy() {

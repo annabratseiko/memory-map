@@ -1,0 +1,25 @@
+<div class="contact-popup" *ngIf="showContact">
+    <div class="contact-container">
+        <div class="contact-close" (click)="closePopup()">
+            <img src="/assets/images/close.svg" alt="">
+        </div>
+        <div class="contact-inner-container">
+            <p class="contact-title">Зворотній зв'язок</p>
+            <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="sendEmail($event)">
+                <label class="contact-label" for="theme">Мета звернення</label>
+                <select formControlName="infoSelect" class="contact-input" name="theme" id="contact-theme">
+                    <option value="Нова інформація">Нова інформація</option>
+                    <option value="Уточнення">Уточнення</option>
+                    <option value="Скарга">Скарга</option>
+                </select>
+                <label class="contact-label" for="email">E-mail</label>
+                <input formControlName="email" class="contact-input" type="email" name="email">
+                <label class="contact-label" for="phone">Альтернативний канал зв'язку (телефон або месенджер)</label>
+                <input formControlName="phone" class="contact-input" type="text" name="phone">
+                <label class="contact-label" for="message">Ваше повідомлення</label>
+                <textarea formControlName="message" class="contact-input contact-area" name="message"></textarea>
+                <button type="submit" class="contact-button">Відправити</button>
+            </form>
+        </div>
+    </div>
+</div>
