@@ -23,6 +23,8 @@ export class HeaderComponent implements OnInit {
   public endSearch: boolean = false;
   public hideResult: boolean = true;
   public location: string = '';
+  public showPopup: boolean = false;
+  public popupInfo: any;
 
   private subscription: Subscription;
   private urlSubscription: Subscription;
@@ -56,6 +58,16 @@ export class HeaderComponent implements OnInit {
     event.preventDefault();
     this.translate.use(lang);
     this.currentLang = lang;
+  }
+
+  closePopup(event) {
+    this.showPopup = event;
+  }
+
+  getDetailInfo(event) {
+    this.showPopup = true;
+    this.popupInfo = event;
+    this.searchQuery = '';
   }
 
   startSearch(event?) {

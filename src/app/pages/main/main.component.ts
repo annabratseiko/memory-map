@@ -35,7 +35,7 @@ export class MainComponent implements OnInit, OnDestroy {
     });
 
     this.subscription = this._filterService.filterChoosen$.subscribe(filters => {
-      this._dataService.getCities(filters.age, filters.date, filters.country, filters.status, filters.sex, filters.query).subscribe(res => {
+      this._dataService.getCities(filters.age, filters.date, filters.country, filters.status, filters.sex).subscribe(res => {
         this.cities = res;
         this.loaderService.loadComplete(true, 'map');
       });
