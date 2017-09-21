@@ -50,17 +50,10 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   getFilters() {
-    let localFilters = localStorage.getItem('filters');
-    if (!localFilters) {
-      this._dataService.getFilters().subscribe(res => {
-        this.filters = JSON.parse(JSON.stringify(res));
-        localStorage.setItem('filters', JSON.stringify(this.filters));
-        this.loaderService.loadComplete(true, 'filters');
-      });
-    } else {
-      this.filters = JSON.parse(localFilters);
+    this._dataService.getFilters().subscribe(res => {
+      this.filters = JSON.parse(JSON.stringify(res));
       this.loaderService.loadComplete(true, 'filters');
-    }
+    });
   }
 
   getDetailInfo(event) {

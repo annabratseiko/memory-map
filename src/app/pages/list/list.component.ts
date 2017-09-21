@@ -76,18 +76,11 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   getFilters() {
-    let localFilters = localStorage.getItem('filters');
-    if (!localFilters) {
       this._dataService.getFilters().subscribe(res => {
         this.filtersData = JSON.parse(JSON.stringify(res));
-        localStorage.setItem('filters', JSON.stringify(this.filters));
+        this.countriesKeys = Object.keys(this.filtersData.countries);
+        this.ageKeys = Object.keys(this.filtersData.age);
       });
-    } else {
-      this.filtersData = JSON.parse(localFilters);
-    }
-    this.countriesKeys = Object.keys(this.filtersData.countries);
-    this.ageKeys = Object.keys(this.filtersData.age);
-    console.log(this.filtersData);
   }
 
   goToPage(page) {
