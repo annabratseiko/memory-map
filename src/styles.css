@@ -528,6 +528,10 @@ footer p:last-child {
     padding: 0 28px;
 }
 
+[ng-reflect-filter] {
+    display: flex;
+}
+
 .filters__graph select {
     margin-left: 0;
     max-width: 275px;
@@ -775,6 +779,10 @@ footer p:last-child {
     padding: 20px;
     padding-bottom: 30px;
     overflow-y: hidden;
+    -ms-align-self: stretch;
+    -webkit-align-self: stretch;
+    align-self: stretch;
+    width: 100%;
 }
 
 .filter-container.dark {
@@ -831,7 +839,9 @@ footer p:last-child {
     transition: .3s;
     letter-spacing: .6px;
     -ms-align-self: center;
+    -webkit-align-self: center;
     align-self: center;
+    margin-top: -5px;
 }
 
 .list-button {
@@ -1505,6 +1515,10 @@ footer p:last-child {
     .detail-info-name,
     .detail-info-years {
         text-align: center;
+    }
+
+    [ng-reflect-filter] {
+        display: block;
     }
 }
 
