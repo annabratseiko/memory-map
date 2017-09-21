@@ -13,6 +13,7 @@ import { FiltersService } from '../../shared/services/filters.service';
 export class HeaderComponent implements OnInit {
   public showMobMenu: boolean = false;
   public searchQuery: string = '';
+  public currentLang: string = 'ua';
 
   private subscription: Subscription;
   
@@ -33,8 +34,14 @@ export class HeaderComponent implements OnInit {
   }
 
   setLanguage(event) {
-    this.translate.setDefaultLang(event.target.value);
+    this.translate.use(event.target.value);
   } 
+
+  changeLang(event, lang: string) {
+    event.preventDefault();
+    this.translate.use(lang);
+    this.currentLang = lang;
+  }
 
   startSearch(event?) {
     if(event && event.keyCode !== 13) {

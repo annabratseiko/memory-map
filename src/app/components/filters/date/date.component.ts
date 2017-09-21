@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Inject, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { FiltersService } from "../../../shared/services/filters.service";
+import { LoaderService } from '../../../shared/services/loader.service';
 
 @Component({
   selector: 'app-date',
@@ -43,7 +44,8 @@ export class DateComponent implements OnInit, AfterViewInit {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private _filterService: FiltersService
+    private _filterService: FiltersService,
+    private loaderService: LoaderService
   ) { }
 
   buildGraph() {
@@ -92,14 +94,18 @@ export class DateComponent implements OnInit, AfterViewInit {
 }
 
   onChange(event) {
-    console.log(event);
     let start = this.formatDate(event[0]);
     let end = this.formatDate(event[1]);
-    this._filterService.changeFilter([start, end], 'date');
+    this.loaderService.loadComplete(false, 'map');
+    if(event[0] == this.timestamp(2014, 1) && event[1] == this.timestamp(2017, 9)) {
+      this._filterService.changeFilter(null, 'date');
+    } else {
+      this._filterService.changeFilter([start, end], 'date');
+    }
   }
 
   resetFilter() {
-    this._filterService.changeFilter(null, 'date');
+    this.range = [this.timestamp(2014, 1), this.timestamp(2017, 9)];
   }
 
 }

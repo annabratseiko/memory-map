@@ -67,27 +67,45 @@
                         <p>{{'DATA.DEATH' | translate}}</p>
                         <p>{{'DATA.STATUS' | translate}}</p>
                     </div>
-                    <div class="list__row listing" *ngFor="let item of listKeys" (click)="getDetailInfo(list[item].id)">
-                        <div>
-                            <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
-                            <h3>{{list[item].fullName}}</h3>
+                    <div class="list-loader" *ngIf="!list">
+                        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                            <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                <animateTransform attributeType="xml"
+                                attributeName="transform"
+                                type="rotate"
+                                from="0 25 25"
+                                to="360 25 25"
+                                dur="0.6s"
+                                repeatCount="indefinite"/>
+                            </path>
+                        </svg>
+                        <p>{{'GENERAL.LOADING' | translate}}...</p>
+                    </div>
+                    <div *ngIf="list">
+                        <div class="list__row listing" *ngFor="let item of listKeys" (click)="getDetailInfo(list[item].id)">
+                            <div>
+                                <div class="round__img"><img src="/assets/images/img_cropped.png" alt="" class="rounded"></div>
+                                <h3>{{list[item].fullName}}</h3>
+                            </div>
+                            <p>{{list[item].birthCityName}}</p>
+                            <p>{{list[item].deathCityName}}</p>
+                            <p>{{list[item].status}}</p>
                         </div>
-                        <p>{{list[item].birthCityName}}</p>
-                        <p>{{list[item].deathCityName}}</p>
-                        <p>{{list[item].status}}</p>
                     </div>
                 </div>
                 <div class="pagination__block">
                     <!--<div class="prev__button">Попередня</div>-->
                     <div class="prev__button active" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span>{{'GENERAL.PREV' | translate}}</div>
                     <div class="prev__button active mobile__arrow" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span></div>
-                    <div class="pages">
+
+                    <!-- TODO: no need to use this code! -->
+                    <!-- <div class="pages">
                         <a href="" [routerLink]="'/list/1'" routerLinkActive="active">1</a>
                         <a href="" [routerLink]="'/list/2'" routerLinkActive="active">2</a>
                         <a href="" [routerLink]="'/list/3'" routerLinkActive="active">3</a>
                         <a href="" [routerLink]="'/list/4'" routerLinkActive="active">4</a>
                         <a href="" [routerLink]="'/list/5'" routerLinkActive="active">5</a>
-                    </div>
+                    </div> -->
                     <!--<div class="next__button">Наступна</div>-->
                     <div class="next__button" (click)="goToPage(currentPage + 1)">{{'GENERAL.NEXT' | translate}}<span><img src="./assets/images/arrow.png"></span></div>
                     <div class="next__button active mobile__arrow" (click)="goToPage(currentPage + 1)"><span><img src="./assets/images/arrow.png"></span></div>
@@ -97,3 +115,4 @@
     </div>
 </div>
 <app-popup *ngIf="showPopup" [details]="personDetails" (close)="closePopup($event)"></app-popup>
+<app-loading-popup *ngIf="!loaders.list"></app-loading-popup>

@@ -18,7 +18,7 @@ export class DeathMapComponent implements OnInit, OnDestroy {
   public mapStyle = styles;
   public citiesKeys: any;
   public markers: any[] = [];
-  public showList: boolean = true;
+  public showList: boolean = false;
   public list: any;
   public listKeys: any;
   public cardInfo: any = null;
@@ -73,7 +73,6 @@ export class DeathMapComponent implements OnInit, OnDestroy {
   }
 
   clickedMarker(city: any, type: number) {
-    this.showList = true;
     this.listKeys = [];
     this.cardInfo = null;
     this.centerLat = city.lat;
@@ -81,8 +80,6 @@ export class DeathMapComponent implements OnInit, OnDestroy {
     this.zoom = 8;
 
     this._dataService.getPersonListCity(city.id, type, this.filter.age, this.filter.country, this.filter.date, this.filter.sex, this.filter.status).subscribe(res => {
-    // this._dataService.getPersonListCity(city.id, type).subscribe(res => {
-      console.log('get list', res);
       this.list = JSON.parse(JSON.stringify(res)).main;
       this.listKeys = Object.keys(this.list);
 
@@ -106,7 +103,6 @@ export class DeathMapComponent implements OnInit, OnDestroy {
         birth: card.birthCityName,
         status: card.status
       }
-      console.log('get one', res);
     });
   }
 
@@ -126,7 +122,6 @@ export class DeathMapComponent implements OnInit, OnDestroy {
         rank: card.rank
       }
       this.detailInfo.emit(info);
-      console.log('get one detail', res);
     });
   }
 

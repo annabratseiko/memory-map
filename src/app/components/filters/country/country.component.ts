@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Inject, ViewChild, ElementRef } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { FiltersService } from "../../../shared/services/filters.service";
+import { LoaderService } from '../../../shared/services/loader.service';
 
 @Component({
   selector: 'app-country',
@@ -30,7 +31,8 @@ export class CountryComponent implements OnInit {
   }
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private _filterService: FiltersService
+    private _filterService: FiltersService,
+    private loaderService: LoaderService
   ) { }
 
   buildGraph() {
@@ -64,12 +66,14 @@ export class CountryComponent implements OnInit {
       this._prevCountry.classList.remove('active');
     }
     this._filterService.changeFilter(id, 'country');
+    this.loaderService.loadComplete(false, 'map');
     item.classList.add('active');
     this._prevCountry = item;
   }
 
   resetFilter() {
     this._filterService.changeFilter(null, 'country');
+    this.loaderService.loadComplete(false, 'map');
     if(this._prevCountry) {
       this._prevCountry.classList.remove('active');
       this._prevCountry = null;

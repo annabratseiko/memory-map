@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FiltersService } from "../../../shared/services/filters.service";
+import { LoaderService } from '../../../shared/services/loader.service';
 
 @Component({
   selector: 'app-sex',
@@ -11,7 +12,8 @@ export class SexComponent implements OnInit {
   public activeItem: string = '';
 
   constructor(
-    private _filterService: FiltersService
+    private _filterService: FiltersService,
+    private loaderService: LoaderService
   ) { }
 
   ngOnInit() {
@@ -20,11 +22,13 @@ export class SexComponent implements OnInit {
 
   changeFilter(param: number) {
     this._filterService.changeFilter(param, 'sex');
+    this.loaderService.loadComplete(false, 'map');
     this.activeItem = param === 0 ? 'male' : 'female';
   }
 
   resetFilter() {
     this._filterService.changeFilter(null, 'sex');
+    this.loaderService.loadComplete(false, 'map');
     this.activeItem = '';
   }
 

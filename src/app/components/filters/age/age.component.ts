@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Inject, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { FiltersService } from "../../../shared/services/filters.service";
+import { LoaderService } from '../../../shared/services/loader.service';
 
 @Component({
   selector: 'app-age',
@@ -42,7 +43,8 @@ export class AgeComponent implements OnInit, AfterViewInit {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private _filterService: FiltersService
+    private _filterService: FiltersService,
+    private loaderService: LoaderService
   ) { }
 
   buildGraph() {
@@ -79,15 +81,17 @@ export class AgeComponent implements OnInit, AfterViewInit {
   }
 
   onChange(event) {
-    console.log(event, this._initRange);
+    this.loaderService.loadComplete(false, 'map');
     if(event[0] == this._initRange[0] && event[1] == this._initRange[1]) {
-      return false;
+      this._filterService.changeFilter(null, 'age');
+    } else {
+      this._filterService.changeFilter(event, 'age');
     }
-    this._filterService.changeFilter(event, 'age');
   }
 
   resetFilter() {
-    this._filterService.changeFilter(null, 'age');
+    this.range = this._initRange;
+    // this.loaderService.loadComplete(false, 'map');
   }
 
 }

@@ -2,7 +2,9 @@
     "GENERAL": {
         "RESET": "reset",
         "PREV": "Previous",
-        "NEXT": "Next"
+        "NEXT": "Next",
+        "LOADING": "Loading",
+        "MAIN_LOADING": "Loading"
     },
     "HEADER": {
         "NAME": "Memory map",

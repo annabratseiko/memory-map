@@ -27,6 +27,8 @@ import { ListComponent } from './pages/list/list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PopupComponent } from './pages/popup/popup.component';
 import { FiltersService } from "./shared/services/filters.service";
+import { LoadingPopupComponent } from './components/loading-popup/loading-popup.component';
+import { LoaderService } from './shared/services/loader.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/translate/", ".json");
@@ -47,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AboutComponent,
     ListComponent,
     FooterComponent,
-    PopupComponent
+    PopupComponent,
+    LoadingPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     AgmSnazzyInfoWindowModule
   ],
-  providers: [FiltersService],
+  providers: [FiltersService, LoaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

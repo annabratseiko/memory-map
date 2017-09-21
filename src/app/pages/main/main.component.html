@@ -12,3 +12,4 @@
     </div>
 </div>
 <app-popup *ngIf="showPopup" [details]="personDetails" (close)="closePopup($event)"></app-popup>
+<app-loading-popup *ngIf="!loaders.map || !loaders.filters"></app-loading-popup>

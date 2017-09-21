@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { DataService } from "../../shared/services/data.service";
 import { FiltersService } from "../../shared/services/filters.service";
 import { FilterModel } from "../../shared/const/filter.model";
+import { LoaderService } from '../../shared/services/loader.service';
+import { LoaderModel } from '../../shared/const/loader.model';
 
 @Component({
   selector: 'app-list',
@@ -19,23 +21,32 @@ export class ListComponent implements OnInit, OnDestroy {
   public showPopup: boolean = false;
   public filtersData: any;
   public countriesKeys: any;
+  public loaders: LoaderModel;
   
   public filters: FilterModel;
   public activeStatus: string = '';
   public activeSex: string = '';
 
   private subscription: Subscription;
+  private loadSubscription: Subscription;
 
   constructor(
     private _dataService: DataService,
     private router: Router,
     private route: ActivatedRoute,
-    private _filterService: FiltersService
+    private _filterService: FiltersService,
+    private loaderService: LoaderService
 ) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
     this.filters = new FilterModel();
+    this.loaders = new LoaderModel();
+    
+    this.loadSubscription = this.loaderService.showLoader$.subscribe(loaders => {
+      this.loaders = loaders;
+      console.log(this.loaders);
+    });
     this.route.params.subscribe((params: Params) => {
       this.currentPage = +params["page"];
       this.getData();    
@@ -54,6 +65,7 @@ export class ListComponent implements OnInit, OnDestroy {
     this._dataService.getList(this.currentPage, this.filters.age, this.filters.country, this.filters.date, this.filters.sex, this.filters.status, this.filters.query).subscribe(res => {
       this.list = JSON.parse(JSON.stringify(res)).main;
       this.listKeys = Object.keys(this.list);
+      this.loaderService.loadComplete(true, 'list');
       console.log('list', this.list);
     });   
   }
@@ -73,6 +85,7 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   goToPage(page) {
+    this.list = null; 
     if (page > 0) {
       this.router.navigate(['/list', page]);
     }
@@ -135,6 +148,7 @@ export class ListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.loadSubscription.unsubscribe();
   }
 
 }
