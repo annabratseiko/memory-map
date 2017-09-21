@@ -1775,10 +1775,30 @@ footer p:last-child {
         flex-wrap: wrap;
         padding-bottom: 2em;
     }
+    .list-filters .top-filters button.filter-button {
+        font-size: 14px;
+        text-align: left;
+        padding: 0 16px 0 48px;
+    }
+
+    .list-filters .top-filters button.filter-button__close {
+        padding: 0 16px 0 48px;
+    }
+
+    .list-filters .top-filters button.filter-button_close span {
+        left: 22px;
+        right: auto;
+    }
+
     .list-view .list-filters .filters__graph * {
         font-size: 12px;
         margin-right: 0.5em;
     }
+
+    .list-view .list-filters {
+        margin: 0;
+    }
+
     .list-button {
         width: 38%;
         font-size: 14px;
