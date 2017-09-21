@@ -4,7 +4,8 @@
         "PREV": "Previous",
         "NEXT": "Next",
         "LOADING": "Loading",
-        "MAIN_LOADING": "Loading"
+        "MAIN_LOADING": "Loading",
+        "SEARCH": "Search..."
     },
     "HEADER": {
         "NAME": "Memory map",

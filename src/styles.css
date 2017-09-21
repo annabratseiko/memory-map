@@ -364,8 +364,9 @@ footer p:last-child {
 .search-result {
     /* display: none; */
     position: absolute;
-    width: 100%;
+    width: 600px;
     top: 125%;
+    left: -250px;
     padding: 10px;
     max-height: 500px;
     height: initial;
@@ -380,6 +381,7 @@ footer p:last-child {
 
 .search-section-title {
     color: #fff;
+    font-size: 14px;
 }
 
 .search-section-title span,
@@ -405,6 +407,7 @@ footer p:last-child {
 .search-name-item,
 .search-city-item {
     color: #fff;
+    font-size: 11px;
     line-height: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, .1);
 }
@@ -1445,6 +1448,9 @@ footer p:last-child {
     .header {
         height: 4em;
     }
+    .search-result {
+        top: 145%;
+    }
     .filters,
     .maps-container {
         height: 12em;
@@ -1470,7 +1476,8 @@ footer p:last-child {
         font-size: 0.6em;
         padding: 10px 20px;
     }
-    .search>* {
+    .search input,
+    .search button {
         height: 40px;
     }
     .search button {
@@ -1867,7 +1874,8 @@ footer p:last-child {
 }
 
 .card-loader svg path,
-.list-loader svg path {
+.list-loader svg path,
+.search-loader svg path {
     fill: #c0c0c0;
 }
 
@@ -1875,4 +1883,9 @@ footer p:last-child {
     background: #fff;
     text-align: center;
     padding: 15px 0;
+}
+
+.search-loader {
+    text-align: center;
+    font-size: 13px;
 }

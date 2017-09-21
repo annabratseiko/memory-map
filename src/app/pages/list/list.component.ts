@@ -43,6 +43,7 @@ export class ListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     window.scrollTo(0, 0);
+    this.loaderService.routeChange('list');
     this.filters = new FilterModel();
     this.loaders = new LoaderModel();
     
@@ -58,6 +59,7 @@ export class ListComponent implements OnInit, OnDestroy {
     this.subscription = this._filterService.filterChoosen$.subscribe(filters => {
       this.filters = filters;
       if (filters.query) {
+        this.list = null; 
         console.log('search list');
         this.getData();
       }

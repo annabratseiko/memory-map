@@ -66,6 +66,7 @@ export class BirthMapComponent implements OnInit, OnDestroy {
           lat: Number(this.cities[element].coords.lat),
           lng: Number(this.cities[element].coords.lng),
           draggable: false,
+          // size: 50
           // scaledSize: 40 
         })
       }

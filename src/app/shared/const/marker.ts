@@ -5,5 +5,6 @@ export interface marker {
     lng: number;
     label?: string;
     draggable: boolean;
+    size?: Size;
     scaledSize?: Size;
 }

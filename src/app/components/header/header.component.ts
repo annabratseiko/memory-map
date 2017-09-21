@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import { Subscription } from 'rxjs/Subscription';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { DataService } from '../../shared/services/data.service';
 import { FiltersService } from '../../shared/services/filters.service';
+import { LoaderService } from '../../shared/services/loader.service';
 
 @Component({
   selector: 'app-header',
@@ -14,16 +16,29 @@ export class HeaderComponent implements OnInit {
   public showMobMenu: boolean = false;
   public searchQuery: string = '';
   public currentLang: string = 'ua';
+  public searchCities: any;
+  public searchCitiesKeys: any[] = [];
+  public searchPersons: any;
+  public searchPersonsKeys: any[] = [];
+  public endSearch: boolean = false;
+  public hideResult: boolean = true;
+  public location: string = '';
 
   private subscription: Subscription;
+  private urlSubscription: Subscription;
   
   constructor(
     private translate: TranslateService,
     private _dataService: DataService,
-    private _filterService: FiltersService
+    private _filterService: FiltersService,
+    private loaderService: LoaderService
   ) { }
 
   ngOnInit() {
+    this.urlSubscription = this.loaderService.changeRoute$.subscribe(param => {
+      this.location = param;
+    });
+
     this.subscription = this._filterService.filterChoosen$.subscribe(filters => {
       console.log('filHE', filters);
     });
@@ -44,21 +59,31 @@ export class HeaderComponent implements OnInit {
   }
 
   startSearch(event?) {
+    if(this.searchQuery === '') {
+      this.hideResult = true;
+      return;
+    }
+    
     if(event && event.keyCode !== 13) {
       return;
     }
 
-    this._filterService.changeFilter(this.searchQuery, 'query');
-
-    // this._explorerService.search(this.searchQuery).subscribe(
-    //   res => {
-    //     if(res.success) {
-    //       this.searchQuery = '';
-    //       this.router.navigate([`/${res.type}`, res.id]);
-    //       this.openMobileMenu = false;
-    //     }
-    //   }
-    // );
+    if (this.location === 'list') {
+      this._filterService.changeFilter(this.searchQuery, 'query');
+    } else if (this.location === 'map') {
+      this.hideResult = false;
+      this.searchCitiesKeys = [];
+      this.searchPersonsKeys = [];
+      this.endSearch = false;
+  
+      this._dataService.search(this.searchQuery).subscribe(res => {
+        this.endSearch = true;
+        this.searchCities = JSON.parse(JSON.stringify(res)).cities;
+        this.searchCitiesKeys = Object.keys(this.searchCities);
+        this.searchPersons = JSON.parse(JSON.stringify(res)).main;
+        this.searchPersonsKeys = Object.keys(this.searchPersons);
+      });
+    }
   }
 
 

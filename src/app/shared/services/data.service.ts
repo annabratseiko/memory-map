@@ -73,4 +73,10 @@ export class DataService {
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
+
+  public search(query: string) : Observable<any> {
+    return this.http.get(`${CONFIG.API}/search?query=${query}&lang=uk`)
+      .map((res:Response) => {return res.json();})
+      .catch((error:any) => Observable.throw(error || 'Server error'));
+  }
 }

@@ -12,8 +12,10 @@ export class LoaderService {
   public loadStack = new LoaderModel();
 
   private loadSourse = new Subject<any>();
+  private urlSourse = new Subject<any>();
   
   showLoader$ = this.loadSourse.asObservable();
+  changeRoute$ = this.urlSourse.asObservable();
   
   loadComplete(value: any, type: string) {
     switch(type) {
@@ -31,6 +33,10 @@ export class LoaderService {
       }
     }
     this.loadSourse.next(this.loadStack);
+  }
+
+  routeChange(value: string) {
+    this.urlSourse.next(value);
   }
 
 }

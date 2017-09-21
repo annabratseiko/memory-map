@@ -29,6 +29,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loaders = new LoaderModel();
+    this.loaderService.routeChange('map');
     this.loadSubscription = this.loaderService.showLoader$.subscribe(loaders => {
       this.loaders = loaders;
     });
