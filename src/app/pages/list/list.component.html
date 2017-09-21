@@ -13,21 +13,12 @@
                         <option value="">2014</option>
                         <option value="">2015</option>
                     </select> -->
-                    <button class="grey-button filter__params graph-field js-hook-filter-params-open none">
+                    <button class="grey-button filter__params graph-field js-hook-filter-params-open filter-button" [ngClass]="{'filter-button_close': showFilters}" (click)="showFilters = !showFilters">
                         Усі фільтри
-                        <span>
-                            <img src="./assets/images/burger_cross_dark_grey.png">
-                        </span>
-                        </button>
-                    <button class="grey-button filter__params graph-field js-hook-filter-params-close">
-                        <span class="burg">
-                            <img src="./assets/images/burger_dark_grey.png">
-                        </span>
-                    Усі фільтри
-                </button>
-
+                        <span></span>
+                    </button>
                 </div>
-                <div class="filters__all none">
+                <div class="filters__all" [ngClass]="{'none': !showFilters}">
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p class="filters__name">{{'FILTERS.DATE' | translate}}</p>

@@ -30,6 +30,7 @@ export class ListComponent implements OnInit, OnDestroy {
   public dateFilter = [null, null];
   public ageFilter = [null, null];
   public openContact: boolean = false;
+  public showFilters: boolean = false;
 
   private subscription: Subscription;
   private loadSubscription: Subscription;
