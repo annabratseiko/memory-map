@@ -64,7 +64,8 @@ export class DeathMapComponent implements OnInit, OnDestroy {
           id: element,
           lat: Number(this.cities[element].coords.lat),
           lng: Number(this.cities[element].coords.lng),
-          draggable: false
+          draggable: false,
+          cityName: this.cities[element].cityName
         })
       }
     });
@@ -112,6 +113,7 @@ export class DeathMapComponent implements OnInit, OnDestroy {
       let card = JSON.parse(JSON.stringify(res)).main;
       let info = {
         name: card.fullName,
+        photo: card.photo,
         birthCity: card.birthCityName,
         deathCity: card.deathCityName,
         birthDate: card.birthDate,

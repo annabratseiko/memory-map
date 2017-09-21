@@ -4,7 +4,8 @@
             <img src="./assets/images/close.svg" alt="">
         </div>
         <div class="detail-info-photo">
-            <img class="detail-info-photo-img" alt="">
+            <img class="detail-info-photo-img" *ngIf="!details.photo" src="/assets/images/userpic.jpg" alt="">
+            <img class="detail-info-photo-img" *ngIf="details.photo" [src]="details.photo" alt="">
         </div>
         <div class="detail-info-block">
             <div class="detail-info-underline">

@@ -47,7 +47,8 @@ export class BirthMapComponent implements OnInit, OnDestroy {
   constructor(
     private _dataService: DataService,
     private _filterService: FiltersService
-  ) { }
+  ) { 
+  }
 
   ngOnInit() {
     this.filter = new FilterModel();
@@ -66,13 +67,12 @@ export class BirthMapComponent implements OnInit, OnDestroy {
           lat: Number(this.cities[element].coords.lat),
           lng: Number(this.cities[element].coords.lng),
           draggable: false,
+          cityName: this.cities[element].cityName
           // size: 50
           // scaledSize: 40 
         })
       }
     });
-
-    console.log(this.markers);
   }
 
   clickedMarker(city: any, type: number) {
@@ -92,6 +92,10 @@ export class BirthMapComponent implements OnInit, OnDestroy {
         this.showCard(this.listKeys[0]);
       }
     });
+  }
+
+  showInfoWindow(event, marker) {
+    console.log(event, marker); 
   }
 
   showCard(id: any) {
@@ -116,6 +120,7 @@ export class BirthMapComponent implements OnInit, OnDestroy {
       let card = JSON.parse(JSON.stringify(res)).main;
       let info = {
         name: card.fullName,
+        photo: card.photo,
         birthCity: card.birthCityName,
         deathCity: card.deathCityName,
         birthDate: card.birthDate,

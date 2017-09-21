@@ -98,6 +98,7 @@ export class ListComponent implements OnInit, OnDestroy {
       let card = JSON.parse(JSON.stringify(res)).main;
       this.personDetails = {
         name: card.fullName,
+        photo: card.photo,
         birthCity: card.birthCityName,
         deathCity: card.deathCityName,
         birthDate: card.birthDate,

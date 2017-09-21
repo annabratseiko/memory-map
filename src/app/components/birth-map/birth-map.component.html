@@ -1,7 +1,7 @@
 <div class="map-born-block" *ngIf="cities && citiesKeys.length">
     <div id="map-born" class="map-block">
         <agm-map [latitude]="centerLat" [longitude]="centerLng" [zoom]="zoom" [styles]="mapStyle" [streetViewControl]="false">
-            <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" (markerClick)="clickedMarker(marker, 0)" [iconUrl]="'/assets/images/dot.png'">
+            <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" (markerClick)="clickedMarker(marker, 0)" [iconUrl]="'/assets/images/dot.png'" (mouseOver)="showInfoWindow($event, marker)">
                 <agm-snazzy-info-window [maxWidth]="300" [closeWhenOthersOpen]="true" [latitude]="centerLat" [longitude]="centerLng">
                     <ng-template>
                         <div class="card-loader" *ngIf="!showList && !cardInfo">
@@ -20,7 +20,8 @@
                         <div class="one-card" *ngIf="!showList && cardInfo">
                             <div class="info-container">
                                 <div class="info-image">
-                                    <img [src]="cardInfo.photo" alt="">
+                                    <img *ngIf="cardInfo.photo" [src]="cardInfo.photo" alt="">
+                                    <img *ngIf="!cardInfo.photo" src="/assets/images/userpic.jpg" alt="">
                                 </div>
                                 <div class="main-info">
                                     <p class="info-name">{{cardInfo.name}}</p>
