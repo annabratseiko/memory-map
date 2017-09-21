@@ -31,6 +31,7 @@ import { PopupComponent } from './pages/popup/popup.component';
 import { FiltersService } from "./shared/services/filters.service";
 import { LoadingPopupComponent } from './components/loading-popup/loading-popup.component';
 import { LoaderService } from './shared/services/loader.service';
+import { SearchResultComponent } from './components/header/search-result/search-result.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/translate/", ".json");
@@ -52,7 +53,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ListComponent,
     FooterComponent,
     PopupComponent,
-    LoadingPopupComponent
+    LoadingPopupComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

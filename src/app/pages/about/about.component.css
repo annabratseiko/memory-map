@@ -1,0 +1,4 @@
+article.italic p {
+    font-style: italic;
+    font-size: 14px;
+}

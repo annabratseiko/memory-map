@@ -39,5 +39,18 @@
         "BIRTH": "Birth place",
         "DEATH": "Death place",
         "STATUS": "Status"
+    },
+    "ABOUT": {
+        "TITLE": "About",
+        "TEXT_1": "The hybrid armed conflict in Ukraine is accompanied by intense information warfare on both sides. One of its components is the concealing of the Russian servicemen presence on the part of the Russian Federation, and on the part of Ukraine – concealing the real circumstances of the deaths of the civilian population and the military. There is quite contradictory information in the media of both countries about the dead combatants – non-residents of the countries participating in the conflict.",
+        "TEXT_2": "The absence of open lists of the dead and access to reliable information provides ample opportunities for manipulating the consciousness of citizens of Ukraine and the Russian Federation, distorting the real situation in the conflict zone, complicating the peacekeeping activities of international organizations. The fragmentation and controversy of databases, currently existing in government bodies and NGOs make it difficult to form the state information policy and counteract effectively to false information. These factors together create a permanent threat to the rights of citizens to access information, social protection and legal assistance.",
+        "TEXT_3": "Based on the mechanisms of transitional justice, the need to identify and memorialize the victims as a first step towards reconciliation and objective coverage of events, we invite everyone to join in clarifying the circumstances of the death and to identify each one:",
+        "LI_1": "by phone:",
+        "LI_2": "by e-mail:",
+        "LI_3": "by mail: 3/34 Frolivska St, Kyiv (for the Documentation Centre)",
+        "LI_4": "by the site form.",
+        "TEXT_4": "The war is not over until the last dead is buried.",
+        "TEXT_5": "This resource was created through the Transition Promotion Program of the Ministry of Foreign Affairs of the Czech Republic and the generous support from the American people provided by the US Agency for International Development (USAID).",
+        "TEXT_6": "Інформація та погляди, викладені в даній публікації, є авторськими та не обов&#39;язково відображають офіційну думку Міністерства закордонних справ Чеської Республіки."
     }
 }
