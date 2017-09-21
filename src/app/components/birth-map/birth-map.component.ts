@@ -65,7 +65,8 @@ export class BirthMapComponent implements OnInit, OnDestroy {
           id: element,
           lat: Number(this.cities[element].coords.lat),
           lng: Number(this.cities[element].coords.lng),
-          draggable: false
+          draggable: false,
+          // scaledSize: 40 
         })
       }
     });
@@ -95,6 +96,7 @@ export class BirthMapComponent implements OnInit, OnDestroy {
   showCard(id: any) {
     this.showList = false;
     this._dataService.getPersonShort(id, this.filter.age, this.filter.country, this.filter.date, this.filter.sex, this.filter.status).subscribe(res => {
+      console.log('b one', res);
       let card = JSON.parse(JSON.stringify(res)).main;
       this.cardInfo = {
         id: card.id,
