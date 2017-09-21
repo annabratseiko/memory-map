@@ -21,11 +21,14 @@ export class ListComponent implements OnInit, OnDestroy {
   public showPopup: boolean = false;
   public filtersData: any;
   public countriesKeys: any;
+  public ageKeys: any;
   public loaders: LoaderModel;
-  
   public filters: FilterModel;
   public activeStatus: string = '';
   public activeSex: string = '';
+  public firstDate = new Date(2014, 0);
+  public dateFilter = [null, null];
+  public ageFilter = [null, null];
 
   private subscription: Subscription;
   private loadSubscription: Subscription;
@@ -81,6 +84,7 @@ export class ListComponent implements OnInit, OnDestroy {
       this.filtersData = JSON.parse(localFilters);
     }
     this.countriesKeys = Object.keys(this.filtersData.countries);
+    this.ageKeys = Object.keys(this.filtersData.age);
     console.log(this.filtersData);
   }
 
@@ -130,12 +134,38 @@ export class ListComponent implements OnInit, OnDestroy {
     this._filterService.changeFilter(event.toString(), 'country');
   }
 
+  selectAge(event, type) {
+    if (type === 'start') {
+      this.ageFilter[0] = event;
+    } else if (type === 'end') {
+      this.ageFilter[1] = event;
+    }
+    this._filterService.changeFilter(this.ageFilter, 'age');
+  }
+
+  onSelectDate(event, type) {
+    let date = new Date(event);
+    let fullDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    if (type === 'start') {
+      this.dateFilter[0] = fullDate;
+    } else if (type === 'end') {
+      this.dateFilter[1] = fullDate;
+    }
+    this._filterService.changeFilter(this.dateFilter, 'date');
+  }
+
   resetFilters() {
+    this._filterService.changeFilter(null, 'date');
+    this.dateFilter = [null, null];
+    this._filterService.changeFilter(null, 'age');
+    this.ageFilter = [null, null];
     this._filterService.changeFilter(null, 'status');
     this.activeStatus = '';
     this._filterService.changeFilter(null, 'sex');
     this.activeSex = '';
     this._filterService.changeFilter(null, 'country');
+    
+    this.getData();
   }
 
   setFilters() {

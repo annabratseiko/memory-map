@@ -2,8 +2,8 @@
     <div class="list-view">
         <div class="list-filters">
             <div class="filters-container">
-                <div class="top-filters">
-                    <p class="filters__name">{{'FILTERS.TITLE' | translate}}</p>
+                <div class="top-filters" style="height: 75px;">
+                    <!-- <p class="filters__name">{{'FILTERS.TITLE' | translate}}</p>
                     <select class="filter__params" id="letter__filter">
                         <option value="">A</option>
                         <option value="">Б</option>
@@ -12,7 +12,7 @@
                     <select class="filter__params" id="year__filter">
                         <option value="">2014</option>
                         <option value="">2015</option>
-                    </select>
+                    </select> -->
                     <button class="grey-button filter__params graph-field js-hook-filter-params-open">
                         Усі фільтри
                         <span>
@@ -30,18 +30,22 @@
                 <div class="filters__all">
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
-                            <p class="filters__name">Дата</p>
-                            <select class="filter__params filter__params_date list-select-age" id="first-date-list"> </select>
+                            <p class="filters__name">{{'FILTERS.DATE' | translate}}</p>
+                            <material-datepicker class="filter__params_date list-select-age" [rangeStart]="firstDate" (onSelect)="onSelectDate($event, 'start')"></material-datepicker>
                             <span class="filter__line">—</span>
-                            <select class="filter__params filter__params_date list-select-age" id="second-date-list"></select>
+                            <material-datepicker class="filter__params_date list-select-age" [rangeStart]="firstDate" (onSelect)="onSelectDate($event, 'end')"></material-datepicker>
                         </div>
                     </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
-                            <p class="filters__name">Biк</p>
-                            <select class="filter__params filter__params_age list-select-age" id="first-age-list"></select>
+                            <p class="filters__name">{{'FILTERS.AGE' | translate}}</p>
+                            <select class="filter__params filter__params_age list-select-age" (change)="selectAge($event.target.value, 'start')">
+                                <option value="{{item}}" *ngFor="let item of ageKeys">{{item}}</option>
+                            </select>
                             <span class="filter__line">—</span>
-                            <select class="filter__params filter__params_age list-select-age" id="second-age-list"></select>
+                            <select class="filter__params filter__params_age list-select-age" (change)="selectAge($event.target.value, 'end')">
+                                <option value="{{item}}" *ngFor="let item of ageKeys">{{item}}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="filter-container simple light-dark">
@@ -105,8 +109,8 @@
                 </div>
                 <div class="pagination__block">
                     <!--<div class="prev__button">Попередня</div>-->
-                    <div class="prev__button active" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span>{{'GENERAL.PREV' | translate}}</div>
-                    <div class="prev__button active mobile__arrow" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span></div>
+                    <div class="prev__button active" (click)="goToPage(currentPage - 1)" [ngClass]="{'disabled': currentPage === 1}"><span><img src="./assets/images/arrow.png"></span>{{'GENERAL.PREV' | translate}}</div>
+                    <div class="prev__button active mobile__arrow" (click)="goToPage(currentPage - 1)" [ngClass]="{'disabled': currentPage === 1}"><span><img src="./assets/images/arrow.png"></span></div>
 
                     <!-- TODO: no need to use this code! -->
                     <!-- <div class="pages">

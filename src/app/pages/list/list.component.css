@@ -6,3 +6,8 @@ app-popup {
     height: 100%;
     z-index: 9999;
 }
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
