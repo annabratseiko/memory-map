@@ -1,9 +1,40 @@
 {
+    "GENERAL": {
+        "RESET": "reset",
+        "PREV": "Previous",
+        "NEXT": "Next"
+    },
     "HEADER": {
         "NAME": "Memory map",
         "MAP": "Map",
         "LIST": "List",
         "SEARCH_PLACEHOLDER": "Search...",
         "ABOUT": "About"
+    },
+    "FILTERS": {
+        "TITLE": "Filters",
+        "AGE": "Age",
+        "COUNTRY": "Country of birth",
+        "DATE": "Date",
+        "GENDER": {
+            "NAME": "Gender",
+            "MALE": "Men",
+            "FEMALE": "Women"
+        },
+        "STATUS": {
+            "NAME": "Status",
+            "MILITARY": "Military",
+            "CIVIL": "Civil"
+        },
+        "BUTTONS": {
+            "DONE": "Set filters",
+            "RESET": "Reset filters"
+        }
+    },
+    "DATA": {
+        "NAME": "Name",
+        "BIRTH": "Birth place",
+        "DEATH": "Death place",
+        "STATUS": "Status"
     }
 }

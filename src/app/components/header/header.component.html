@@ -5,14 +5,19 @@
         <div class="switch_view logo flex-align-self-center" [routerLink]="'/list/1'" routerLinkActive="switch_view--active">{{'HEADER.LIST' | translate}}</div>
         <div class="search-lang-container flex-container">
             <form class="search">
-                <input type="text" placeholder="{{'HEADER.SEARCH_PLACEHOLDER' | translate}}" class="search-input">
-                <button type="button">
+                <input type="text" placeholder="{{'HEADER.SEARCH_PLACEHOLDER' | translate}}" class="search-input" [(ngModel)]="searchQuery" (keypress)="startSearch($event)" name="search">
+                <button type="button" (click)="startSearch()">
                         <img src="/assets/images/search.png">
                     </button>
-                <div class="search-result">
+                <div class="search-result none">
                     <div class="search-section search-city-section">
                         <p class="search-section-title">Miста <span>Загибель</span> <span>Походження</span></p>
-                        <div class="search-cities"></div>
+                        <div class="search-cities">
+                            <p class="search-city-item">
+                                <span></span>
+                                <span></span>
+                            </p>
+                        </div>
                     </div>
                     <div class="search-section search-name-section">
                         <p class="search-section-title">Імена</p>

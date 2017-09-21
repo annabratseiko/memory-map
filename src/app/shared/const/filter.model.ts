@@ -4,6 +4,7 @@ export class FilterModel {
     date: any;
     sex: any;
     status: any;
+    query: string;
 
     constructor() {
         this.age = null;
@@ -11,6 +12,7 @@ export class FilterModel {
         this.date = null;
         this.sex = null;
         this.status = null;
+        this.query = null;
     }
     
 }

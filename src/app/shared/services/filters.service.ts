@@ -13,7 +13,8 @@ export class FiltersService {
     date: null,
     country: null,
     status: null,
-    sex: null
+    sex: null,
+    query: null
   };
 
   private filtersSourse = new Subject<any>();
@@ -40,6 +41,10 @@ export class FiltersService {
       }
       case 'sex': {
         this.filtersScope.sex = value;
+        break;
+      }
+      case 'query': {
+        this.filtersScope.query = value;
         break;
       }
     }

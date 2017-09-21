@@ -3,7 +3,7 @@
         <div class="list-filters">
             <div class="filters-container">
                 <div class="top-filters">
-                    <p class="filters__name" style="padding: 15px; font-size: 15px;">Фільтрувати</p>
+                    <p class="filters__name" style="padding: 15px; font-size: 15px;">{{'FILTERS.TITLE' | translate}}</p>
                     <!-- <select class="filter__params" id="letter__filter">
                         <option value="">A</option>
                         <option value="">Б</option>
@@ -60,10 +60,10 @@
                 <div class="space"></div>
                 <div class="list">
                     <div class="list__row">
-                        <p>Ім'я</p>
-                        <p>Народження</p>
-                        <p>Смерть</p>
-                        <p>Статус</p>
+                        <p>{{'DATA.NAME' | translate}}</p>
+                        <p>{{'DATA.BIRTH' | translate}}</p>
+                        <p>{{'DATA.DEATH' | translate}}</p>
+                        <p>{{'DATA.STATUS' | translate}}</p>
                     </div>
                     <div class="list__row listing" *ngFor="let item of listKeys" (click)="getDetailInfo(list[item].id)">
                         <div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="pagination__block">
                     <!--<div class="prev__button">Попередня</div>-->
-                    <div class="prev__button active" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span>Попередня</div>
+                    <div class="prev__button active" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span>{{'GENERAL.PREV' | translate}}</div>
                     <div class="prev__button active mobile__arrow" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span></div>
                     <!-- <div class="pages">
                         <a href="" [routerLink]="'/list/1'" routerLinkActive="active">1</a>
@@ -87,7 +87,7 @@
                         <a href="" [routerLink]="'/list/5'" routerLinkActive="active">5</a>
                     </div> -->
                     <!--<div class="next__button">Наступна</div>-->
-                    <div class="next__button" (click)="goToPage(currentPage + 1)">Наступна<span><img src="./assets/images/arrow.png"></span></div>
+                    <div class="next__button" (click)="goToPage(currentPage + 1)">{{'GENERAL.NEXT' | translate}}<span><img src="./assets/images/arrow.png"></span></div>
                     <div class="next__button active mobile__arrow" (click)="goToPage(currentPage + 1)"><span><img src="./assets/images/arrow.png"></span></div>
                 </div>
             </div>

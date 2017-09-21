@@ -24,14 +24,11 @@ export class MainComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this._filterService.filterChoosen$.subscribe(filters => {
-      console.log('filSer', filters);
-      this._dataService.getCities(filters.age, filters.date, filters.country, filters.status, filters.sex).subscribe(res => {
-        console.log('get filter cities');
+      this._dataService.getCities(filters.age, filters.date, filters.country, filters.status, filters.sex, filters.query).subscribe(res => {
         this.cities = res;
       });
     });
     this._dataService.getCities().subscribe(res => {
-      console.log('get cities');
       this.cities = res;
     });
 

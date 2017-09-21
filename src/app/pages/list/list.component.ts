@@ -43,14 +43,18 @@ export class ListComponent implements OnInit, OnDestroy {
     this.getFilters();
     this.subscription = this._filterService.filterChoosen$.subscribe(filters => {
       this.filters = filters;
+      if (filters.query) {
+        console.log('search list');
+        this.getData();
+      }
     });
   }
 
   getData() {
-    this._dataService.getList(this.currentPage, this.filters.age, this.filters.country, this.filters.date, this.filters.sex, this.filters.status).subscribe(res => {
+    this._dataService.getList(this.currentPage, this.filters.age, this.filters.country, this.filters.date, this.filters.sex, this.filters.status, this.filters.query).subscribe(res => {
       this.list = JSON.parse(JSON.stringify(res)).main;
       this.listKeys = Object.keys(this.list);
-      console.log(this.list);
+      console.log('list', this.list);
     });   
   }
 
