@@ -32,7 +32,9 @@
         <div class="burger-button cross" (click)="mobMenuAction()">
             <img src="./assets/images/burger_cross.png">
         </div>
-        <a href="#" [routerLink]="'/about'" class="about">{{'HEADER.ABOUT' | translate}}</a>
+        <nav class="mobile-main__items">
+            <a href="#" [routerLink]="'/about'" class="mobile-main__item about">{{'HEADER.ABOUT' | translate}}</a>
+        </nav>
         <div class="mobile-main links">
             <a href="#" [ngClass]="{'active': currentLang === 'ua'}" (click)="changeLang($event, 'ua')">UKR</a>
             <a href="#" [ngClass]="{'active': currentLang === 'en'}" (click)="changeLang($event, 'en')">ENG</a>
