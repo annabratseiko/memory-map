@@ -523,6 +523,10 @@ footer p:last-child {
     background: white;
 }
 
+.space_dark {
+    background-color: #f8f8f8;
+}
+
 .filter-container.simple.light-dark {
     background: #e6e6e6;
     padding: 0 28px;
@@ -678,7 +682,7 @@ footer p:last-child {
     color: #000000;
     align-items: center;
     padding: 12px 0 14px;
-    background: white;
+    background-color: #f8f8f8;
     /*border-top: 1px solid black;*/
     border-bottom: 1px solid #d0d0d0;
     cursor: pointer;
@@ -687,10 +691,19 @@ footer p:last-child {
 .list-view .list .list__row:nth-of-type(1) {
     border-top: 1px solid black;
     padding: 8.5px 0;
+    cursor: default;
 }
 
 .listing>div {
     width: 46.5%;
+}
+
+.list-view .list .list__row:hover {
+    background: rgba(44, 153, 237, 0.05);
+}
+
+.list-view .list .list__row:nth-of-type(1):hover {
+    background-color: #f8f8f8;
 }
 
 .list .list__row.listing p {
@@ -895,6 +908,10 @@ footer p:last-child {
     color: #eef3f9;
 }
 
+.list-button_done:hover {
+    background: #0065b5;
+}
+
 .list-button_reset {
     padding: 0;
     margin-left: 21px;
@@ -902,6 +919,10 @@ footer p:last-child {
     letter-spacing: 0;
     height: auto;
     border-bottom: 1px dashed;
+}
+
+.list-button_reset:hover {
+    color: #000;
 }
 
 .filters__all {
@@ -1429,7 +1450,7 @@ footer p:last-child {
     justify-content: space-between;
     padding: 3em 0 5em 0;
     align-items: center;
-    background: white;
+    background-color: #f8f8f8;
 }
 
 .prev__button {
@@ -1451,6 +1472,11 @@ footer p:last-child {
     cursor: pointer;
 }
 
+.pagination__block .pages a:hover,
+.prev__button:hover,
+.next__button:hover {
+    background: rgba(44, 153, 237, 0.3);
+}
 .pagination__block .pages a {
     padding: 7px 14px 6px;
     font-size: 18px;
@@ -2006,7 +2032,7 @@ footer p:last-child {
     }
 
     .list-loader {
-        background: #fff;
+        background-color: #f8f8f8;
         text-align: center;
         padding: 15px 0;
     }
