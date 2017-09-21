@@ -13,13 +13,13 @@
                         <option value="">2014</option>
                         <option value="">2015</option>
                     </select> -->
-                    <button class="grey-button filter__params graph-field js-hook-filter-params-open">
+                    <button class="grey-button filter__params graph-field js-hook-filter-params-open none">
                         Усі фільтри
                         <span>
                             <img src="./assets/images/burger_cross_dark_grey.png">
                         </span>
                         </button>
-                    <button class="grey-button filter__params graph-field js-hook-filter-params-close none">
+                    <button class="grey-button filter__params graph-field js-hook-filter-params-close">
                         <span class="burg">
                             <img src="./assets/images/burger_dark_grey.png">
                         </span>
@@ -27,7 +27,7 @@
                 </button>
 
                 </div>
-                <div class="filters__all">
+                <div class="filters__all none">
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p class="filters__name">{{'FILTERS.DATE' | translate}}</p>
@@ -108,7 +108,6 @@
                     </div>
                 </div>
                 <div class="pagination__block">
-                    <!--<div class="prev__button">Попередня</div>-->
                     <div class="prev__button active" (click)="goToPage(currentPage - 1)" [ngClass]="{'disabled': currentPage === 1}"><span><img src="./assets/images/arrow.png"></span>{{'GENERAL.PREV' | translate}}</div>
                     <div class="prev__button active mobile__arrow" (click)="goToPage(currentPage - 1)" [ngClass]="{'disabled': currentPage === 1}"><span><img src="./assets/images/arrow.png"></span></div>
 
@@ -120,7 +119,6 @@
                         <a href="" [routerLink]="'/list/4'" routerLinkActive="active">4</a>
                         <a href="" [routerLink]="'/list/5'" routerLinkActive="active">5</a>
                     </div> -->
-                    <!--<div class="next__button">Наступна</div>-->
                     <div class="next__button" (click)="goToPage(currentPage + 1)">{{'GENERAL.NEXT' | translate}}<span><img src="./assets/images/arrow.png"></span></div>
                     <div class="next__button active mobile__arrow" (click)="goToPage(currentPage + 1)"><span><img src="./assets/images/arrow.png"></span></div>
                 </div>
