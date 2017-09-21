@@ -1,10 +1,10 @@
 <div class="content-container flex-container flex-direction-column">
-    <div class="list-view flex-container">
+    <div class="list-view">
         <div class="list-filters">
             <div class="filters-container">
                 <div class="top-filters">
-                    <p class="filters__name" style="padding: 15px; font-size: 15px;">{{'FILTERS.TITLE' | translate}}</p>
-                    <!-- <select class="filter__params" id="letter__filter">
+                    <p class="filters__name">{{'FILTERS.TITLE' | translate}}</p>
+                    <select class="filter__params" id="letter__filter">
                         <option value="">A</option>
                         <option value="">Б</option>
                         <option value="">В</option>
@@ -12,26 +12,28 @@
                     <select class="filter__params" id="year__filter">
                         <option value="">2014</option>
                         <option value="">2015</option>
-                    </select> -->
-                    <!-- <button class="grey-button filter__params graph-field js-hook-filter-params-open">Усі фільтри<span><img src="./assets/images/burger_cross_dark_grey.png"></span></button> -->
-                    <!-- <button class="grey-button filter__params graph-field js-hook-filter-params-close none"><span class="burg"><img src="./assets/images/burger_dark_grey.png"></span>Усі фільтри</button> -->
+                    </select>
+                    <button class="grey-button filter__params graph-field js-hook-filter-params-open">Усі фільтри<span><img src="./assets/images/burger_cross_dark_grey.png"></span></button>
+                    <button class="grey-button filter__params graph-field js-hook-filter-params-close none"><span class="burg"><img src="./assets/images/burger_dark_grey.png"></span>Усі фільтри</button>
 
                 </div>
                 <div class="filters__all">
-                    <!-- <div class="filter-container simple light-dark">
+                    <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p class="filters__name">Дата</p>
                             <select class="filter__params list-select-age" id="first-date-list"> </select>
+                            <span class="filter__line">—</span>
                             <select class="filter__params list-select-age" id="second-date-list"></select>
                         </div>
                     </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p class="filters__name">Biк</p>
-                            <select class="filter__params list-select-age" id="first-age-list"> - </select>
+                            <select class="filter__params list-select-age" id="first-age-list"></select>
+                            <span class="filter__line">—</span>
                             <select class="filter__params list-select-age" id="second-age-list"></select>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p class="filters__name country">{{'FILTERS.COUNTRY' | translate}}</p>
@@ -42,20 +44,20 @@
                     </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
-                            <p>{{'FILTERS.GENDER.NAME' | translate}}</p>
+                            <p class="filters__name">{{'FILTERS.GENDER.NAME' | translate}}</p>
                             <div class="graph-field gender-field" [ngClass]="{'graph-field--active': activeSex === 'male'}" (click)="chooseFilter('sex', 0)">{{'FILTERS.GENDER.MALE' | translate}}</div>
                             <div class="graph-field gender-field" [ngClass]="{'graph-field--active': activeSex === 'female'}" (click)="chooseFilter('sex', 1)">{{'FILTERS.GENDER.FEMALE' | translate}}</div>
                         </div>
                     </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph status__graph">
-                            <p>{{'FILTERS.STATUS.NAME' | translate}}</p>
+                            <p class="filters__name">{{'FILTERS.STATUS.NAME' | translate}}</p>
                             <div class="graph-field status-field" [ngClass]="{'graph-field--active': activeStatus === 'military'}" (click)="chooseFilter('status', 0)">{{'FILTERS.STATUS.MILITARY' | translate}}</div>
                             <div class="graph-field status-field" [ngClass]="{'graph-field--active': activeStatus === 'civil'}" (click)="chooseFilter('status', 1)">{{'FILTERS.STATUS.CIVIL' | translate}}</div>
                         </div>
                     </div>
-                    <button class="reset-button reset-status list-button" (click)="setFilters()">{{'FILTERS.BUTTONS.DONE' | translate}}</button>
-                    <button class="reset-button reset-status list-button" (click)="resetFilters()">{{'FILTERS.BUTTONS.RESET' | translate}}</button>
+                    <button class="reset-button reset-status list-button list-button_done" (click)="setFilters()">{{'FILTERS.BUTTONS.DONE' | translate}}</button>
+                    <button class="reset-button reset-status list-button list-button_reset" (click)="resetFilters()">{{'FILTERS.BUTTONS.RESET' | translate}}</button>
                 </div>
                 <div class="space"></div>
                 <div class="list">
@@ -79,13 +81,13 @@
                     <!--<div class="prev__button">Попередня</div>-->
                     <div class="prev__button active" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span>{{'GENERAL.PREV' | translate}}</div>
                     <div class="prev__button active mobile__arrow" (click)="goToPage(currentPage - 1)"><span><img src="./assets/images/arrow.png"></span></div>
-                    <!-- <div class="pages">
+                    <div class="pages">
                         <a href="" [routerLink]="'/list/1'" routerLinkActive="active">1</a>
                         <a href="" [routerLink]="'/list/2'" routerLinkActive="active">2</a>
                         <a href="" [routerLink]="'/list/3'" routerLinkActive="active">3</a>
                         <a href="" [routerLink]="'/list/4'" routerLinkActive="active">4</a>
                         <a href="" [routerLink]="'/list/5'" routerLinkActive="active">5</a>
-                    </div> -->
+                    </div>
                     <!--<div class="next__button">Наступна</div>-->
                     <div class="next__button" (click)="goToPage(currentPage + 1)">{{'GENERAL.NEXT' | translate}}<span><img src="./assets/images/arrow.png"></span></div>
                     <div class="next__button active mobile__arrow" (click)="goToPage(currentPage + 1)"><span><img src="./assets/images/arrow.png"></span></div>
