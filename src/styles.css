@@ -613,8 +613,39 @@ footer p:last-child {
     outline: none;
 }
 
+.list-filters .top-filters button.filter-button {
+    height: 38px;
+    padding: 0 16px 0 48px;
+}
+
+.list-filters .top-filters button.filter-button_close {
+    padding: 0 46px 0 18px;
+}
+
 .list-filters .top-filters button span {
-    margin-left: 15px;
+    position: absolute;
+    top: 0;
+    left: 22px;
+    position: absolute;
+    right: auto;
+}
+
+.list-filters .top-filters button span  {
+    background-image: url(./assets/images/burger_dark_grey.png);
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.list-filters .top-filters button.filter-button_close span{
+    right: 17px;
+    left: auto;
+}
+
+.list-filters .top-filters button.filter-button_close span{
+    background-image: url(./assets/images/burger_cross_dark_grey.png);
 }
 
 .list-filters .top-filters button span.burg {
@@ -622,7 +653,7 @@ footer p:last-child {
     margin-left: 0;
 }
 
-.list-filters .top-filters button span img {
+.list-filters .top-filters button span {
     width: 12px;
 }
 
@@ -979,7 +1010,7 @@ footer p:last-child {
 
 .graph-field {
     min-height: 38px;
-    line-height: 40px;
+    line-height: 38px;
     font-size: 12px;
     padding: 0 10px;
     cursor: pointer;
@@ -1521,6 +1552,12 @@ footer p:last-child {
 
     [ng-reflect-filter] {
         display: block;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .mobile-main {
+        display: none;
     }
 }
 
