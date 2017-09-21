@@ -128,5 +128,6 @@
         </div>
     </div>
 </div>
-<app-popup *ngIf="showPopup" [details]="personDetails" (close)="closePopup($event)"></app-popup>
+<app-popup *ngIf="showPopup" [details]="personDetails" (close)="closePopup($event)" (showContact)="openContactPopup($event)"></app-popup>
+<app-contact [showContact]="openContact" (closeContact)="openContactPopup($event)"></app-contact>
 <app-loading-popup *ngIf="!loaders.list"></app-loading-popup>

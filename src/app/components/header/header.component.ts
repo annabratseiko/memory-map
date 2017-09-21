@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
   public location: string = '';
   public showPopup: boolean = false;
   public popupInfo: any;
+  public openContact: boolean = false;
 
   private subscription: Subscription;
   private urlSubscription: Subscription;
@@ -96,6 +97,10 @@ export class HeaderComponent implements OnInit {
         this.searchPersonsKeys = Object.keys(this.searchPersons);
       });
     }
+  }
+
+  openContactPopup(event) {
+    this.openContact = event;
   }
 
 

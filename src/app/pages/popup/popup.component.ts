@@ -8,6 +8,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 export class PopupComponent implements OnInit {
   @Input() details: any;
   @Output() close: EventEmitter<boolean> = new EventEmitter();
+  @Output() showContact: EventEmitter<boolean> = new EventEmitter();
   
   constructor() { }
 
@@ -16,6 +17,11 @@ export class PopupComponent implements OnInit {
 
   closePopup() {
     this.close.emit(false);
+  }
+
+  openContactPopup() {
+    this.closePopup();
+    this.showContact.emit(true);
   }
 
 }
