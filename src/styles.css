@@ -586,7 +586,7 @@ footer p:last-child {
 }
 
 .list-filters .top-filters button {
-    max-width: 160px;
+    max-width: none;
     text-align: center;
     color: #2e2e2e;
     border: none;
@@ -605,7 +605,8 @@ footer p:last-child {
 }
 
 .list-filters .top-filters button span.burg {
-    margin-right: 10px;
+    margin-right: 12px;
+    margin-left: 0;
 }
 
 .list-filters .top-filters button span img {
@@ -785,7 +786,15 @@ footer p:last-child {
     font-size: 13px;
 }
 
-.filter__params.list-select-age {
+.filter__params.filter__params_date {
+    max-width: 188px;
+}
+
+.filter__params.filter__params_age {
+    max-width: 79px;
+}
+
+.filter__params.filter__params_country {
     max-width: 188px;
 }
 

@@ -13,31 +13,41 @@
                         <option value="">2014</option>
                         <option value="">2015</option>
                     </select>
-                    <button class="grey-button filter__params graph-field js-hook-filter-params-open">Усі фільтри<span><img src="./assets/images/burger_cross_dark_grey.png"></span></button>
-                    <button class="grey-button filter__params graph-field js-hook-filter-params-close none"><span class="burg"><img src="./assets/images/burger_dark_grey.png"></span>Усі фільтри</button>
+                    <button class="grey-button filter__params graph-field js-hook-filter-params-open">
+                        Усі фільтри
+                        <span>
+                            <img src="./assets/images/burger_cross_dark_grey.png">
+                        </span>
+                        </button>
+                    <button class="grey-button filter__params graph-field js-hook-filter-params-close none">
+                        <span class="burg">
+                            <img src="./assets/images/burger_dark_grey.png">
+                        </span>
+                    Усі фільтри
+                </button>
 
                 </div>
                 <div class="filters__all">
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p class="filters__name">Дата</p>
-                            <select class="filter__params list-select-age" id="first-date-list"> </select>
+                            <select class="filter__params filter__params_date list-select-age" id="first-date-list"> </select>
                             <span class="filter__line">—</span>
-                            <select class="filter__params list-select-age" id="second-date-list"></select>
+                            <select class="filter__params filter__params_date list-select-age" id="second-date-list"></select>
                         </div>
                     </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p class="filters__name">Biк</p>
-                            <select class="filter__params list-select-age" id="first-age-list"></select>
+                            <select class="filter__params filter__params_age list-select-age" id="first-age-list"></select>
                             <span class="filter__line">—</span>
-                            <select class="filter__params list-select-age" id="second-age-list"></select>
+                            <select class="filter__params filter__params_age list-select-age" id="second-age-list"></select>
                         </div>
                     </div>
                     <div class="filter-container simple light-dark">
                         <div class="filters__graph">
                             <p class="filters__name country">{{'FILTERS.COUNTRY' | translate}}</p>
-                            <select class="filter__params list-select-age" id="filter-country-list" (change)="chooseCountry($event.target.value)">
+                            <select class="filter__params filter__params_country list-select-age" id="filter-country-list" (change)="chooseCountry($event.target.value)">
                                 <option value="{{item}}" *ngFor="let item of countriesKeys">{{filtersData.countries[item].countryName}}</option>
                             </select>
                         </div>
