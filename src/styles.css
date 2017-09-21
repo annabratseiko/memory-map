@@ -234,6 +234,12 @@ footer p:last-child {
     align-self: center;
 }
 
+.flex-wrap-wrap {
+    -webkit-flex-wrap: center;
+    -ms-flex-wrap: center;
+    flex-wrap: center;
+}
+
 
 /*header styles*/
 
@@ -768,6 +774,7 @@ footer p:last-child {
     color: #fff;
     padding: 20px;
     padding-bottom: 30px;
+    overflow-y: hidden;
 }
 
 .filter-container.dark {
@@ -779,6 +786,7 @@ footer p:last-child {
     align-self: center;
     min-width: 66px;
     margin-right: 6px;
+    margin-bottom: 5px;
 }
 
 .filter__params {
@@ -822,6 +830,8 @@ footer p:last-child {
     -o-transition: .3s;
     transition: .3s;
     letter-spacing: .6px;
+    -ms-align-self: center;
+    align-self: center;
 }
 
 .list-button {
@@ -870,7 +880,7 @@ footer p:last-child {
     height: 80px;
     width: 100%;
     background: #888;
-    margin-top: 12px;
+    margin-top: 10px;
     position: relative;
 }
 
@@ -958,7 +968,7 @@ footer p:last-child {
 }
 
 .graph-field {
-    height: 38px;
+    min-height: 38px;
     line-height: 40px;
     font-size: 12px;
     padding: 0 10px;
