@@ -518,6 +518,13 @@ footer p:last-child {
     margin: 0 auto;
 }
 
+.list-view .datepicker input{
+    background: #f1f1f1 !important;
+    border: 0 !important;
+    border-radius: 3px;
+    height: 38px;
+}
+
 .space {
     height: 30px;
     background: white;
@@ -1652,6 +1659,44 @@ footer p:last-child {
     .switch_view {
         display: none;
     }
+    
+    .list-view .filters__graph {
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        -o-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+    }
+
+    .list-view .filters__name {
+        display: block;
+        width: 100%;
+    }
+
+    .filters__name.country {
+        flex-basis: 100% !important;
+    }
+
+    .filter-container.simple.light-dark {
+        padding: 0 15px;
+    }
+
+    .list-view .datepicker {
+        max-width: 185px;
+    }
+
+    .list-view .datepicker input {
+        max-width: 100%;
+    }
+
+    .filter__line {
+        margin: 0 5px;
+    }
+
+    .list-button {
+        margin-left: 15px;
+    }
+
     .list__row.listing span {
         display: inline-block;
         width: 25%;
@@ -1710,8 +1755,9 @@ footer p:last-child {
     .listing>div>h3 {
         display: inline-block;
         position: absolute;
-        top: 18px;
-        margin-left: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 0 0 4px;
         font-size: 16px;
     }
     .space {
@@ -1774,6 +1820,12 @@ footer p:last-child {
 
         .round__img {
             width: 60px;
+            height: 60px;
+        }
+
+        .round__img img{
+            width: 60px;
+            height: 60px;
         }
     }
 
@@ -1826,7 +1878,7 @@ footer p:last-child {
         }
 
         .list-view .list-filters .filters__graph * {
-            font-size: 12px;
+            font-size: 14px;
         }
 
         .list-view .list-filters {
@@ -1834,11 +1886,23 @@ footer p:last-child {
         }
 
         .list-button {
-            width: 38%;
             font-size: 14px;
-            margin-left: 12px;
             width: auto;
         }
+
+        .list-view .datepicker {
+            max-width: none;
+            width: 100%;
+        }
+
+        .list-view .datepicker input{
+            width: 100%;
+        }
+
+        material-datepicker {
+            width: calc(50% - 10px);
+        }
+
         .search {
             display: none;
         }
@@ -1924,10 +1988,6 @@ footer p:last-child {
         }
         .page-wrapper .quote>div img {
             display: none;
-        }
-
-        .filter-container.simple.light-dark {
-            padding: 0 14px;
         }
 
         .list-view .list-filters .filters__graph .graph-field {
