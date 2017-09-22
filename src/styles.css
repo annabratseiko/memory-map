@@ -750,8 +750,10 @@ footer p:last-child {
 }
 
 .round__img {
-    width: 15%;
-    height: auto;
+    /*width: 15%;*/
+    /*height: auto;*/
+    width: 60px;
+    height: 60px;
     display: inline-block;
     vertical-align: middle;
     font-size: 0;
@@ -916,7 +918,7 @@ footer p:last-child {
 }
 
 .list-button_done:hover {
-    background: #0065b5;
+    background: #2084d4;
 }
 
 .list-button_reset {
