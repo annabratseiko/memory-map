@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptionsArgs } from '@angular/http';
+import { Http, Response, RequestOptionsArgs, RequestOptions, Headers } from '@angular/http';
+import {TranslateService} from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
 import { CONFIG } from '../../app.config';
 
@@ -13,7 +14,8 @@ import { HttpClient } from "@angular/common/http";
 export class DataService {
 
   constructor(
-    private http: Http
+    private http: Http,
+    private translate: TranslateService
   ) { }
 
   public getCities(age?, date?, country?, status?, sex?, query?) : Observable<any> {
@@ -23,7 +25,8 @@ export class DataService {
     let statusStr = status ? `&status=${status}` : '';
     let sexStr = sex ? `&gender=${sex}` : '';
     let querySrt = query ? `&query=${query}` : '';
-    return this.http.get(`${CONFIG.API}/cities?lang=uk${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}${querySrt}`)
+    let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
+    return this.http.get(`${CONFIG.API}/cities?lang=${lg}${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}${querySrt}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
@@ -40,7 +43,8 @@ export class DataService {
     let countryStr = country ? `&country_id=${country}` : '';
     let statusStr = status ? `&status=${status}` : '';
     let sexStr = sex ? `&gender=${sex}` : '';
-    return this.http.get(`${CONFIG.API}/person_list_city?city_id=${id}&city_type=${type}&lang=uk${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}`)
+    let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
+    return this.http.get(`${CONFIG.API}/person_list_city?city_id=${id}&city_type=${type}&lang=${lg}${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
@@ -51,13 +55,15 @@ export class DataService {
     let countryStr = country ? `&country_id=${country}` : '';
     let statusStr = status ? `&status=${status}` : '';
     let sexStr = sex ? `&gender=${sex}` : '';
-    return this.http.get(`${CONFIG.API}/person_short?person_id=${id}&lang=uk${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}`)
+    let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
+    return this.http.get(`${CONFIG.API}/person_short?person_id=${id}&lang=${lg}${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
 
   public getPersonDetail(id) : Observable<any> {
-    return this.http.get(`${CONFIG.API}/person_detail?person_id=${id}&lang=uk`)
+    let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
+    return this.http.get(`${CONFIG.API}/person_detail?person_id=${id}&lang=${lg}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
@@ -69,14 +75,24 @@ export class DataService {
     let statusStr = status ? `&status=${status}` : '';
     let sexStr = sex ? `&gender=${sex}` : '';
     let querySrt = query ? `&query=${query}` : '';
-    return this.http.get(`${CONFIG.API}/person_list?page=${page}&lang=uk${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}${querySrt}`)
+    let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
+    return this.http.get(`${CONFIG.API}/person_list?page=${page}&lang=${lg}${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}${querySrt}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
 
   public search(query: string) : Observable<any> {
-    return this.http.get(`${CONFIG.API}/search?query=${query}&lang=uk`)
+    let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
+    return this.http.get(`${CONFIG.API}/search?query=${query}&lang=${lg}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
+
+  public sendMail(data: any): Observable<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(`${CONFIG.API}/mail`, data, options)
+               .map((res:Response) => {return res;})
+               .catch((error:any) => Observable.throw(error || 'Server error'));
+  } 
 }
