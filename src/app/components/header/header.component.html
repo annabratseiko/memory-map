@@ -9,6 +9,9 @@
                 <button type="button" (click)="startSearch()">
                     <img src="/assets/images/search.png">
                 </button>
+                <div class="search__close">
+                    <img src="./assets/images/close.svg" alt="">
+                </div>
                 <app-search-result (detailInfo)="getDetailInfo($event)" [hideResult]="hideResult" [endSearch]="endSearch" [searchCities]="searchCities" [searchCitiesKeys]="searchCitiesKeys" [searchPersons]="searchPersons" [searchPersonsKeys]="searchPersonsKeys"></app-search-result>
             </form>
             <button type="button" class="mobile__search">
