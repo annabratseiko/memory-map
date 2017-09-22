@@ -699,7 +699,7 @@ footer p:last-child {
 }
 
 .list-view .list .list__row:hover {
-    background: rgba(44, 153, 237, 0.05);
+    background: #e6e6e6;
 }
 
 .list-view .list>.list__row:nth-of-type(1):hover {
