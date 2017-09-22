@@ -688,7 +688,7 @@ footer p:last-child {
     cursor: pointer;
 }
 
-.list-view .list .list__row:nth-of-type(1) {
+.list-view .list>.list__row:nth-of-type(1) {
     border-top: 1px solid black;
     padding: 8.5px 0;
     cursor: default;
@@ -702,7 +702,7 @@ footer p:last-child {
     background: rgba(44, 153, 237, 0.05);
 }
 
-.list-view .list .list__row:nth-of-type(1):hover {
+.list-view .list>.list__row:nth-of-type(1):hover {
     background-color: #f8f8f8;
 }
 
