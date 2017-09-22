@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
   public showPopup: boolean = false;
   public popupInfo: any;
   public openContact: boolean = false;
+  public mobSearch: boolean = false;
 
   private subscription: Subscription;
   private urlSubscription: Subscription;
@@ -101,6 +102,10 @@ export class HeaderComponent implements OnInit {
 
   openContactPopup(event) {
     this.openContact = event;
+  }
+
+  openMobileSearch(event) {
+    this.mobSearch = event;
   }
 
 

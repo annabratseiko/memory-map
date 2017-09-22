@@ -43,7 +43,6 @@ export class ContactComponent implements OnInit {
   }
 
   closePopup() {
-    console.log('click pop');
     this.closeContact.emit(false);
   }
 

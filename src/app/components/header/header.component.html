@@ -4,17 +4,17 @@
         <div class="switch_view logo flex-align-self-center" [routerLink]="'/map'" routerLinkActive="switch_view--active">{{'HEADER.MAP' | translate}}</div>
         <div class="switch_view logo flex-align-self-center" [routerLink]="'/list/1'" routerLinkActive="switch_view--active">{{'HEADER.LIST' | translate}}</div>
         <div class="search-lang-container flex-container">
-            <form class="search">
+            <form class="search" [ngClass]="{'search_opened': mobSearch}">
                 <input type="text" placeholder="{{'HEADER.SEARCH_PLACEHOLDER' | translate}}" class="search-input" [(ngModel)]="searchQuery" (keypress)="startSearch($event)" name="search">
                 <button type="button" (click)="startSearch()">
                     <img src="/assets/images/search.png">
                 </button>
-                <div class="search__close">
+                <div class="search__close" (click)="openMobileSearch(false)">
                     <img src="./assets/images/close.svg" alt="">
                 </div>
                 <app-search-result (detailInfo)="getDetailInfo($event)" [hideResult]="hideResult" [endSearch]="endSearch" [searchCities]="searchCities" [searchCitiesKeys]="searchCitiesKeys" [searchPersons]="searchPersons" [searchPersonsKeys]="searchPersonsKeys"></app-search-result>
             </form>
-            <button type="button" class="mobile__search">
+            <button type="button" class="mobile__search" (click)="openMobileSearch(true)">
                 <img src="assets/images/search.png">
               </button>
         </div>
