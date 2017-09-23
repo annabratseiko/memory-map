@@ -690,6 +690,10 @@ footer p:last-child {
     width: 100%;
 }
 
+.round__img .rounded {
+    height: 60px;
+}
+
 .list-filters .filters-container {
     position: relative;
 }
@@ -1264,7 +1268,8 @@ footer p:last-child {
 }
 
 .detail-info-photo img {
-    width: 100%;
+    width: 100px;
+    height: 100px;
 }
 
 .detail-info-block {
@@ -1335,7 +1340,6 @@ footer p:last-child {
 }
 
 .detail-info-button-inner-container {
-    border-top: 1px solid rgba(255, 255, 255, .1);
     padding-top: 5px;
     text-align: center;
 }
@@ -1593,8 +1597,8 @@ footer p:last-child {
     }
     .detail-info-container,
     .contact-container {
-        width: 100%;
-        height: auto;
+        width: calc(100% - 40px);
+        height: calc(100% - 50px);
         position: absolute;
     }
     .detail-info-name,
@@ -1604,6 +1608,10 @@ footer p:last-child {
 
     [ng-reflect-filter] {
         display: block;
+    }
+
+    .contact-title {
+        margin-bottom: 30px;
     }
 }
 
@@ -1846,6 +1854,11 @@ footer p:last-child {
             width: 60px;
             height: 60px;
         }
+
+        .contact-form {
+            width: 100%;
+            padding: 0 20px;
+        }
     }
 
     @media screen and (max-width: 480px) {
@@ -1999,7 +2012,25 @@ footer p:last-child {
             text-align: center;
         }
         .detail-info-photo {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            float: none;
+        }
+
+        .detail-info-photo img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .detail-info-item-title {
+            float: none;
             width: 100%;
+        }
+
+        .detail-info-item-text {
+            width: 100%;
+            float: none;
         }
         .list-filters .top-filters button span img {
             width: 3%;
@@ -2040,6 +2071,21 @@ footer p:last-child {
             min-width: 95px;
         }
 
+        .detail-info-list {
+            height: auto;
+        }
+
+        .detail-info-block {
+            height: auto;
+        }
+
+        .detail-info-container {
+            overflow: scroll;
+        }
+        
+        .contact-form {
+            padding: 0;
+        }
         
     }
 
@@ -2081,12 +2127,12 @@ footer p:last-child {
         .list-view .list-filters .filters__graph * {
             font-size: 12px;
         }
-        .search {
+        /*.search {
             width: 160px;
-        }
-        .search button {
+        }*/
+        /*.search button {
             display: none;
-        }
+        }*/
         .search input {
             padding-right: 24px;
         }
