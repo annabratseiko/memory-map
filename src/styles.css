@@ -1550,6 +1550,21 @@ footer p:last-child {
     display: none;
 }
 
+.clarification {
+    width: 13px;
+    height: 13px;
+    background: url(assets/images/clarification.svg);
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-left: 5px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+
+}
+
 @media screen and (max-width: 1024px) {
     .content-container {
         height: calc(100% - 64px);
@@ -1800,7 +1815,6 @@ footer p:last-child {
         padding: 0 2em;
     }
     .pagination__block {
-        background-color: white;
         padding: 40px 0;
     }
     /*.prev__button,
