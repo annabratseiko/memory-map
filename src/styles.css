@@ -1243,6 +1243,17 @@ footer p:last-child {
     z-index: 100;
 }
 
+.message-popup__text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
 .detail-info-container,
 .contact-container {
     position: absolute;
