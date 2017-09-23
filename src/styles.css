@@ -859,6 +859,10 @@ footer p:last-child {
     width: 100%;
 }
 
+.list-view .filter-container {
+    overflow-y: visible;
+}
+
 .filter-container.dark {
     background: #777;
 }
