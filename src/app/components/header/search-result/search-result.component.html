@@ -14,7 +14,7 @@
         <p>{{'GENERAL.SEARCH' | translate}}</p>
     </div>
     <div class="search-section search-city-section" *ngIf="searchCitiesKeys.length">
-        <p class="search-section-title">Miста <span>Загибель</span> <span>Походження</span></p>
+        <p class="search-section-title">{{'HEADER.SEARCH.CITIES' | translate}} <span>{{'HEADER.SEARCH.DEATH' | translate}}</span> <span>{{'HEADER.SEARCH.BIRTH' | translate}}</span></p>
         <div class="search-cities">
             <p class="search-city-item" *ngFor="let item of searchCitiesKeys">
                 {{searchCities[item].cityFullName}}
@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="search-section search-name-section" *ngIf="searchPersonsKeys.length">
-        <p class="search-section-title">Імена</p>
+        <p class="search-section-title">{{'HEADER.SEARCH.NAMES' | translate}}</p>
         <div class="search-names">
             <p class="search-name-item" *ngFor="let item of searchPersonsKeys" (click)="personClick(searchPersons[item])">{{searchPersons[item].fullName}}</p>
         </div>

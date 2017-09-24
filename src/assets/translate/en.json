@@ -12,10 +12,17 @@
         "MAP": "Map",
         "LIST": "List",
         "SEARCH_PLACEHOLDER": "Search...",
-        "ABOUT": "About"
+        "ABOUT": "About",
+        "SEARCH": {
+            "CITIES": "Cities",
+            "DEATH": "Death",
+            "BIRTH": "Birth",
+            "NAMES": "Names"
+        }
     },
     "FILTERS": {
         "TITLE": "Filters",
+        "ALL_FILTERS": "All filters",
         "AGE": "Age",
         "COUNTRY": "Country of birth",
         "DATE": "Date",
@@ -51,6 +58,29 @@
         "LI_4": "by the site form.",
         "TEXT_4": "The war is not over until the last dead is buried.",
         "TEXT_5": "This resource was created through the Transition Promotion Program of the Ministry of Foreign Affairs of the Czech Republic and the generous support from the American people provided by the US Agency for International Development (USAID).",
-        "TEXT_6": "Інформація та погляди, викладені в даній публікації, є авторськими та не обов&#39;язково відображають офіційну думку Міністерства закордонних справ Чеської Республіки."
+        "TEXT_6": ""
+    },
+    "FOOTER": {
+        "TITLE": "Memory map",
+        "DEV": "development"
+    },
+    "CONTACT": {
+        "TITLE": "Contact us (feedback)",
+        "GOAL": "Purpose of treatment",
+        "NEW_INFO": "New information",
+        "DETAILS": "Details",
+        "COMPLAINT": "Complaint",
+        "PHONE": "Phone",
+        "MESSAGE": "Your message",
+        "SEND": "Send",
+        "MESSAGE_SENT": "Your message was sent."
+    },
+    "POPUP": {
+        "STATUS": "Status",
+        "RANK": "Rank",
+        "POSITION": "Position",
+        "BIRTH": "Birth place",
+        "DEATH": "Death place",
+        "DESCRIPTION": "Description"
     }
 }

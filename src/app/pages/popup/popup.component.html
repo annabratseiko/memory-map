@@ -14,41 +14,56 @@
             </div>
             <ul class="detail-info-list">
                 <li class="detail-info-item">
-                    <p class="detail-info-item-title">Статус</p>
-                    <p class="detail-info-item-text detail-info-status">{{details.status}}</p>
+                    <p class="detail-info-item-title">{{'POPUP.STATUS' | translate}}</p>
+                    <p class="detail-info-item-text detail-info-status">
+                        {{details.status}}
+                        <span *ngIf="!details.status" class="clarification"></span>
+                    </p>
                 </li>
-                <li class="detail-info-item">
+                <!-- <li class="detail-info-item">
                     <p class="detail-info-item-title">Підрозділ</p>
                     <p class="detail-info-item-text detail-info-part"></p>
-                </li>
+                </li> -->
                 <li class="detail-info-item">
-                    <p class="detail-info-item-title">Звання</p>
+                    <p class="detail-info-item-title">{{'POPUP.RANK' | translate}}</p>
                     <p class="detail-info-item-text detail-info-military-name">
-                        {{details.rank}} 
-                        <span class="clarification"></span>
+                        {{details.rank}}
+                        <span *ngIf="!details.rank" class="clarification"></span>
                     </p>
                 </li>
                 <li class="detail-info-item">
-                    <p class="detail-info-item-title">Посада</p>
-                    <p class="detail-info-item-text detail-info-military-job">{{details.position}}</p>
+                    <p class="detail-info-item-title">{{'POPUP.POSITION' | translate}}</p>
+                    <p class="detail-info-item-text detail-info-military-job">
+                        {{details.position}}
+                        <span *ngIf="!details.position" class="clarification"></span>
+                    </p>
                 </li>
                 <li class="detail-info-item">
-                    <p class="detail-info-item-title">Походження</p>
-                    <p class="detail-info-item-text detail-info-birth-place">{{details.birthCity}}</p>
+                    <p class="detail-info-item-title">{{'POPUP.BIRTH' | translate}}</p>
+                    <p class="detail-info-item-text detail-info-birth-place">
+                        {{details.birthCity}}
+                        <span *ngIf="!details.birthCity" class="clarification"></span>
+                    </p>
                 </li>
                 <li class="detail-info-item">
-                    <p class="detail-info-item-title">Загибель</p>
-                    <p class="detail-info-item-text detail-info-death-place">{{details.deathCity}}</p>
+                    <p class="detail-info-item-title">{{'POPUP.DEATH' | translate}}</p>
+                    <p class="detail-info-item-text detail-info-death-place">
+                        {{details.deathCity}}
+                        <span *ngIf="!details.deathCity" class="clarification"></span>
+                    </p>
                 </li>
                 <li class="detail-info-item">
-                    <p class="detail-info-item-title">Інцедент</p>
-                    <p class="detail-info-item-text detail-info-description">{{details.description}}</p>
+                    <p class="detail-info-item-title">{{'POPUP.DESCRIPTION' | translate}}</p>
+                    <p class="detail-info-item-text detail-info-description">
+                        {{details.description}}
+                        <span *ngIf="!details.description" class="clarification"></span>
+                    </p>
                 </li>
             </ul>
         </div>
         <div class="detail-info-button-container">
             <div class="detail-info-button-inner-container">
-                <button type="button" class="detail-info-button" (click)="openContactPopup()">Зворотній зв'язок</button>
+                <button type="button" class="detail-info-button" (click)="openContactPopup()">{{'CONTACT.TITLE' | translate}}</button>
             </div>
         </div>
     </div>

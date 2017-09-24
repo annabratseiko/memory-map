@@ -85,7 +85,6 @@ export class DeathMapComponent implements OnInit, OnDestroy {
       }
     });
 
-    console.log(this.markers);
   }
 
   clickedMarker(city: any, type: number) {
@@ -124,7 +123,6 @@ export class DeathMapComponent implements OnInit, OnDestroy {
   }
 
   getDetailInfo(id: any) {
-    console.log(id);
     this._dataService.getPersonDetail(id).subscribe(res => {
       let card = JSON.parse(JSON.stringify(res)).main;
       let info = {

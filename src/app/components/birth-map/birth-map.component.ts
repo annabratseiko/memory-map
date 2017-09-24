@@ -79,7 +79,6 @@ export class BirthMapComponent implements OnInit, OnDestroy {
 
   pushMarkers(){
     this.markers = [];
-    console.log('born cities', this.cities);
     this.citiesKeys.forEach(element => {
       if(+this.cities[element].bornCount > 0) {
         // let marker = new google.maps.Marker({
@@ -135,7 +134,6 @@ export class BirthMapComponent implements OnInit, OnDestroy {
   showCard(id: any) {
     this.showList = false;
     this._dataService.getPersonShort(id, this.filter.age, this.filter.country, this.filter.date, this.filter.sex, this.filter.status).subscribe(res => {
-      console.log('b one', res);
       let card = JSON.parse(JSON.stringify(res)).main;
       this.cardInfo = {
         id: card.id,
@@ -150,9 +148,9 @@ export class BirthMapComponent implements OnInit, OnDestroy {
   }
 
   getDetailInfo(id: any) {
-    console.log(id);
     this._dataService.getPersonDetail(id).subscribe(res => {
       let card = JSON.parse(JSON.stringify(res)).main;
+      console.log('iiii', card);
       let info = {
         name: card.fullName,
         photo: card.photo,
