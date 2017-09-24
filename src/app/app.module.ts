@@ -34,6 +34,7 @@ import { LoadingPopupComponent } from './components/loading-popup/loading-popup.
 import { LoaderService } from './shared/services/loader.service';
 import { SearchResultComponent } from './components/header/search-result/search-result.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { MapService } from './shared/services/map.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/translate/", ".json");
@@ -81,7 +82,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     AgmSnazzyInfoWindowModule
   ],
-  providers: [FiltersService, LoaderService],
+  providers: [FiltersService, LoaderService, MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

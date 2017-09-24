@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { DataService } from "../../shared/services/data.service";
 import { styles } from "../../shared/const/map-style";
 import { FiltersService } from "../../shared/services/filters.service";
 import { FilterModel } from "../../shared/const/filter.model";
+import { MapService } from '../../shared/services/map.service';
 
 @Component({
   selector: 'app-death-map',
@@ -23,9 +24,11 @@ export class DeathMapComponent implements OnInit, OnDestroy {
   public listKeys: any;
   public cardInfo: any = null;
   public filter: FilterModel;
+  public showOverlay: boolean = false;
   
   private _cities: any;
   private subscription: Subscription;
+  private centerSubscription: Subscription;
 
   @Output() detailInfo: EventEmitter<any> = new EventEmitter();
 
@@ -43,16 +46,28 @@ export class DeathMapComponent implements OnInit, OnDestroy {
   get cities(): any {
     return this._cities;
   }
+
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    this.showOverlay = false;
+  }
   
   constructor(
     private _dataService: DataService,
-    private _filterService: FiltersService
+    private _filterService: FiltersService,
+    private mapService: MapService
   ) { }
 
   ngOnInit() {
     this.filter = new FilterModel();
     this.subscription = this._filterService.filterChoosen$.subscribe(filters => {
       this.filter = filters;
+    });
+    this.centerSubscription = this.mapService.setDeathCenter$.subscribe(center => {
+      this.centerLat = +center.lat;
+      this.centerLng = +center.lng;
+      this.zoom = 8;
+      this.showOverlay = true; 
     });
   }
 
@@ -103,7 +118,8 @@ export class DeathMapComponent implements OnInit, OnDestroy {
         description: card.description,
         birth: card.birthCityName,
         status: card.status
-      }
+      };
+      this.mapService.changeBirthFilter(card.birthCityCoords);
     });
   }
 
@@ -127,7 +143,11 @@ export class DeathMapComponent implements OnInit, OnDestroy {
     });
   }
 
+  closeInfo() {
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.centerSubscription.unsubscribe();
   }
 }

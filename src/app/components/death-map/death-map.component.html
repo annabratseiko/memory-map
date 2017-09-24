@@ -2,7 +2,7 @@
     <div id="map-died" class="map-block">
         <agm-map [latitude]="centerLat" [longitude]="centerLng" [zoom]="zoom" [styles]="mapStyle" [streetViewControl]="false">
             <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" (markerClick)="clickedMarker(marker, 1)" [iconUrl]="'/assets/images/dot.png'">
-                <agm-snazzy-info-window [maxWidth]="300" [closeWhenOthersOpen]="true" [latitude]="centerLat" [longitude]="centerLng">
+                <agm-snazzy-info-window [maxWidth]="300" [closeWhenOthersOpen]="true" [latitude]="centerLat" [longitude]="centerLng" (afterClose)="closeInfo()">
                     <ng-template>
                         <div class="card-loader" *ngIf="!showList && !cardInfo">
                             <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
@@ -42,9 +42,9 @@
             </agm-marker>
         </agm-map>
     </div>
-    <div class="map-overlay map-overlay-died">
+    <div class="map-overlay" *ngIf="showOverlay">
         <div class="focus">
-            <!-- <img src="img/selected_dot.png" alt=""> -->
+            <img src="./assets/images/selected_dot.png" alt="">
         </div>
     </div>
 </div>
