@@ -5,6 +5,8 @@ export class FilterModel {
     sex: any;
     status: any;
     query: string;
+    birthCity: number;
+    deathCity: number;
 
     constructor() {
         this.age = null;
@@ -13,6 +15,8 @@ export class FilterModel {
         this.sex = null;
         this.status = null;
         this.query = null;
+        this.birthCity = null;
+        this.deathCity = null;
     }
     
 }

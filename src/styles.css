@@ -610,7 +610,7 @@ footer p:last-child {
 }
 
 .filters__name.country {
-    flex-basis: 20% !important;
+    /* flex-basis: 20% !important; */
 }
 
 .list-filters .top-filters {
@@ -873,7 +873,8 @@ footer p:last-child {
 .filters__name {
     font-size: 18px;
     align-self: center;
-    min-width: 66px;
+    /* min-width: 66px; */
+    min-width: 160px;
     margin-right: 6px;
     margin-bottom: 5px;
 }

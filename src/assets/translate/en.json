@@ -17,7 +17,8 @@
             "CITIES": "Cities",
             "DEATH": "Death",
             "BIRTH": "Birth",
-            "NAMES": "Names"
+            "NAMES": "Names",
+            "NUM": "Number"
         }
     },
     "FILTERS": {
@@ -25,6 +26,8 @@
         "ALL_FILTERS": "All filters",
         "AGE": "Age",
         "COUNTRY": "Country of birth",
+        "BIRTH_CITY": "City of birth",
+        "DEATH_CITY": "City of death",
         "DATE": "Date",
         "GENDER": {
             "NAME": "Gender",

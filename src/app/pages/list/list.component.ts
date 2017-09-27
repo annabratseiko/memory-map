@@ -31,6 +31,15 @@ export class ListComponent implements OnInit, OnDestroy {
   public ageFilter = [null, null];
   public openContact: boolean = false;
   public showFilters: boolean = false;
+  public hideBirthResult: boolean = true;
+  public hideDeathResult: boolean = true;
+  public birthSearchQuery: string = '';
+  public deathSearchQuery: string = '';
+  public endSearch: boolean = false;
+  public birthCities: any;
+  public birthCitiesKeys: any = [];
+  public deathCities: any;
+  public deathCitiesKeys: any = [];  
 
   private subscription: Subscription;
   private loadSubscription: Subscription;
@@ -51,7 +60,6 @@ export class ListComponent implements OnInit, OnDestroy {
     
     this.loadSubscription = this.loaderService.showLoader$.subscribe(loaders => {
       this.loaders = loaders;
-      console.log(this.loaders);
     });
     this.route.params.subscribe((params: Params) => {
       this.currentPage = +params["page"];
@@ -69,7 +77,7 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   getData() {
-    this._dataService.getList(this.currentPage, this.filters.age, this.filters.country, this.filters.date, this.filters.sex, this.filters.status, this.filters.query).subscribe(res => {
+    this._dataService.getList(this.currentPage, this.filters.age, this.filters.country, this.filters.date, this.filters.sex, this.filters.status, this.filters.query, this.filters.birthCity, this.filters.deathCity).subscribe(res => {
       this.list = JSON.parse(JSON.stringify(res)).main;
       this.listKeys = Object.keys(this.list);
       this.loaderService.loadComplete(true, 'list');
@@ -152,6 +160,60 @@ export class ListComponent implements OnInit, OnDestroy {
     this._filterService.changeFilter(this.dateFilter, 'date');
   }
 
+  chooseCity(type: string, id: number, name: string) {
+    console.log(type, id);
+    if (type === 'birth') {
+      this._filterService.changeFilter(id, 'birthCity');
+      this.birthSearchQuery = name;
+      this.hideBirthResult = true;
+    } else if (type === 'death') {
+      this._filterService.changeFilter(id, 'deathCity');
+      this.deathSearchQuery = name;
+      this.hideDeathResult = true;
+    }
+  }
+
+  startSearch(type: string, event?) {
+    if( type === 'birth') {
+      if(this.birthSearchQuery === '') {
+        this.hideBirthResult = true;
+        return;
+      }
+      if(event && event.keyCode !== 13) {
+        return;
+      }
+  
+      this.hideBirthResult = false;
+      this.endSearch = false;
+      this.birthCitiesKeys = [];
+  
+      this._dataService.searchCities(this.birthSearchQuery, 0).subscribe(res => {
+        this.endSearch = true;
+        this.birthCities = JSON.parse(JSON.stringify(res)).cities;
+        this.birthCitiesKeys = Object.keys(this.birthCities);
+      });
+    } else if (type === 'death') {
+      if(this.deathSearchQuery === '') {
+        this.hideDeathResult = true;
+        return;
+      }
+
+      if(event && event.keyCode !== 13) {
+        return;
+      }
+  
+      this.hideDeathResult = false;
+      this.endSearch = false;
+      this.deathCitiesKeys = [];
+      
+      this._dataService.searchCities(this.deathSearchQuery, 1).subscribe(res => {
+        this.endSearch = true;
+        this.deathCities = JSON.parse(JSON.stringify(res)).cities;
+        this.deathCitiesKeys = Object.keys(this.deathCities);
+      });
+    }
+  }
+
   resetFilters() {
     this._filterService.changeFilter(null, 'date');
     this.dateFilter = [null, null];
@@ -162,7 +224,12 @@ export class ListComponent implements OnInit, OnDestroy {
     this._filterService.changeFilter(null, 'sex');
     this.activeSex = '';
     this._filterService.changeFilter(null, 'country');
+    this.birthSearchQuery = '';
+    this._filterService.changeFilter(null, 'birthCity');
+    this.deathSearchQuery = '';
+    this._filterService.changeFilter(null, 'deathCity');
     
+    this.router.navigate(['/list', 1])
     this.getData();
   }
 

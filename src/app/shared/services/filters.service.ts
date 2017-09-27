@@ -14,7 +14,9 @@ export class FiltersService {
     country: null,
     status: null,
     sex: null,
-    query: null
+    query: null,
+    birthCity: null,
+    deathCity: null
   };
 
   private filtersSourse = new Subject<any>();
@@ -45,6 +47,14 @@ export class FiltersService {
       }
       case 'query': {
         this.filtersScope.query = value;
+        break;
+      }
+      case 'birthCity': {
+        this.filtersScope.birthCity = value;
+        break;
+      }
+      case 'deathCity': {
+        this.filtersScope.deathCity  = value;
         break;
       }
     }

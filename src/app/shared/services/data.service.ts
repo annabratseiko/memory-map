@@ -68,15 +68,17 @@ export class DataService {
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
 
-  public getList(page, age?, country?, date?, sex?, status?, query?) : Observable<any> {
+  public getList(page, age?, country?, date?, sex?, status?, query?, birthCity?, deathCity?) : Observable<any> {
     let ageStr = age ? `&start_age=${age[0]}&end_age=${age[1]}` : '';
     let dateStr = date ? `&start_death_date=${date[0]}&end_death_date=${date[1]}` : '';
     let countryStr = country ? `&country_id=${country}` : '';
     let statusStr = status ? `&status=${status}` : '';
     let sexStr = sex ? `&gender=${sex}` : '';
     let querySrt = query ? `&query=${query}` : '';
+    let birthCityStr = birthCity ? `&birth_city_id=${birthCity}` : '';
+    let deathCityStr = deathCity ? `&death_city_id=${deathCity}` : '';
     let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
-    return this.http.get(`${CONFIG.API}/person_list?page=${page}&lang=${lg}${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}${querySrt}`)
+    return this.http.get(`${CONFIG.API}/person_list?page=${page}&lang=${lg}${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}${querySrt}${birthCityStr}${deathCityStr}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
@@ -84,6 +86,13 @@ export class DataService {
   public search(query: string) : Observable<any> {
     let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
     return this.http.get(`${CONFIG.API}/search?query=${query}&lang=${lg}`)
+      .map((res:Response) => {return res.json();})
+      .catch((error:any) => Observable.throw(error || 'Server error'));
+  }
+
+  public searchCities(query: string, type: number) : Observable<any> {
+    let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
+    return this.http.get(`${CONFIG.API}/cities-by-type?query=${query}&lang=${lg}&city_type=${type}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }

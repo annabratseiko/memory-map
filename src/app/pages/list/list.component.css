@@ -11,3 +11,60 @@ app-popup {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+.filters__graph .list-search-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.filters__graph input {
+    margin-left: 0;
+    padding: 0 5px;
+    width: 300px!important;
+    /* max-width: 190px; */
+    height: 38px;
+    border: none;
+    outline: none;
+}
+
+.filters__graph .list-search-button {
+    height: 38px;
+    width: 38px;
+    display: inline-block;
+    border: none;
+    background: transparent;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.filters__graph .list-search-button img {
+    width: 100%;
+}
+
+.filters__graph.list-search .list-search-result {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 380px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1;
+    background: rgba(255, 255, 255, .9);
+    padding: 5px 15px;
+}
+
+.filters__graph.list-search .list-search-result .search-section-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.filters__graph.list-search .list-search-result .search-city-item {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filters__graph.list-search .list-search-result .search-city-item:hover {
+    background: #c0c0c0;
+}
