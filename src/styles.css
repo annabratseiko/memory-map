@@ -513,6 +513,9 @@ footer p:last-child {
     -ms-flex: 1 1;
     -o-flex: 1 1;
     flex: 1 1;
+    display: block;
+    overflow: hidden;
+    min-height: 580px;
 }
 
 .hidden {

@@ -1,6 +1,9 @@
 app-birth-map,
 app-death-map {
     width: 50%;
+    height: 100%;
+    display: block;
+    float: left;
 }
 
 app-date,
