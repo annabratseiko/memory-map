@@ -32,7 +32,8 @@ export class DataService {
   }
 
   public getFilters() : Observable<any> {
-    return this.http.get(`${CONFIG.API}/filters`)
+    let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
+    return this.http.get(`${CONFIG.API}/filters?lang=${lg}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }

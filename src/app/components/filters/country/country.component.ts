@@ -20,7 +20,7 @@ export class CountryComponent implements OnInit {
     if (value) {
       this._filter = value;  
       this.countriesArray = Object.keys(value);
-      console.log(this.countriesArray);
+      this.updateGraph();
     } else {
       this._filter = null;
     }
@@ -61,6 +61,17 @@ export class CountryComponent implements OnInit {
     });
   }
 
+  updateGraph() {
+    this.removeGraphItems();
+    this.buildGraph();
+  }
+
+  removeGraphItems() {
+    while (this.container.nativeElement.firstChild) {
+      this.container.nativeElement.removeChild(this.container.nativeElement.firstChild);
+    }
+  }
+
   selectCountry(item, id) {
     if(this._prevCountry) {
       this._prevCountry.classList.remove('active');
@@ -81,7 +92,7 @@ export class CountryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.buildGraph();
+    // this.buildGraph();
   }
 
 }

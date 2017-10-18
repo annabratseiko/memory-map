@@ -167,6 +167,7 @@ export class BirthMapComponent implements OnInit, OnDestroy {
     });
   }
 
+
   closeInfo() {
   }
 

@@ -20,8 +20,10 @@ export class FiltersService {
   };
 
   private filtersSourse = new Subject<any>();
+  private langSourse = new Subject<any>();
   
   filterChoosen$ = this.filtersSourse.asObservable();
+  langChoosen$ = this.langSourse.asObservable();
   
   changeFilter(value: any, type: string) {
     switch(type) {
@@ -60,6 +62,10 @@ export class FiltersService {
     }
 
     this.filtersSourse.next(this.filtersScope);
+  }
+
+  changeLanguage(value: string) {
+    this.langSourse.next(value);
   }
 
 }

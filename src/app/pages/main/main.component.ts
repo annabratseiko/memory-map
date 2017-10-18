@@ -21,6 +21,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
   private loadSubscription: Subscription;
+  private langSubscription: Subscription;
 
   constructor(
     private _dataService: DataService,
@@ -40,6 +41,10 @@ export class MainComponent implements OnInit, OnDestroy {
         this.cities = res;
         this.loaderService.loadComplete(true, 'map');
       });
+    });
+
+    this.langSubscription = this._filterService.langChoosen$.subscribe(lang => {
+      this.getFilters();
     });
 
     this._dataService.getCities().subscribe(res => {
@@ -73,6 +78,7 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.loadSubscription.unsubscribe();
+    this.langSubscription.unsubscribe();
   }
 
 }

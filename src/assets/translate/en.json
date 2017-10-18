@@ -5,7 +5,8 @@
         "NEXT": "Next",
         "LOADING": "Loading",
         "MAIN_LOADING": "Loading",
-        "SEARCH": "Search..."
+        "SEARCH": "Search...",
+        "DETAILS": "Details"
     },
     "HEADER": {
         "NAME": "Memory map",
@@ -60,8 +61,8 @@
         "LI_3": "by mail: 3/34 Frolivska St, Kyiv (for the Documentation Centre)",
         "LI_4": "by the site form.",
         "TEXT_4": "The war is not over until the last dead is buried.",
-        "TEXT_5": "This resource was created through the Transition Promotion Program of the Ministry of Foreign Affairs of the Czech Republic and the generous support from the American people provided by the US Agency for International Development (USAID).",
-        "TEXT_6": ""
+        "TEXT_5": "Activities take place within the framework of the Transition Promotion Program project, supported by the Ministry of Foreign Affairs of the Czech Republic.",
+        "TEXT_6": "The creation of the Memorial Map resource was initiated within the framework of the USAID project, and the current improvement was made possible thanks to the Ministry of Foreign Affairs of the Czech Republic."
     },
     "FOOTER": {
         "TITLE": "Memory map",

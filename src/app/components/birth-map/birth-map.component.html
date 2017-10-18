@@ -1,6 +1,6 @@
 <div class="map-born-block" *ngIf="cities && citiesKeys.length">
     <div id="map-born" class="map-block">
-        <agm-map #map [latitude]="centerLat" [longitude]="centerLng" [zoom]="zoom" [styles]="mapStyle" [streetViewControl]="false">
+        <agm-map #map [latitude]="centerLat" [longitude]="centerLng" [zoom]="zoom" [styles]="mapStyle" [streetViewControl]="false" [minZoom]="3" [maxZoom]="15">
             <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" (markerClick)="clickedMarker(marker, 0)" [iconUrl]="'/assets/images/dot.png'">
                 <agm-snazzy-info-window [maxWidth]="300" [closeWhenOthersOpen]="true" [latitude]="centerLat" [longitude]="centerLng" (afterClose)="closeInfo()">
                     <ng-template>
@@ -31,7 +31,7 @@
                             </div>
                             <div class="info-description">{{cardInfo.description}}</div>
                             <div class="info-button-container">
-                                <div class="info-button" (click)="getDetailInfo(cardInfo.id)">Детальна інформація</div>
+                                <div class="info-button" (click)="getDetailInfo(cardInfo.id)">{{'GENERAL.DETAILS' | translate}}</div>
                             </div>
                         </div>
                         <ul class="info-list" *ngIf="showList">

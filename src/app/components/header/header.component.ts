@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -42,10 +42,6 @@ export class HeaderComponent implements OnInit {
     this.urlSubscription = this.loaderService.changeRoute$.subscribe(param => {
       this.location = param;
     });
-
-    this.subscription = this._filterService.filterChoosen$.subscribe(filters => {
-      console.log('filHE', filters);
-    });
   }
 
   mobMenuAction() {
@@ -54,6 +50,7 @@ export class HeaderComponent implements OnInit {
 
   setLanguage(event) {
     this.translate.use(event.target.value);
+    this._filterService.changeLanguage(event.target.value);
   } 
 
   changeLang(event, lang: string) {
@@ -107,6 +104,5 @@ export class HeaderComponent implements OnInit {
   openMobileSearch(event) {
     this.mobSearch = event;
   }
-
 
 }
