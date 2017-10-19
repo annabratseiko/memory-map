@@ -70,6 +70,9 @@
                                             </svg>
                                         <p>{{'GENERAL.SEARCH' | translate}}</p>
                                     </div>
+                                    <div *ngIf="endSearch && !birthCitiesKeys.length" class="no-data">
+                                        {{'HEADER.SEARCH.NODATA' | translate}}
+                                    </div>
                                     <div class="search-section search-city-section" *ngIf="birthCitiesKeys.length">
                                         <!-- <p class="search-section-title">{{'HEADER.SEARCH.CITIES' | translate}}</p> -->
                                         <div class="search-cities">
@@ -104,6 +107,9 @@
                                                     </path>
                                                 </svg>
                                         <p>{{'GENERAL.SEARCH' | translate}}</p>
+                                    </div>
+                                    <div *ngIf="endSearch && !deathCitiesKeys.length" class="no-data">
+                                        {{'HEADER.SEARCH.NODATA' | translate}}
                                     </div>
                                     <div class="search-section search-city-section" *ngIf="deathCitiesKeys.length">
                                         <!-- <p class="search-section-title">{{'HEADER.SEARCH.CITIES' | translate}}</p> -->

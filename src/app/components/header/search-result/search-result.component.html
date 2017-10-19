@@ -13,6 +13,9 @@
         </svg>
         <p>{{'GENERAL.SEARCH' | translate}}</p>
     </div>
+    <div *ngIf="endSearch && !searchCitiesKeys.length && !searchPersonsKeys.length" class="no-data">
+        {{'HEADER.SEARCH.NODATA' | translate}}
+    </div>
     <div class="search-section search-city-section" *ngIf="searchCitiesKeys.length">
         <p class="search-section-title">{{'HEADER.SEARCH.CITIES' | translate}} <span>{{'HEADER.SEARCH.DEATH' | translate}}</span> <span>{{'HEADER.SEARCH.BIRTH' | translate}}</span></p>
         <div class="search-cities">

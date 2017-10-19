@@ -19,7 +19,8 @@
             "DEATH": "Death",
             "BIRTH": "Birth",
             "NAMES": "Names",
-            "NUM": "Number"
+            "NUM": "Number",
+            "NODATA": "No data"
         }
     },
     "FILTERS": {

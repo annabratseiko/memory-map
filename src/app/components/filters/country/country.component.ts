@@ -37,8 +37,12 @@ export class CountryComponent implements OnInit {
 
   buildGraph() {
     let max = 0;
+    let maxElem = null;
     this.countriesArray.forEach(element => {
       max = Math.max(max, +this.filter[element].birthNumber);
+      if (+this.filter[element].birthNumber === max) {
+        maxElem = element;
+      }
     });
 
     this.countriesArray.forEach(element => {
@@ -49,8 +53,13 @@ export class CountryComponent implements OnInit {
       item.addEventListener('click', this.selectCountry.bind(this, item, element));
       
       var innerItem = document.createElement('div');
-	    innerItem.className = 'graph-item-country-inner';
-	    innerItem.style.height = (+this.filter[element].birthNumber / max) * 100 + '%';
+      innerItem.className = 'graph-item-country-inner';
+      if (+element == +maxElem) {
+        console.log(element, maxElem);
+        innerItem.style.height = (+this.filter[element].birthNumber / max) * 100 + '%';
+      } else {
+        innerItem.style.height = (+this.filter[element].birthNumber / max) * 100 + 10 + '%';
+      }
 	    item.appendChild(innerItem);
 	    
 	    var hoverBlock = document.createElement('div');
@@ -92,7 +101,6 @@ export class CountryComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.buildGraph();
   }
 
 }

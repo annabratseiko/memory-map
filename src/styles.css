@@ -423,6 +423,11 @@ footer p:last-child {
     transition: .3s;
 }
 
+.no-data {
+    font-size: 12px;
+    text-align: center;
+}
+
 .search-city-item span:hover {
     background: #353535;
 }
@@ -1055,6 +1060,7 @@ footer p:last-child {
     text-align: center;
     opacity: 0;
     visibility: hidden;
+    z-index: 1;
 }
 
 .graph-item-country:hover:before,
