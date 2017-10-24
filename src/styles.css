@@ -547,6 +547,10 @@ footer p:last-child {
     margin: 0 auto;
 }
 
+.list-view .list-filters .filters__name {
+    min-width: 160px;
+}
+
 .list-view .datepicker input {
     background: #f1f1f1 !important;
     border: 0 !important;
@@ -604,6 +608,7 @@ footer p:last-child {
     background: #e6e6e6;
     padding: 0 20px;
     min-width: 106px;
+    line-height: 40px;
 }
 
 .list-view .list-filters .filters__graph div.graph-field:nth-of-type(even) {
@@ -874,7 +879,7 @@ footer p:last-child {
 }
 
 .list-view .filter-container {
-    overflow-y: visible;
+    overflow: visible;
 }
 
 .filter-container.dark {
