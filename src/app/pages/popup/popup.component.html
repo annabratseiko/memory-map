@@ -3,10 +3,8 @@
         <div class="detail-info-close" (click)="closePopup()">
             <img src="./assets/images/close.svg" alt="">
         </div>
-        <div class="detail-info-photo">
-            <img class="detail-info-photo-img" *ngIf="!details.photo" src="/assets/images/userpic.jpg" alt="">
-            <img class="detail-info-photo-img" *ngIf="details.photo" [src]="details.photo" alt="">
-        </div>
+        <div *ngIf="!details.photo" class="detail-info-photo" style="background-image: url(/assets/images/userpic.jpg);"></div>
+        <div *ngIf="details.photo" class="detail-info-photo" [ngStyle]="{ 'background-image': 'url(' + details.photo + ')' }"></div>
         <div class="detail-info-block">
             <div class="detail-info-underline">
                 <p class="detail-info-name">{{details.name}}</p>
@@ -36,6 +34,12 @@
                     <p class="detail-info-item-text detail-info-military-job">
                         {{details.position}}
                         <span *ngIf="!details.position" class="clarification"></span>
+                    </p>
+                </li>
+                <li class="detail-info-item">
+                    <p class="detail-info-item-title">Позивний</p>
+                    <p class="detail-info-item-text">
+                        Позивний
                     </p>
                 </li>
                 <li class="detail-info-item">

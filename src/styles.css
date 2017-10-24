@@ -796,6 +796,9 @@ footer p:last-child {
     vertical-align: middle;
     font-size: 0;
     margin-right: 14px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
 }
 
 .listing>div>h3 {
@@ -1184,6 +1187,8 @@ footer p:last-child {
     overflow: hidden;
     float: left;
     margin-right: 15px;
+    background-position: center center;
+    background-size: cover;
 }
 
 .info-image img {
@@ -1307,6 +1312,8 @@ footer p:last-child {
     border-radius: 50%;
     overflow: hidden;
     float: left;
+    background-size: cover;
+    background-position: center;
 }
 
 .detail-info-photo img {

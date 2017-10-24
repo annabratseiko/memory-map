@@ -19,10 +19,8 @@
                         </div>
                         <div class="one-card" *ngIf="!showList && cardInfo">
                             <div class="info-container">
-                                <div class="info-image">
-                                    <img *ngIf="cardInfo.photo" [src]="cardInfo.photo" alt="">
-                                    <img *ngIf="!cardInfo.photo" src="/assets/images/userpic.jpg" alt="">
-                                </div>
+                                <div *ngIf="cardInfo.photo" class="info-image" [ngStyle]="{ 'background-image': 'url(' + cardInfo.photo + ')' }"></div>
+                                <div *ngIf="!cardInfo.photo" class="info-image" style="background-image: url('/assets/images/userpic.jpg');"></div>
                                 <div class="main-info">
                                     <p class="info-name">{{cardInfo.name}}</p>
                                     <p class="info-status">{{cardInfo.status}}</p>

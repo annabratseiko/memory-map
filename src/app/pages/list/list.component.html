@@ -173,9 +173,9 @@
                     <div *ngIf="list">
                         <div class="list__row listing" *ngFor="let item of listKeys" (click)="getDetailInfo(list[item].id)">
                             <div>
-                                <div class="round__img">
-                                    <img *ngIf="list[item].photo" [src]="list[item].photo" alt="" class="rounded">
-                                    <img *ngIf="!list[item].photo" src="/assets/images/userpic.jpg" alt="" class="rounded">
+                                <div *ngIf="list[item].photo" class="round__img" [ngStyle]="{ 'background-image': 'url(' + list[item].photo + ')' }">
+                                </div>
+                                <div *ngIf="!list[item].photo" class="round__img" style="background-image: url(/assets/images/userpic.jpg);">
                                 </div>
                                 <h3>{{list[item].fullName}}</h3>
                             </div>
