@@ -1,5 +1,5 @@
 <div class="content-container flex-container flex-direction-column">
-    <div class="maps-container flex-container" style="height: 580px;">
+    <div class="maps-container flex-container">
         <app-birth-map [cities]="cities" (detailInfo)="getDetailInfo($event)"></app-birth-map>
         <app-death-map [cities]="cities" (detailInfo)="getDetailInfo($event)"></app-death-map>
     </div>

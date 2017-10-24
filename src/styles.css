@@ -32,6 +32,10 @@ body {
 
 .content-container {
     height: calc(100% - 80px);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 
@@ -520,7 +524,7 @@ footer p:last-child {
     flex: 1 1;
     display: block;
     overflow: hidden;
-    min-height: 580px;
+    /*min-height: 580px;*/
 }
 
 .hidden {
@@ -862,6 +866,7 @@ footer p:last-child {
     padding: 20px;
     padding-bottom: 30px;
     overflow-y: hidden;
+    overflow-x: hidden;
     -ms-align-self: stretch;
     -webkit-align-self: stretch;
     align-self: stretch;
@@ -983,7 +988,7 @@ footer p:last-child {
 
 .filters__graph,
 .simple-filters__graph {
-    height: 80px;
+    min-height: 80px;
     width: 100%;
     background: #888;
     margin-top: 10px;
@@ -1075,8 +1080,8 @@ footer p:last-child {
 }
 
 .graph-field {
-    min-height: 38px;
-    line-height: 38px;
+    min-height: 40px;
+    line-height: 40px;
     font-size: 12px;
     padding: 0 10px;
     cursor: pointer;
