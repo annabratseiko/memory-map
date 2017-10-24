@@ -1,5 +1,11 @@
 @import "~nouislider/distribute/nouislider.min.css";
 @import "../node_modules/snazzy-info-window/dist/snazzy-info-window.css";
+
+@font-face {
+    font-family: 'AvenirNext-Light';
+    src: url('/assets/fonts/AvenirNext-UltraLight.ttf');
+}
+
 @font-face {
     font-family: 'AvenirNext-Regular';
     src: url('/assets/fonts/AvenirNext-Regular.ttf');
@@ -1286,6 +1292,10 @@ footer p:last-child {
     left: 0;
 }
 
+.detail-info-container {
+    overflow-y: scroll;
+}
+
 .detail-info-container,
 .contact-container {
     position: absolute;
@@ -1310,10 +1320,98 @@ footer p:last-child {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    overflow: hidden;
     float: left;
     background-size: cover;
     background-position: center;
+    position: relative;
+    cursor: pointer;
+    transition: width .5s ease, height .5s ease;
+}
+
+.detail-info-photo_large {
+    width: 517px;
+    height: 517px;
+    margin: auto;
+    float: none;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 630px) {
+    .detail-info-photo_large {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+.detail-info-photo_large .photo-resize_reduce{
+    opacity: 1;
+}
+
+.detail-info-photo_large .photo-resize_enlarge {
+    opacity: 0;
+}
+
+.detail-info-photo:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: transparent;
+    transition: background-color .5s ease;
+    border-radius: 50%;
+}
+
+.detail-info-photo_undefined:after {
+    display: none;
+}
+
+.detail-info-photo:hover:after {
+    background-color: rgba(46, 46, 46, .4);
+}
+
+.detail-info-photo:hover .photo-resize_enlarge {
+    opacity: 1;    
+}
+
+.detail-info-photo_large:hover .photo-resize_enlarge {
+    opacity: 0;
+}
+
+.photo-resize {
+    position: absolute;
+    font-family: 'AvenirNext-Light';
+    color: #329bee;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+@media screen and (max-width: 480px) {
+    .photo-resize {
+        display: none;
+    }
+
+    .detail-info-photo_large {
+
+    }
+
+    .detail-info-photo:after {
+        display: none;
+    }
+}
+
+.photo-resize_enlarge {
+    font-size: 40px;
+    top: -10px;
+    right: -10px;
+    line-height: 0.5;
+}
+
+.photo-resize_reduce {
+    font-size: 74px;
+    right: 10px;
+    top: 40px;
+    line-height: 10px;
 }
 
 .detail-info-photo img {
@@ -1325,6 +1423,11 @@ footer p:last-child {
     margin-left: 145px;
     height: calc(100% - 98px);
     color: #fff;
+}
+
+.detail-info-photo_large + .detail-info-block {
+    height: auto;
+    margin-left: 0;
 }
 
 .detail-info-name {
@@ -2086,9 +2189,6 @@ footer p:last-child {
         padding: 20px 0;
         font-size: 20px;
     }
-    .detail-info-block {
-        margin-left: 10px;
-    }
     .page-wrapper .quote>div img {
         display: none;
     }
@@ -2108,6 +2208,10 @@ footer p:last-child {
     }
     .contact-form {
         padding: 0;
+    }
+
+    .detail-info-block {
+        margin-left: 0;
     }
 }
 

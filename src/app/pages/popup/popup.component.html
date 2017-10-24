@@ -3,8 +3,15 @@
         <div class="detail-info-close" (click)="closePopup()">
             <img src="./assets/images/close.svg" alt="">
         </div>
-        <div *ngIf="!details.photo" class="detail-info-photo" style="background-image: url(/assets/images/userpic.jpg);"></div>
-        <div *ngIf="details.photo" class="detail-info-photo" [ngStyle]="{ 'background-image': 'url(' + details.photo + ')' }"></div>
+        <div *ngIf="!details.photo" class="detail-info-photo detail-info-photo_undefined" style="background-image: url(/assets/images/userpic.jpg);"></div>
+        <div *ngIf="details.photo" class="detail-info-photo" [ngStyle]="{ 'background-image': 'url(' + details.photo + ')' }" [ngClass]="{'detail-info-photo_large': showPhotoLarge}" (click)="showPhotoLarge = !showPhotoLarge">
+            <div class="photo-resize photo-resize_enlarge">
+                &#43;
+            </div>
+            <div class="photo-resize photo-resize_reduce">
+                &#8212;
+            </div>
+        </div>
         <div class="detail-info-block">
             <div class="detail-info-underline">
                 <p class="detail-info-name">{{details.name}}</p>
