@@ -35,6 +35,7 @@ import { LoaderService } from './shared/services/loader.service';
 import { SearchResultComponent } from './components/header/search-result/search-result.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MapService } from './shared/services/map.service';
+import { SearchFilterComponent } from './components/search-filter/search-filter.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/translate/", ".json");
@@ -58,7 +59,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PopupComponent,
     LoadingPopupComponent,
     SearchResultComponent,
-    ContactComponent
+    ContactComponent,
+    SearchFilterComponent
   ],
   imports: [
     BrowserModule,

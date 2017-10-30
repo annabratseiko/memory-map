@@ -69,7 +69,7 @@ export class DataService {
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
 
-  public getList(page, age?, country?, date?, sex?, status?, query?, birthCity?, deathCity?) : Observable<any> {
+  public getList(page, age?, country?, date?, sex?, status?, query?, birthCity?, deathCity?, unit?, callout?) : Observable<any> {
     let ageStr = age ? `&start_age=${age[0]}&end_age=${age[1]}` : '';
     let dateStr = date ? `&start_death_date=${date[0]}&end_death_date=${date[1]}` : '';
     let countryStr = country ? `&country_id=${country}` : '';
@@ -78,8 +78,10 @@ export class DataService {
     let querySrt = query ? `&query=${query}` : '';
     let birthCityStr = birthCity ? `&birth_city_id=${birthCity}` : '';
     let deathCityStr = deathCity ? `&death_city_id=${deathCity}` : '';
+    let unitStr = unit ? `&unit=${unit}` : '';
+    let calloutStr = callout ? `&callous=${callout}` : '';
     let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
-    return this.http.get(`${CONFIG.API}/person_list?page=${page}&lang=${lg}${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}${querySrt}${birthCityStr}${deathCityStr}`)
+    return this.http.get(`${CONFIG.API}/person_list?page=${page}&lang=${lg}${ageStr}${dateStr}${countryStr}${statusStr}${sexStr}${querySrt}${birthCityStr}${deathCityStr}${unitStr}${calloutStr}`)
       .map((res:Response) => {return res.json();})
       .catch((error:any) => Observable.throw(error || 'Server error'));
   }
@@ -105,4 +107,12 @@ export class DataService {
                .map((res:Response) => {return res;})
                .catch((error:any) => Observable.throw(error || 'Server error'));
   } 
+
+  public getActionPersonList(type: string, query: string): Observable<any> {
+    let actionStr = (type == 'callout') ? `callout=${query}` : `unit=${query}`;
+    let lg = this.translate.currentLang ? this.translate.currentLang : this.translate.getDefaultLang();
+    return this.http.get(`${CONFIG.API}/actionPerson_list?${actionStr}&lang=${lg}`)
+    .map((res:Response) => {return res.json();})
+    .catch((error:any) => Observable.throw(error || 'Server error'));
+  }
 }

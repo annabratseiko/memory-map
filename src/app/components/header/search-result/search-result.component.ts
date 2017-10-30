@@ -48,7 +48,9 @@ export class SearchResultComponent implements OnInit {
         description: card.description,
         position: card.position,
         status: card.status,
-        rank: card.rank
+        rank: card.rank,
+        unit: card.unit,
+        callout: card.callous
       }
       this.detailInfo.emit(info);
       this.hideResult = true;

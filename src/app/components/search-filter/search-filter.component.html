@@ -1,0 +1,40 @@
+<div class="filter-container simple light-dark">
+    <div class="filters__graph list-search">
+        <p class="filters__name country" *ngIf="type === 'death'">{{'FILTERS.DEATH_CITY' | translate}}</p>
+        <p class="filters__name country" *ngIf="type === 'birth'">{{'FILTERS.BIRTH_CITY' | translate}}</p>
+        <p class="filters__name country" *ngIf="type === 'unit'">{{'FILTERS.UNIT' | translate}}</p>
+        <p class="filters__name country" *ngIf="type === 'callout'">{{'FILTERS.CALLOUT' | translate}}</p>
+        <div class="list-search-container">
+            <input class="filter__params filter__params_country list-select-age" placeholder="{{'HEADER.SEARCH_PLACEHOLDER' | translate}}" [(ngModel)]="searchQuery" type="text" (keypress)="startSearch($event)" (blur)="onBlur()">
+            <button type="button" class="list-search-button" (click)="startSearch()" *ngIf="!hideSearchButton">
+                <img src="assets/images/search.png">
+            </button>
+            <div class="list-search-result" *ngIf="!hideResult">
+                <div class="search-loader" *ngIf="!endSearch">
+                    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                              <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                  <animateTransform attributeType="xml"
+                                  attributeName="transform"
+                                  type="rotate"
+                                  from="0 25 25"
+                                  to="360 25 25"
+                                  dur="0.6s"
+                                  repeatCount="indefinite"/>
+                              </path>
+                          </svg>
+                    <p>{{'GENERAL.SEARCH' | translate}}</p>
+                </div>
+                <div *ngIf="endSearch && !arrayKeys.length" class="no-data">
+                    {{'HEADER.SEARCH.NODATA' | translate}}
+                </div>
+                <div class="search-section search-city-section" *ngIf="arrayKeys.length">
+                    <div class="search-cities">
+                        <p class="search-city-item" *ngFor="let item of arrayKeys" (click)="chooseItem(array[item].id, array[item].fullName)">
+                            {{array[item].fullName}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

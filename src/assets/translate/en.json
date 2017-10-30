@@ -44,7 +44,9 @@
         "BUTTONS": {
             "DONE": "Set filters",
             "RESET": "Reset filters"
-        }
+        },
+        "UNIT": "Unit",
+        "CALLOUT": "Callout"
     },
     "DATA": {
         "NAME": "Name",
@@ -86,6 +88,8 @@
         "POSITION": "Position",
         "BIRTH": "Birth place",
         "DEATH": "Death place",
-        "DESCRIPTION": "Description"
+        "DESCRIPTION": "Description",
+        "UNIT": "Unit",
+        "CALLOUT": "Callout"
     }
 }

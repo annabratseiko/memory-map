@@ -7,6 +7,8 @@ export class FilterModel {
     query: string;
     birthCity: number;
     deathCity: number;
+    unit: string;
+    callout: string;
 
     constructor() {
         this.age = null;
@@ -17,6 +19,8 @@ export class FilterModel {
         this.query = null;
         this.birthCity = null;
         this.deathCity = null;
+        this.unit = null;
+        this.callout = null;
     }
     
 }

@@ -25,10 +25,13 @@
                         <span *ngIf="!details.status" class="clarification"></span>
                     </p>
                 </li>
-                <!-- <li class="detail-info-item">
-                    <p class="detail-info-item-title">Підрозділ</p>
-                    <p class="detail-info-item-text detail-info-part"></p>
-                </li> -->
+                <li class="detail-info-item">
+                    <p class="detail-info-item-title">{{'POPUP.UNIT' | translate}}</p>
+                    <p class="detail-info-item-text detail-info-part">
+                        {{details.unit}}
+                        <span *ngIf="!details.unit" class="clarification"></span>
+                    </p>
+                </li>
                 <li class="detail-info-item">
                     <p class="detail-info-item-title">{{'POPUP.RANK' | translate}}</p>
                     <p class="detail-info-item-text detail-info-military-name">
@@ -44,9 +47,10 @@
                     </p>
                 </li>
                 <li class="detail-info-item">
-                    <p class="detail-info-item-title">Позивний</p>
+                    <p class="detail-info-item-title">{{'POPUP.CALLOUT' | translate}}</p>
                     <p class="detail-info-item-text">
-                        Позивний
+                        {{details.callout}}
+                        <span *ngIf="!details.callout" class="clarification"></span>
                     </p>
                 </li>
                 <li class="detail-info-item">
